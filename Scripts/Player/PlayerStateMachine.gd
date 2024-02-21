@@ -54,7 +54,9 @@ func _physics_process(delta):
 		CB2D.velocity.y += gravity * delta
 	current_state.Physics_Update(self, delta)
 	CB2D.move_and_slide()
-	
+
+# Biggies Little helpers
+
 func Flip():
 	if is_facing_right and movement_input.x < 0:
 		get_parent().scale.x *= -1
