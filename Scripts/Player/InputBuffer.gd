@@ -2,27 +2,32 @@ extends Node
 class_name InputBuffer
 
 var buffer: Array[String] = []
-var buffer_time: float
+var buffer_time: float = 0.1
+var buffer_time_counter: float
 
 func _ready():
-	buffer_time = 0.1
+	buffer_time_counter = buffer_time
 
 func _process(delta):
-	buffer_time -= delta
-	if buffer_time <= 0:
-		buffer.clear()
-		buffer_time = 0.1
+	if buffer.size() != 0:
+		buffer_time_counter -= delta
 
-	if Input.is_action_pressed("attack"):
+	if buffer_time_counter <= 0:
+		buffer.clear()
+		buffer_time_counter = buffer_time
+
+	if Input.is_action_just_pressed("attack"):
 		buffer.append("attack")
-	if Input.is_action_pressed("dash"):
+		buffer_time_counter = buffer_time
+	if Input.is_action_just_pressed("dash"):
 		buffer.append("dash")
-	if Input.is_action_pressed("jump"):
+		buffer_time_counter = buffer_time
+	if Input.is_action_just_pressed("jump"):
 		buffer.append("jump")
+		buffer_time_counter = buffer_time
 
 func Get_Last_Input_Action() -> String:
 	var result = ""
-	if buffer.size() != 0:
+	if buffer.size() != 0 and buffer_time_counter != 0:
 		result = buffer.back()
-		buffer.clear()
 	return result

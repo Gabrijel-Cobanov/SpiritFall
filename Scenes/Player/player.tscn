@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=7 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStateMachine.gd" id="3_x1wnp"]
 [ext_resource type="Script" path="res://Scripts/Player/InputBuffer.gd" id="3_ybqoq"]
+[ext_resource type="Script" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8xiv"]
 radius = 4.0
@@ -28,9 +29,15 @@ texture = ExtResource("1_3lfy2")
 hframes = 10
 vframes = 21
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "input_buffer", "coyote")]
 script = ExtResource("3_x1wnp")
 CB2D = NodePath("..")
+input_buffer = NodePath("../InputBuffer")
+coyote = NodePath("../Coyote")
 
 [node name="InputBuffer" type="Node2D" parent="."]
 script = ExtResource("3_ybqoq")
+
+[node name="Coyote" type="Node2D" parent="." node_paths=PackedStringArray("CB2D")]
+script = ExtResource("4_cstqr")
+CB2D = NodePath("..")
