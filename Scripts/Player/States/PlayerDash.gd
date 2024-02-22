@@ -30,11 +30,12 @@ func Dash(ctx: PlayerStateMachine):
 	ctx.CB2D.velocity.x = direction * ctx.DASH_VELOCITY
 	
 func Check_Transitions(ctx: PlayerStateMachine):
-	if ctx.CB2D.is_on_floor():
-		ctx.Switch_State(ctx.jump_end)
-	elif ctx.CB2D.is_on_floor() and ctx.movement_input.x != 0:
-		ctx.Switch_State(ctx.run)
-	elif ctx.CB2D.is_on_floor() and ctx.movement_input.x == 0:
-		ctx.Switch_State(ctx.idle)
-	else:
-		ctx.Switch_State(ctx.jump_middle)
+	if anim_duration <= 0:
+		if ctx.CB2D.is_on_floor():
+			ctx.Switch_State(ctx.jump_end)
+		elif ctx.CB2D.is_on_floor() and ctx.movement_input.x != 0:
+			ctx.Switch_State(ctx.run)
+		elif ctx.CB2D.is_on_floor() and ctx.movement_input.x == 0:
+			ctx.Switch_State(ctx.idle)
+		else:
+			ctx.Switch_State(ctx.jump_middle)
