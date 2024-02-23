@@ -2,7 +2,8 @@ extends PlayerBaseState
 class_name PlayerRun
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter run YYYYYY")
+	print("enter run")
+	ctx.animator.play("run")
 	pass
 	
 func Update(ctx: PlayerStateMachine, delta:float):

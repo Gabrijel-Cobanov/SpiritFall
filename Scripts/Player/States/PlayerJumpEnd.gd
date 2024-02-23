@@ -2,10 +2,13 @@ extends PlayerBaseState
 class_name PlayerJumpEnd
 
 var animation_duration: float
+var early_transition_time: float
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter jump end")
+	ctx.animator.play("jump_end")
 	animation_duration = 0.25
+	early_transition_time = animation_duration/1.5
 	ctx.CB2D.velocity.x /= 2
 	pass
 	
@@ -21,6 +24,9 @@ func Exit(ctx: PlayerStateMachine):
 	pass
 
 func Check_Transitions(ctx: PlayerStateMachine):
+	if animation_duration <= early_transition_time and ctx.input_buffer.Get_Last_Input_Action() == "jump":
+		ctx.Switch_State(ctx.jump_start)
+	
 	if animation_duration <= 0:
 		if ctx.movement_input.x != 0:
 			ctx.Switch_State(ctx.run)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=26 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStateMachine.gd" id="3_x1wnp"]
@@ -9,7 +9,337 @@
 radius = 4.0
 height = 12.0
 
+[sub_resource type="Animation" id="Animation_cahm5"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_o7pss"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_vrtvu"]
+resource_name = "jump_start"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.09, 0.13, 0.19, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45]
+}
+
+[sub_resource type="Animation" id="Animation_7n7qg"]
+resource_name = "jump_middle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_jo45q"]
+resource_name = "jump_end"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63]
+}
+
+[sub_resource type="Animation" id="Animation_c4l8c"]
+resource_name = "dash"
+length = 0.4
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 71, 72, 73, 74, 75, 76]
+}
+
+[sub_resource type="Animation" id="Animation_r1eho"]
+resource_name = "swing2_side"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [90, 91, 92, 93]
+}
+
+[sub_resource type="Animation" id="Animation_ypueo"]
+resource_name = "swing1"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 83]
+}
+
+[sub_resource type="Animation" id="Animation_qpbpu"]
+resource_name = "smash_attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [100, 101, 102, 103, 104, 105, 106, 107]
+}
+
+[sub_resource type="Animation" id="Animation_5mfxm"]
+resource_name = "swing1_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [110, 113]
+}
+
+[sub_resource type="Animation" id="Animation_wt3hx"]
+resource_name = "swing2_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [120, 123]
+}
+
+[sub_resource type="Animation" id="Animation_x2fb5"]
+resource_name = "swing1_side_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [130, 133]
+}
+
+[sub_resource type="Animation" id="Animation_dukdc"]
+resource_name = "swing2_side_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [140, 143]
+}
+
+[sub_resource type="Animation" id="Animation_idhwj"]
+resource_name = "swing1_up_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [150, 153]
+}
+
+[sub_resource type="Animation" id="Animation_puhkf"]
+resource_name = "swing2_up_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [160, 163]
+}
+
+[sub_resource type="Animation" id="Animation_4yf34"]
+resource_name = "swing1_down_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [170, 173]
+}
+
+[sub_resource type="Animation" id="Animation_mf8h0"]
+resource_name = "swing2_down_air"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [180, 183]
+}
+
+[sub_resource type="Animation" id="Animation_1rv2n"]
+resource_name = "hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [190, 192]
+}
+
+[sub_resource type="Animation" id="Animation_j1o7b"]
+resource_name = "death"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [200, 207]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4xq4"]
+_data = {
+"dash": SubResource("Animation_c4l8c"),
+"death": SubResource("Animation_j1o7b"),
+"hurt": SubResource("Animation_1rv2n"),
+"idle": SubResource("Animation_cahm5"),
+"jump_end": SubResource("Animation_jo45q"),
+"jump_middle": SubResource("Animation_7n7qg"),
+"jump_start": SubResource("Animation_vrtvu"),
+"run": SubResource("Animation_o7pss"),
+"smash_attack": SubResource("Animation_qpbpu"),
+"swing1_down_air": SubResource("Animation_4yf34"),
+"swing1_side": SubResource("Animation_ypueo"),
+"swing1_side_air": SubResource("Animation_x2fb5"),
+"swing1_up": SubResource("Animation_5mfxm"),
+"swing1_up_air": SubResource("Animation_idhwj"),
+"swing2_down_air": SubResource("Animation_mf8h0"),
+"swing2_side": SubResource("Animation_r1eho"),
+"swing2_side_air": SubResource("Animation_dukdc"),
+"swing2_up": SubResource("Animation_wt3hx"),
+"swing2_up_air": SubResource("Animation_puhkf")
+}
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 62
@@ -28,10 +358,12 @@ position = Vector2(1, -4)
 texture = ExtResource("1_3lfy2")
 hframes = 10
 vframes = 21
+frame = 207
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "input_buffer", "coyote")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote")]
 script = ExtResource("3_x1wnp")
 CB2D = NodePath("..")
+animator = NodePath("../AnimationPlayer")
 input_buffer = NodePath("../InputBuffer")
 coyote = NodePath("../Coyote")
 

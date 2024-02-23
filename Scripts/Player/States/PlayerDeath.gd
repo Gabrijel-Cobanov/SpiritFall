@@ -2,6 +2,7 @@ extends PlayerBaseState
 class_name PlayerDeath
 
 func Enter(ctx: PlayerStateMachine):
+	ctx.animator.play("death")
 	pass
 	
 func Update(ctx: PlayerStateMachine, delta:float):

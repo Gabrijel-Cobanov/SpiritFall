@@ -2,7 +2,7 @@ extends Node
 class_name InputBuffer
 
 var buffer: Array[String] = []
-var buffer_time: float = 0.1
+@export var buffer_time: float = 0.2
 var buffer_time_counter: float
 
 func _ready():

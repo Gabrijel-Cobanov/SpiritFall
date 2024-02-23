@@ -3,17 +3,18 @@ class_name PlayerStateMachine
 
 #nodes
 @export var CB2D: CharacterBody2D
+@export var animator: AnimationPlayer
 @export var input_buffer: InputBuffer
 @export var coyote: Coyote
 
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO
-const MOVEMENT_SPEED: float = 150
+const MOVEMENT_SPEED: float = 120
 const JUMP_VELOCITY: float = -300
 const MAX_FALL_VELOCITY: float = 300
 const MAX_HEIGHT_TIME: float = 0.3
-const DASH_VELOCITY: float = 280
+const DASH_VELOCITY: float = 220
 const DASH_COOLDOWN_TIME: float = 0.8
 var current_dash_cooldown: float = 0
 

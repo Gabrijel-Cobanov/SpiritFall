@@ -5,6 +5,7 @@ const ADDITIONAL_GRAVITY: float = 20
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter jump middle")
+	ctx.animator.play("jump_middle")
 	pass
 	
 func Update(ctx: PlayerStateMachine, delta:float):

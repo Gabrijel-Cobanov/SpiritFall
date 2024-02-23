@@ -3,6 +3,7 @@ class_name PlayerIdle
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter idle")
+	ctx.animator.play("idle")
 	pass
 	
 func Update(ctx: PlayerStateMachine, delta:float):
@@ -10,7 +11,7 @@ func Update(ctx: PlayerStateMachine, delta:float):
 
 func Physics_Update(ctx: PlayerStateMachine, delta:float):
 	if ctx.CB2D.velocity.x != 0:
-		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 25)
+		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 30)
 	
 func Exit(ctx: PlayerStateMachine):
 	pass
