@@ -358,7 +358,7 @@ position = Vector2(1, -4)
 texture = ExtResource("1_3lfy2")
 hframes = 10
 vframes = 21
-frame = 207
+frame = 20
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote")]
 script = ExtResource("3_x1wnp")
