@@ -30,5 +30,3 @@ func Check_Transitions(ctx: PlayerStateMachine):
 			ctx.Switch_State(ctx.jump_end)
 		else:
 			ctx.Switch_State(ctx.jump_middle)
-		#elif ctx.input_buffer.Get_Last_Input_Action() == "attack":
-			#ctx.Switch_State(ctx.swing1)

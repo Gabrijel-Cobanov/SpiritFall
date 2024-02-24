@@ -1,14 +1,52 @@
 extends PlayerBaseState
 class_name PlayerSwing1
 
+var anim_duration: float
+
 func Enter(ctx: PlayerStateMachine):
-	pass
+	ctx.is_attacking = false
+	anim_duration = 0.3
+	Pick_Attack_Anim(ctx)
 	
 func Update(ctx: PlayerStateMachine, delta:float):
-	pass
+	Check_Transitions(ctx)
 
 func Physics_Update(ctx: PlayerStateMachine, delta:float):
-	pass
+	anim_duration -= delta
+	if !ctx.CB2D.is_on_floor():
+		ctx.Move_Player_Horizontally()
+	else:
+		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 20)
 	
 func Exit(ctx: PlayerStateMachine):
 	pass
+	
+func Check_Transitions(ctx: PlayerStateMachine):
+	if anim_duration <= 0:
+		if ctx.is_attacking:
+			ctx.Switch_State(ctx.swing2)
+		elif ctx.CB2D.is_on_floor():
+			if ctx.movement_input.x != 0:
+				ctx.Switch_State(ctx.run)
+			elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
+				ctx.Switch_State(ctx.jump_start)
+			elif ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.current_dash_cooldown <= 0:
+				ctx.Switch_State(ctx.dash)
+			elif ctx.movement_input.x == 0:
+				ctx.Switch_State(ctx.idle)
+		else:
+			ctx.Switch_State(ctx.jump_middle)
+			
+func Pick_Attack_Anim(ctx: PlayerStateMachine):
+	if ctx.CB2D.is_on_floor():
+		if ctx.movement_input.y < 0:
+			ctx.animator.play("swing1_up")
+		else:
+			ctx.animator.play("swing1_side")
+	else:
+		if ctx.movement_input.y < 0:
+			ctx.animator.play("swing1_up_air")
+		elif ctx.movement_input.y > 0:
+			ctx.animator.play("swing1_down_air")
+		else:
+			ctx.animator.play("swing1_side_air")

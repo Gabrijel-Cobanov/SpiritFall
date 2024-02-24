@@ -6,7 +6,7 @@ var anim_duration: float
 func Enter(ctx: PlayerStateMachine):
 	print("enter dash")
 	ctx.animator.play("dash")
-	anim_duration = 0.4
+	anim_duration = 0.38
 	ctx.should_apply_gravity = false
 	ctx.CB2D.velocity.y = 0
 	ctx.should_start_dash_cooldown = true
@@ -34,6 +34,10 @@ func Check_Transitions(ctx: PlayerStateMachine):
 	if anim_duration <= 0:
 		if ctx.CB2D.is_on_floor() and ctx.movement_input.x != 0:
 			ctx.Switch_State(ctx.run)
+		elif ctx.input_buffer.Get_Last_Input_Action() == "attack":
+			ctx.Switch_State(ctx.swing1)
+		elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
+			ctx.Switch_State(ctx.jump_start)
 		elif ctx.CB2D.is_on_floor():
 			ctx.Switch_State(ctx.idle)
 		else:

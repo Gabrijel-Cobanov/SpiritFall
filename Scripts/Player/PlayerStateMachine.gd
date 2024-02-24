@@ -10,11 +10,11 @@ class_name PlayerStateMachine
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO
-const MOVEMENT_SPEED: float = 120
-const JUMP_VELOCITY: float = -300
+const MOVEMENT_SPEED: float = 100
+const JUMP_VELOCITY: float = -320
 const MAX_FALL_VELOCITY: float = 300
 const MAX_HEIGHT_TIME: float = 0.3
-const DASH_VELOCITY: float = 220
+const DASH_VELOCITY: float = 210
 const DASH_COOLDOWN_TIME: float = 0.8
 var current_dash_cooldown: float = 0
 
@@ -23,6 +23,7 @@ var is_facing_right: bool = true
 var should_apply_gravity: bool = true
 var should_start_dash_cooldown: bool = false
 var should_countdown_dash_cooldown: bool = false
+var is_attacking: bool = false
 
 #states
 var idle: PlayerIdle
@@ -55,6 +56,8 @@ func _ready():
 
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
+	if Input.is_action_just_pressed("attack"):
+		is_attacking = true
 	Flip()
 	Handle_Dash_Cooldown(delta)
 	current_state.Update(self, delta)
