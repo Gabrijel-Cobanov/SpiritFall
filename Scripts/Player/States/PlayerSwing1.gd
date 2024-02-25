@@ -4,6 +4,7 @@ class_name PlayerSwing1
 var anim_duration: float
 
 func Enter(ctx: PlayerStateMachine):
+	print("swing1")
 	ctx.is_attacking = false
 	anim_duration = 0.3
 	Pick_Attack_Anim(ctx)
@@ -23,9 +24,11 @@ func Exit(ctx: PlayerStateMachine):
 	
 func Check_Transitions(ctx: PlayerStateMachine):
 	if anim_duration <= 0:
-		if ctx.is_attacking:
+		if ctx.is_attacking and ctx.can_attack:
+			ctx.combo_counter += 1
 			ctx.Switch_State(ctx.swing2)
 		elif ctx.CB2D.is_on_floor():
+			ctx.combo_counter = 1
 			if ctx.movement_input.x != 0:
 				ctx.Switch_State(ctx.run)
 			elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
@@ -35,6 +38,7 @@ func Check_Transitions(ctx: PlayerStateMachine):
 			elif ctx.movement_input.x == 0:
 				ctx.Switch_State(ctx.idle)
 		else:
+			ctx.combo_counter = 1
 			ctx.Switch_State(ctx.jump_middle)
 			
 func Pick_Attack_Anim(ctx: PlayerStateMachine):

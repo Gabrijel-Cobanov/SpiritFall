@@ -26,6 +26,8 @@ func Check_Transitions(ctx: PlayerStateMachine):
 	if ctx.CB2D.velocity.y >= 0 or anim_duration <= 0:
 		if ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.can_dash:
 			ctx.Switch_State(ctx.dash)
+		elif ctx.input_buffer.Get_Last_Input_Action() == "attack" and ctx.can_attack:
+			ctx.Switch_State(ctx.swing1)
 		elif ctx.CB2D.is_on_floor():
 			ctx.Switch_State(ctx.jump_end)
 		else:

@@ -38,5 +38,5 @@ func Check_Transitions(ctx: PlayerStateMachine):
 			ctx.Switch_State(ctx.dash)
 		elif ctx.movement_input.x == 0:
 			ctx.Switch_State(ctx.idle)
-		elif ctx.input_buffer.Get_Last_Input_Action() == "attack":
+		elif ctx.input_buffer.Get_Last_Input_Action() == "attack" and ctx.can_attack:
 			ctx.Switch_State(ctx.swing1)

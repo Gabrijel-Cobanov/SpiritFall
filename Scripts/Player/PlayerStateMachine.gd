@@ -19,6 +19,8 @@ const MAX_FALL_VELOCITY: float = 300
 const MAX_HEIGHT_TIME: float = 0.3
 const DASH_VELOCITY: float = 210
 
+var combo_counter: int = 1
+
 #flags
 var is_facing_right: bool = true
 var should_apply_gravity: bool = true
@@ -60,8 +62,12 @@ func _ready():
 
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
+	if combo_counter >= 3:
+		can_attack = false
+		combo_counter = 1
+		attack_combo_cooldown.start()
 	Flip()
 	current_state.Update(self, delta)
 
