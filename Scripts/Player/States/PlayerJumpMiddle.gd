@@ -20,7 +20,7 @@ func Exit(ctx: PlayerStateMachine):
 	pass
 
 func Check_Transitions(ctx: PlayerStateMachine):
-	if ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.current_dash_cooldown <= 0:
+	if ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.can_dash:
 		ctx.Switch_State(ctx.dash)
 	elif ctx.input_buffer.Get_Last_Input_Action() == "attack":
 		ctx.Switch_State(ctx.swing1)

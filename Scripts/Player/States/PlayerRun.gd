@@ -20,7 +20,7 @@ func Check_Transitions(ctx: PlayerStateMachine):
 		ctx.Switch_State(ctx.idle)
 	elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
 		ctx.Switch_State(ctx.jump_start)
-	elif ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.current_dash_cooldown <= 0:
+	elif ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.can_dash:
 		ctx.Switch_State(ctx.dash)
 	elif ctx.coyote.coyote_timer <= 0:
 		ctx.Switch_State(ctx.jump_middle)

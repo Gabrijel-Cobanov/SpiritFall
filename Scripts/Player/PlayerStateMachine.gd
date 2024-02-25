@@ -6,6 +6,9 @@ class_name PlayerStateMachine
 @export var animator: AnimationPlayer
 @export var input_buffer: InputBuffer
 @export var coyote: Coyote
+@onready var dash_cooldown: Timer = $"../Timers/DashCooldown"
+@onready var attack_combo_cooldown: Timer = $"../Timers/AttackComboCooldown"
+
 
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,15 +18,13 @@ const JUMP_VELOCITY: float = -320
 const MAX_FALL_VELOCITY: float = 300
 const MAX_HEIGHT_TIME: float = 0.3
 const DASH_VELOCITY: float = 210
-const DASH_COOLDOWN_TIME: float = 0.8
-var current_dash_cooldown: float = 0
 
 #flags
 var is_facing_right: bool = true
 var should_apply_gravity: bool = true
-var should_start_dash_cooldown: bool = false
-var should_countdown_dash_cooldown: bool = false
 var is_attacking: bool = false
+var can_attack: bool = true
+var can_dash: bool = true
 
 #states
 var idle: PlayerIdle
@@ -51,6 +52,9 @@ func _ready():
 	swing1 = PlayerSwing1.new()
 	swing2 = PlayerSwing2.new()
 	
+	dash_cooldown.connect("timeout", Reset_Dash_Cooldown)
+	attack_combo_cooldown.connect("timeout", Reset_Attack_Cooldown)
+	
 	current_state = idle
 	current_state.Enter(self)
 
@@ -59,7 +63,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
 	Flip()
-	Handle_Dash_Cooldown(delta)
 	current_state.Update(self, delta)
 
 func _physics_process(delta):
@@ -86,14 +89,9 @@ func Switch_State(new_state: PlayerBaseState):
 
 func Move_Player_Horizontally():
 	CB2D.velocity.x = movement_input.x * MOVEMENT_SPEED
-
-func Handle_Dash_Cooldown(delta: float):
-	if should_start_dash_cooldown:
-		current_dash_cooldown = DASH_COOLDOWN_TIME
-		should_countdown_dash_cooldown = true
-		should_start_dash_cooldown = false
-		
-	if should_countdown_dash_cooldown:
-		current_dash_cooldown -= delta
-		if current_dash_cooldown <= 0:
-			should_countdown_dash_cooldown = false
+	
+func Reset_Dash_Cooldown():
+	can_dash = true
+	
+func Reset_Attack_Cooldown():
+	can_attack = true

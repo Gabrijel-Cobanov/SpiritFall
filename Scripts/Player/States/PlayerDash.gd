@@ -5,11 +5,12 @@ var anim_duration: float
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter dash")
+	ctx.can_dash = false
 	ctx.animator.play("dash")
 	anim_duration = 0.38
 	ctx.should_apply_gravity = false
 	ctx.CB2D.velocity.y = 0
-	ctx.should_start_dash_cooldown = true
+	ctx.dash_cooldown.start()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)
