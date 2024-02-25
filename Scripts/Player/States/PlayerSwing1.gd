@@ -2,11 +2,13 @@ extends PlayerBaseState
 class_name PlayerSwing1
 
 var anim_duration: float
+var early_transition_time: float
 
 func Enter(ctx: PlayerStateMachine):
 	print("swing1")
 	ctx.is_attacking = false
 	anim_duration = 0.3
+	early_transition_time = 0.05
 	Pick_Attack_Anim(ctx)
 	
 func Update(ctx: PlayerStateMachine, delta:float):
@@ -17,12 +19,15 @@ func Physics_Update(ctx: PlayerStateMachine, delta:float):
 	if !ctx.CB2D.is_on_floor():
 		ctx.Move_Player_Horizontally()
 	else:
-		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 20)
+		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 15)
 	
 func Exit(ctx: PlayerStateMachine):
 	pass
 	
 func Check_Transitions(ctx: PlayerStateMachine):
+	if anim_duration <= early_transition_time and ctx.input_buffer.Get_Last_Input_Action() == "jump":
+		ctx.Switch_State(ctx.jump_start)
+	
 	if anim_duration <= 0:
 		if ctx.is_attacking and ctx.can_attack:
 			ctx.combo_counter += 1

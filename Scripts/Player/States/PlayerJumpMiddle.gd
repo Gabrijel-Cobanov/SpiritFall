@@ -1,7 +1,7 @@
 extends PlayerBaseState
 class_name PlayerJumpMiddle
 
-const ADDITIONAL_GRAVITY: float = 20
+const ADDITIONAL_GRAVITY: float = 10
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter jump middle")

@@ -2,7 +2,7 @@ extends PlayerBaseState
 class_name PlayerJumpStart
 
 var anim_duration: float
-const ADDITIONAL_GRAVITY: float = 40
+const ADDITIONAL_GRAVITY: float = 10
 
 func Enter(ctx: PlayerStateMachine):
 	print("enter jump start")

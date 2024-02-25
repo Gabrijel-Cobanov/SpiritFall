@@ -72,7 +72,7 @@ dash={
 
 [physics]
 
-2d/default_gravity=900.0
+2d/default_gravity=885.0
 
 [rendering]
 

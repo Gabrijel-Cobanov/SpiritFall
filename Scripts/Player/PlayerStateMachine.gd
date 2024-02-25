@@ -15,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO
 const MOVEMENT_SPEED: float = 100
 const JUMP_VELOCITY: float = -320
-const MAX_FALL_VELOCITY: float = 300
+const MAX_FALL_VELOCITY: float = 200
 const MAX_HEIGHT_TIME: float = 0.3
 const DASH_VELOCITY: float = 210
 
@@ -81,10 +81,10 @@ func _physics_process(delta):
 # Biggies Little helpers
 
 func Flip():
-	if is_facing_right and movement_input.x < 0:
+	if is_facing_right and movement_input.x < 0 and current_state != dash and current_state != swing1 and current_state != swing2:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
-	elif !is_facing_right and movement_input.x > 0:
+	elif !is_facing_right and movement_input.x > 0 and current_state != dash and current_state != swing1 and current_state != swing2:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
 	
