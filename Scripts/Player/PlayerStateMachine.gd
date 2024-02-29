@@ -15,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO
 const MOVEMENT_SPEED: float = 100
 const JUMP_VELOCITY: float = -320
-const MAX_FALL_VELOCITY: float = 200
+const MAX_FALL_VELOCITY: float = 300
 const MAX_HEIGHT_TIME: float = 0.3
 const DASH_VELOCITY: float = 210
 
@@ -72,7 +72,7 @@ func _process(delta):
 	current_state.Update(self, delta)
 
 func _physics_process(delta):
-	if not CB2D.is_on_floor() and should_apply_gravity:
+	if not CB2D.is_on_floor() and should_apply_gravity and CB2D.velocity.y <= MAX_FALL_VELOCITY:
 		CB2D.velocity.y += gravity * delta
 	
 	current_state.Physics_Update(self, delta)
