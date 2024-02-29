@@ -43,3 +43,8 @@ shape = SubResource("CapsuleShape2D_ourmp")
 libraries = {
 "lumber_bot": SubResource("AnimationLibrary_uv4lw")
 }
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(4, 5)
+target_position = Vector2(0, 6)
+collision_mask = 16

@@ -1,13 +1,13 @@
-extends Node
+extends EnemyBaseState
 class_name EnemyMoveState
 
 func Enter(ctx: EnemyStateMachine):
 	pass
 	
-func Update(ctx: EnemyStateMachine):
+func Update(ctx: EnemyStateMachine, delta: float):
 	pass
 	
-func Physics_Update(ctx: EnemyStateMachine):
+func Physics_Update(ctx: EnemyStateMachine, delta: float):
 	pass
 	
 func Exit(ctx: EnemyStateMachine):
