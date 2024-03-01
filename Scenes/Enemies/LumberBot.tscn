@@ -1,22 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://265duweovjr1"]
+[gd_scene load_steps=11 format=3 uid="uid://265duweovjr1"]
 
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
 [ext_resource type="Texture2D" uid="uid://cnwqrpqct0jev" path="res://Sprites/Enemies/Lumber Bot.png" id="1_kalv3"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/KnockbackComponent.gd" id="2_xwq07"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_brylt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ourmp"]
 radius = 3.0
 height = 16.0
-
-[sub_resource type="Animation" id="Animation_7bykv"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_0wd1k"]
-resource_name = "walk"
 
 [sub_resource type="Animation" id="Animation_25a6l"]
 resource_name = "attack"
 
 [sub_resource type="Animation" id="Animation_j8y80"]
 resource_name = "death"
+
+[sub_resource type="Animation" id="Animation_7bykv"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_0wd1k"]
+resource_name = "walk"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv4lw"]
 _data = {
@@ -27,6 +30,19 @@ _data = {
 }
 
 [node name="LumberBot" type="CharacterBody2D"]
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_hvnq8")
+max_health = 5
+
+[node name="KnockbackComponent" type="Node" parent="."]
+script = ExtResource("2_xwq07")
+
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("CB2D")]
+script = ExtResource("3_brylt")
+CB2D = NodePath("..")
+dmg = 1
+knockback_dealt = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)

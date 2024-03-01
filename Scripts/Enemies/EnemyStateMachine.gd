@@ -54,4 +54,5 @@ func Switch_State(new_state: EnemyBaseState):
 	new_state.Enter(self)
 	
 func Move_Horizontally():
-	CB2D.velocity.x = movement_direction.x * movement_speed
+	if !is_being_knocked_back:
+		CB2D.velocity.x = movement_direction.x * movement_speed
