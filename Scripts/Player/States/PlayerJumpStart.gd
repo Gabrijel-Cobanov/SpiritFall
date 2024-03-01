@@ -5,7 +5,6 @@ var anim_duration: float
 const ADDITIONAL_GRAVITY: float = 10
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter jump start")
 	ctx.animator.play("jump_start")
 	anim_duration = ctx.MAX_HEIGHT_TIME
 	ctx.CB2D.velocity.y = ctx.JUMP_VELOCITY

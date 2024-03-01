@@ -2,7 +2,6 @@ extends PlayerBaseState
 class_name PlayerRun
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter run")
 	ctx.animator.play("run")
 	pass
 	

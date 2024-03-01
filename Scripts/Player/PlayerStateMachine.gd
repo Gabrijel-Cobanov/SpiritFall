@@ -1,13 +1,16 @@
 extends Node
 class_name PlayerStateMachine
 
-#nodes
+@export_category("Nodes")
 @export var CB2D: CharacterBody2D
 @export var animator: AnimationPlayer
 @export var input_buffer: InputBuffer
 @export var coyote: Coyote
 @onready var dash_cooldown: Timer = $"../Timers/DashCooldown"
 @onready var attack_combo_cooldown: Timer = $"../Timers/AttackComboCooldown"
+@export var health: HealthComponent
+
+var hurt_counter: int = 0
 
 
 #movement variables
@@ -56,6 +59,7 @@ func _ready():
 	
 	dash_cooldown.connect("timeout", Reset_Dash_Cooldown)
 	attack_combo_cooldown.connect("timeout", Reset_Attack_Cooldown)
+	health.hurt.connect(On_Hurt)
 	
 	current_state = idle
 	current_state.Enter(self)
@@ -101,3 +105,8 @@ func Reset_Dash_Cooldown():
 	
 func Reset_Attack_Cooldown():
 	can_attack = true
+	
+func On_Hurt():
+	print("Player hurt" + str(hurt_counter))
+	hurt_counter += 1
+	Switch_State(hurt)

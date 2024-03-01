@@ -4,7 +4,6 @@ class_name PlayerJumpMiddle
 const ADDITIONAL_GRAVITY: float = 10
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter jump middle")
 	ctx.animator.play("jump_middle")
 	pass
 	

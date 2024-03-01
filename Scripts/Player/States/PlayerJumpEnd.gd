@@ -5,7 +5,6 @@ var anim_duration: float
 var early_transition_time: float
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter jump end")
 	ctx.animator.play("jump_end")
 	anim_duration = 0.25
 	early_transition_time = anim_duration/1.5

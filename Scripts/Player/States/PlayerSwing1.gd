@@ -5,7 +5,6 @@ var anim_duration: float
 var early_transition_time: float
 
 func Enter(ctx: PlayerStateMachine):
-	print("swing1")
 	ctx.is_attacking = false
 	anim_duration = 0.3
 	early_transition_time = 0.05

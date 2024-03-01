@@ -4,7 +4,6 @@ class_name PlayerDash
 var anim_duration: float
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter dash")
 	ctx.can_dash = false
 	ctx.animator.play("dash")
 	anim_duration = 0.38

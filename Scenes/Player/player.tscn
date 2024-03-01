@@ -2,18 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/KnockbackComponent.gd" id="2_5rcdi"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_72k4k"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStateMachine.gd" id="3_x1wnp"]
 [ext_resource type="Script" path="res://Scripts/Player/InputBuffer.gd" id="3_ybqoq"]
 [ext_resource type="Script" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccb50"]
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_x17br"]
+[ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8xiv"]
 radius = 4.0
@@ -184,6 +177,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [170, 173]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../down/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ypueo"]
 resource_name = "swing1"
@@ -200,6 +210,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [80, 83]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_x2fb5"]
@@ -218,6 +245,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [130, 133]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5mfxm"]
 resource_name = "swing1_up"
@@ -234,6 +278,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [110, 113]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_idhwj"]
@@ -252,6 +313,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [150, 153]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_mf8h0"]
 resource_name = "swing2_down_air"
@@ -268,6 +346,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [180, 183]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../down/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_r1eho"]
@@ -286,6 +381,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [90, 93]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dukdc"]
 resource_name = "swing2_side_air"
@@ -302,6 +414,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [140, 143]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wt3hx"]
@@ -320,6 +449,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [120, 123]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_puhkf"]
 resource_name = "swing2_up_air"
@@ -336,6 +482,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [160, 163]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4xq4"]
@@ -361,45 +524,27 @@ _data = {
 "swing2_up_air": SubResource("Animation_puhkf")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uukt2"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x17br"]
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 62
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("1_rt5mu")
 
-[node name="KnockbackComponent" type="Node" parent="."]
-script = ExtResource("2_5rcdi")
-
 [node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("CB2D", "up", "down", "side")]
 script = ExtResource("3_72k4k")
 CB2D = NodePath("..")
-up = NodePath("up")
-down = NodePath("down")
-side = NodePath("side")
+up = NodePath("../up")
+down = NodePath("../down")
+side = NodePath("../side")
 dmg = 1
-knockback_dealt = 10
-
-[node name="up" type="Area2D" parent="AttackComponent"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/up"]
-position = Vector2(3, -19)
-shape = SubResource("CircleShape2D_fd1l3")
-
-[node name="side" type="Area2D" parent="AttackComponent"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/side"]
-position = Vector2(27, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_ccb50")
-
-[node name="down" type="Area2D" parent="AttackComponent"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/down"]
-position = Vector2(2, 19)
-shape = SubResource("CircleShape2D_x17br")
+knockback_dealt = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_b8xiv")
@@ -415,14 +560,49 @@ position = Vector2(1, -4)
 texture = ExtResource("1_3lfy2")
 hframes = 10
 vframes = 21
-frame = 131
+frame = 182
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote")]
+[node name="up" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionSwitch" type="CollisionShape2D" parent="up"]
+position = Vector2(3, -19)
+shape = SubResource("CircleShape2D_fd1l3")
+disabled = true
+script = ExtResource("4_ok4u5")
+
+[node name="side" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionSwitch" type="CollisionShape2D" parent="side"]
+position = Vector2(27, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_uukt2")
+disabled = true
+script = ExtResource("4_ok4u5")
+
+[node name="down" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionSwitch" type="CollisionShape2D" parent="down"]
+position = Vector2(2, 19)
+shape = SubResource("CircleShape2D_x17br")
+disabled = true
+script = ExtResource("4_ok4u5")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote", "health")]
 script = ExtResource("3_x1wnp")
 CB2D = NodePath("..")
 animator = NodePath("../AnimationPlayer")
 input_buffer = NodePath("../InputBuffer")
 coyote = NodePath("../Coyote")
+health = NodePath("../HealthComponent")
 
 [node name="InputBuffer" type="Node2D" parent="."]
 script = ExtResource("3_ybqoq")

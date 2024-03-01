@@ -27,11 +27,7 @@ func _ready():
 func Attack(body: CharacterBody2D):
 	var health: HealthComponent = body.get_child(0)
 	health.Take_Damage(dmg)
-	if body.get_child(1) is KnockbackComponent:
-		Deal_KnockBack(body)
-	
-func Deal_KnockBack(body: CharacterBody2D):
-	var knockback: KnockbackComponent = body.get_child(1)
 	var direction: Vector2 = body.position - CB2D.position
-	direction *= knockback_dealt
-	knockback.Take_Knockback(direction)
+	direction = direction.normalized() * knockback_dealt
+	body.velocity = direction
+	

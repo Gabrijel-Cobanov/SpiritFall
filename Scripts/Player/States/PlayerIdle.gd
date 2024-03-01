@@ -2,7 +2,6 @@ extends PlayerBaseState
 class_name PlayerIdle
 
 func Enter(ctx: PlayerStateMachine):
-	print("enter idle")
 	ctx.animator.play("idle")
 	pass
 	
