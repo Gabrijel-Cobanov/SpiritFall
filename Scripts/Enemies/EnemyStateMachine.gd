@@ -66,10 +66,8 @@ func Move_Horizontally():
 		CB2D.velocity.x = movement_direction.x * movement_speed
 		
 func Reset_Velocity_X():
-	print("resetting velocity")
 	CB2D.velocity.x = 0
 	
 func On_Hurt():
-	print("Enemy hurt")
 	knockback_timer.start()
 	#flash white but we'll get to that
