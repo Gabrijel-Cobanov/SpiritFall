@@ -2,6 +2,7 @@ extends Node
 class_name EnemyStateMachine
 
 @export var enemy_name: String
+var player_CB2D: CharacterBody2D
 
 @export_category("Nodes")
 @export var CB2D: CharacterBody2D
@@ -11,6 +12,7 @@ class_name EnemyStateMachine
 @export var attack_timer: Timer
 @export var knockback_timer: Timer
 @export var ledge_detector: RayCast2D
+@export var animator: AnimationPlayer
 
 @export_category("Movement")
 @export var movement_speed: float
@@ -31,6 +33,8 @@ var death: EnemyDeathState
 var current_state: EnemyBaseState
 
 func _ready():
+	player_CB2D = get_tree().get_first_node_in_group("Player")
+	
 	idle = EnemyIdleState.new()
 	move = EnemyMoveState.new()
 	attack = EnemyAttackState.new()
@@ -45,25 +49,34 @@ func _ready():
 	
 func _process(delta):
 	current_state.Update(self, delta)
+	Flip()
 	
 func _physics_process(delta):
 	if !CB2D.is_on_floor():
 		CB2D.velocity.y += gravity * delta
 	current_state.Physics_Update(self, delta)
-	
+	movement_direction = get_movement_direction()
 	CB2D.move_and_slide()
 	
 func Flip():
-	pass
+	if is_facing_right and CB2D.velocity.x < 0:
+		get_parent().scale.x *= -1
+		is_facing_right = !is_facing_right
+	elif !is_facing_right and CB2D.velocity.x > 0:
+		get_parent().scale.x *= -1
+		is_facing_right = !is_facing_right
 
 func Switch_State(new_state: EnemyBaseState):
 	current_state.Exit(self)
 	current_state = new_state
 	new_state.Enter(self)
 	
-func Move_Horizontally():
+func get_movement_direction():
+	return (player_CB2D.position-CB2D.position).normalized()
+	
+func Move_Horizontally(direction: int):
 	if !is_being_knocked_back:
-		CB2D.velocity.x = movement_direction.x * movement_speed
+		CB2D.velocity.x = movement_direction.x * movement_speed * direction
 		
 func Reset_Velocity_X():
 	CB2D.velocity.x = 0

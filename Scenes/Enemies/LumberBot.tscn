@@ -35,6 +35,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_j8y80"]
 resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40, 49]
+}
 
 [sub_resource type="Animation" id="Animation_7bykv"]
 resource_name = "idle"
@@ -75,10 +87,10 @@ _data = {
 "attack": SubResource("Animation_25a6l"),
 "death": SubResource("Animation_j8y80"),
 "idle": SubResource("Animation_7bykv"),
-"walk": SubResource("Animation_0wd1k")
+"move": SubResource("Animation_0wd1k")
 }
 
-[node name="LumberBot" type="CharacterBody2D"]
+[node name="LumberBot" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
 collision_mask = 52
 
@@ -102,6 +114,7 @@ monitorable = false
 position = Vector2(29, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4e42p")
+disabled = true
 script = ExtResource("3_j5oqw")
 
 [node name="contact" type="Area2D" parent="."]
@@ -122,21 +135,23 @@ frame = 30
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ourmp")
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "attack_timer", "knockback_timer", "ledge_detector")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
 script = ExtResource("5_ou0rk")
 enemy_name = "lumber_bot"
 CB2D = NodePath("..")
 health = NodePath("../HealthComponent")
 attack_timer = NodePath("../Timers/Attack Timer")
 knockback_timer = NodePath("../Timers/Knockback Timer")
-ledge_detector = NodePath("../RayCast2D")
+ledge_detector = NodePath("../EdgeChecker")
+animator = NodePath("../AnimationPlayer")
+movement_speed = 20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "lumber_bot": SubResource("AnimationLibrary_uv4lw")
 }
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="EdgeChecker" type="RayCast2D" parent="."]
 position = Vector2(4, 5)
 target_position = Vector2(0, 6)
 collision_mask = 16
@@ -147,4 +162,4 @@ collision_mask = 16
 wait_time = 2.5
 
 [node name="Knockback Timer" type="Timer" parent="Timers"]
-wait_time = 0.1
+wait_time = 0.05

@@ -450,4 +450,4 @@ z_index = 10
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="LumberBot" parent="." instance=ExtResource("16_21iyo")]
-position = Vector2(144, 40)
+position = Vector2(93, 57)

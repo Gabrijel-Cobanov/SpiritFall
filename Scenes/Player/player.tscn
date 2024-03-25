@@ -573,7 +573,7 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x17br"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 62
 
 [node name="HealthComponent" type="Node" parent="."]
