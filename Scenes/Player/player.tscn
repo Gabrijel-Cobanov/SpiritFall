@@ -8,6 +8,13 @@
 [ext_resource type="Script" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uukt2"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x17br"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8xiv"]
 radius = 4.0
 height = 12.0
@@ -63,7 +70,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/path = NodePath("../AttackComponent/side/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -77,7 +84,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../down/CollisionSwitch")
+tracks/2/path = NodePath("../AttackComponent/down/CollisionSwitch")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,7 +98,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../up/CollisionSwitch")
+tracks/3/path = NodePath("../AttackComponent/up/CollisionSwitch")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -222,7 +229,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../down/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/down/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -256,7 +263,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/side/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -290,7 +297,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/side/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -324,7 +331,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/up/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -358,7 +365,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/up/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -392,7 +399,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../down/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/down/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -426,7 +433,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/side/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -460,7 +467,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../side/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/side/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -494,7 +501,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/up/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -528,7 +535,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../up/CollisionSwitch")
+tracks/1/path = NodePath("../../AttackComponent/up/CollisionSwitch")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -566,82 +573,62 @@ _data = {
 "swing2_up_air": SubResource("Animation_puhkf")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uukt2"]
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_x17br"]
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 62
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("1_rt5mu")
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("CB2D", "up", "down", "side")]
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "up", "down", "side")]
 script = ExtResource("3_72k4k")
 CB2D = NodePath("..")
-up = NodePath("../up")
-down = NodePath("../down")
-side = NodePath("../side")
+up = NodePath("up")
+down = NodePath("down")
+side = NodePath("side")
 dmg = 1
 knockback_dealt = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_b8xiv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_j4xq4")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -4)
-texture = ExtResource("1_3lfy2")
-hframes = 10
-vframes = 21
-frame = 190
-
-[node name="up" type="Area2D" parent="."]
+[node name="up" type="Area2D" parent="AttackComponent"]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionSwitch" type="CollisionShape2D" parent="up"]
+[node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/up"]
 position = Vector2(3, -19)
 shape = SubResource("CircleShape2D_fd1l3")
 disabled = true
 script = ExtResource("4_ok4u5")
 
-[node name="side" type="Area2D" parent="."]
+[node name="side" type="Area2D" parent="AttackComponent"]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionSwitch" type="CollisionShape2D" parent="side"]
+[node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/side"]
 position = Vector2(27, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_uukt2")
 disabled = true
 script = ExtResource("4_ok4u5")
 
-[node name="down" type="Area2D" parent="."]
+[node name="down" type="Area2D" parent="AttackComponent"]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionSwitch" type="CollisionShape2D" parent="down"]
+[node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/down"]
 position = Vector2(2, 19)
 shape = SubResource("CircleShape2D_x17br")
 disabled = true
 script = ExtResource("4_ok4u5")
 
+[node name="CB2D collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b8xiv")
+
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote", "health")]
 script = ExtResource("3_x1wnp")
 CB2D = NodePath("..")
-animator = NodePath("../AnimationPlayer")
+animator = NodePath("../Visuals/AnimationPlayer")
 input_buffer = NodePath("../InputBuffer")
 coyote = NodePath("../Coyote")
 health = NodePath("../HealthComponent")
@@ -660,3 +647,18 @@ wait_time = 0.6
 
 [node name="AttackComboCooldown" type="Timer" parent="Timers"]
 wait_time = 0.5
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_j4xq4")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(1, -4)
+texture = ExtResource("1_3lfy2")
+hframes = 10
+vframes = 21
+frame = 162

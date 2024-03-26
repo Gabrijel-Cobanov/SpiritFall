@@ -22,6 +22,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #flags
 var is_facing_right: bool = true
 var can_attack: bool = true
+var should_attack: bool = false
+var should_pursue: bool = false
 var is_being_knocked_back: bool = false
 
 #states
@@ -40,15 +42,23 @@ func _ready():
 	attack = EnemyAttackState.new()
 	death = EnemyDeathState.new()
 	
-	
 	health.hurt.connect(On_Hurt)
 	knockback_timer.timeout.connect(Reset_Velocity_X)
+	knockback_timer.timeout.connect(func(): is_being_knocked_back = false)
+	attack_timer.timeout.connect(func(): can_attack = true)
+	
+	pursue_area.body_entered.connect(func(body): should_pursue = true)
+	pursue_area.body_exited.connect(func(body): should_pursue = false)
+	
+	attack_area.body_entered.connect(func(body): should_attack = true)
+	attack_area.body_exited.connect(func(body): should_attack = false)
 	
 	current_state = idle
 	current_state.Enter(self)
 	
 func _process(delta):
 	current_state.Update(self, delta)
+	print(attack_timer.time_left)
 	Flip()
 	
 func _physics_process(delta):
@@ -74,7 +84,11 @@ func Switch_State(new_state: EnemyBaseState):
 func get_movement_direction():
 	return (player_CB2D.position-CB2D.position).normalized()
 	
-func Move_Horizontally(direction: int):
+func Pursue():
+	if !is_being_knocked_back:
+		CB2D.velocity.x = movement_direction.x * movement_speed
+		
+func Wander(direction: int):
 	if !is_being_knocked_back:
 		CB2D.velocity.x = movement_direction.x * movement_speed * direction
 		
@@ -82,5 +96,7 @@ func Reset_Velocity_X():
 	CB2D.velocity.x = 0
 	
 func On_Hurt():
+	is_being_knocked_back = true
 	knockback_timer.start()
+	print("enemy hurt")
 	#flash white but we'll get to that

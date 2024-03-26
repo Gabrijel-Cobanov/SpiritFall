@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://265duweovjr1"]
+[gd_scene load_steps=16 format=3 uid="uid://265duweovjr1"]
 
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
 [ext_resource type="Texture2D" uid="uid://cnwqrpqct0jev" path="res://Sprites/Enemies/Lumber Bot.png" id="1_kalv3"]
@@ -6,16 +6,24 @@
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="3_j5oqw"]
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_ou0rk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rt5l"]
+size = Vector2(8, 16)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e42p"]
 radius = 7.0
 height = 20.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rt5l"]
-size = Vector2(8, 16)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ourmp"]
 radius = 3.0
 height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oksea"]
+radius = 8.0
+height = 118.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qna16"]
+radius = 8.0
+height = 78.0
 
 [sub_resource type="Animation" id="Animation_25a6l"]
 resource_name = "attack"
@@ -23,7 +31,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +46,7 @@ resource_name = "death"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,7 +62,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +80,7 @@ step = 0.08
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,62 +102,52 @@ _data = {
 collision_layer = 2
 collision_mask = 52
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("1_hvnq8")
 max_health = 5
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("CB2D", "side", "contact")]
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "side", "contact")]
 script = ExtResource("3_brylt")
 CB2D = NodePath("..")
-side = NodePath("../side")
-contact = NodePath("../contact")
+side = NodePath("side")
+contact = NodePath("contact")
 dmg = 1
 knockback_dealt = 150
 
-[node name="side" type="Area2D" parent="."]
+[node name="contact" type="Area2D" parent="AttackComponent"]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionSwitch" type="CollisionShape2D" parent="side"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/contact"]
+shape = SubResource("RectangleShape2D_3rt5l")
+debug_color = Color(0.988235, 0, 0.317647, 0.419608)
+
+[node name="side" type="Area2D" parent="AttackComponent"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/side"]
 position = Vector2(29, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4e42p")
 disabled = true
 script = ExtResource("3_j5oqw")
 
-[node name="contact" type="Area2D" parent="."]
-collision_layer = 0
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="contact"]
-shape = SubResource("RectangleShape2D_3rt5l")
-debug_color = Color(0.988235, 0, 0.317647, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
-texture = ExtResource("1_kalv3")
-hframes = 10
-vframes = 5
-frame = 30
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CB2D collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ourmp")
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "pursue_area", "attack_area", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
 script = ExtResource("5_ou0rk")
 enemy_name = "lumber_bot"
 CB2D = NodePath("..")
 health = NodePath("../HealthComponent")
+pursue_area = NodePath("../Combat Areas/PursueArea")
+attack_area = NodePath("../Combat Areas/AttackArea")
 attack_timer = NodePath("../Timers/Attack Timer")
 knockback_timer = NodePath("../Timers/Knockback Timer")
 ledge_detector = NodePath("../EdgeChecker")
-animator = NodePath("../AnimationPlayer")
+animator = NodePath("../Visuals/AnimationPlayer")
 movement_speed = 20.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"lumber_bot": SubResource("AnimationLibrary_uv4lw")
-}
 
 [node name="EdgeChecker" type="RayCast2D" parent="."]
 position = Vector2(4, 5)
@@ -160,6 +158,46 @@ collision_mask = 16
 
 [node name="Attack Timer" type="Timer" parent="Timers"]
 wait_time = 2.5
+one_shot = true
 
 [node name="Knockback Timer" type="Timer" parent="Timers"]
 wait_time = 0.05
+one_shot = true
+
+[node name="Combat Areas" type="Node2D" parent="."]
+
+[node name="PursueArea" type="Area2D" parent="Combat Areas"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionSwitch" type="CollisionShape2D" parent="Combat Areas/PursueArea"]
+position = Vector2(0, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_oksea")
+debug_color = Color(0.494118, 0.572549, 0.282353, 0.419608)
+script = ExtResource("3_j5oqw")
+
+[node name="AttackArea" type="Area2D" parent="Combat Areas"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Combat Areas/AttackArea"]
+position = Vector2(0, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_qna16")
+debug_color = Color(0.823529, 0, 0.156863, 0.419608)
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../..")
+libraries = {
+"lumber_bot": SubResource("AnimationLibrary_uv4lw")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -3)
+texture = ExtResource("1_kalv3")
+hframes = 10
+vframes = 5
+frame = 30

@@ -18,15 +18,20 @@ func Enter(ctx: EnemyStateMachine):
 	ctx.animator.play(ctx.enemy_name + "/move")
 	
 func Update(ctx: EnemyStateMachine, delta: float):
-	if wander_time <= 0:
-		Check_Transitions(ctx)
+	Check_Transitions(ctx)
 	
 func Physics_Update(ctx: EnemyStateMachine, delta: float):
 	wander_time -= delta
-	ctx.Move_Horizontally(direction)
+	if ctx.should_pursue:
+		ctx.Pursue()
+	else:
+		ctx.Wander(direction)
 	
 func Exit(ctx: EnemyStateMachine):
 	pass
 	
 func Check_Transitions(ctx: EnemyStateMachine):
-	ctx.Switch_State(ctx.idle)
+	if wander_time <= 0 and !ctx.should_pursue:
+		ctx.Switch_State(ctx.idle)
+	if ctx.should_attack and ctx.can_attack:
+		ctx.Switch_State(ctx.attack)
