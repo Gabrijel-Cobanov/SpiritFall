@@ -1,6 +1,8 @@
 extends Node2D
 class_name HealthComponent
 
+
+@export var hitflash_animator: AnimationPlayer
 @export var max_health: int
 var current_health: int
 
@@ -11,6 +13,8 @@ func _ready():
 	current_health = max_health
 	
 func Take_Damage(dmg: int):
+	if hitflash_animator:
+		hitflash_animator.play("hitflash")
 	hurt.emit()
 	current_health -= dmg
 	if current_health <= 0:
