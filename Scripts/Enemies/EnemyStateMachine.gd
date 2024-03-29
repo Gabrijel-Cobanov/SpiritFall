@@ -69,6 +69,8 @@ func _physics_process(delta):
 	CB2D.move_and_slide()
 	
 func Flip():
+	if is_being_knocked_back:
+		return
 	if is_facing_right and CB2D.velocity.x < 0:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
