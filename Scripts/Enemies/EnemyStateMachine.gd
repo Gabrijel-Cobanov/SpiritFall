@@ -58,7 +58,6 @@ func _ready():
 	
 func _process(delta):
 	current_state.Update(self, delta)
-	print(attack_timer.time_left)
 	Flip()
 	
 func _physics_process(delta):
@@ -100,5 +99,4 @@ func Reset_Velocity_X():
 func On_Hurt():
 	is_being_knocked_back = true
 	knockback_timer.start()
-	print("enemy hurt")
 	#flash white but we'll get to that

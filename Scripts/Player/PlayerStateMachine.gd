@@ -8,10 +8,9 @@ class_name PlayerStateMachine
 @export var coyote: Coyote
 @onready var dash_cooldown: Timer = $"../Timers/DashCooldown"
 @onready var attack_combo_cooldown: Timer = $"../Timers/AttackComboCooldown"
+@onready var hurt_cooldown = $"../Timers/HurtCooldown"
+@onready var i_frames_animator = $"../Visuals/IFramesAnimationPlayer"
 @export var health: HealthComponent
-
-var hurt_counter: int = 0
-
 
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -59,6 +58,7 @@ func _ready():
 	
 	dash_cooldown.connect("timeout", Reset_Dash_Cooldown)
 	attack_combo_cooldown.connect("timeout", Reset_Attack_Cooldown)
+	hurt_cooldown.connect("timeout", Reset_Hurt_Cooldown)
 	health.hurt.connect(On_Hurt)
 	
 	current_state = idle
@@ -106,7 +106,10 @@ func Reset_Dash_Cooldown():
 func Reset_Attack_Cooldown():
 	can_attack = true
 	
+func Reset_Hurt_Cooldown():
+	health.can_take_damage = true
+	i_frames_animator.play("reset")
+	
 func On_Hurt():
-	print("Player hurt" + str(hurt_counter))
-	hurt_counter += 1
-	Switch_State(hurt)
+	if health.can_take_damage:
+		Switch_State(hurt)
