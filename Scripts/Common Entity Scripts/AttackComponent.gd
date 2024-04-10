@@ -31,3 +31,8 @@ func Attack(body: CharacterBody2D):
 	direction = direction.normalized() * knockback_dealt
 	body.velocity = direction
 	
+func _process(delta):
+	if contact and contact.has_overlapping_bodies():
+		var body = contact.get_overlapping_bodies()[0]
+		Attack(body)
+	
