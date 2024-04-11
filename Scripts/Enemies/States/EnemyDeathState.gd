@@ -1,14 +1,19 @@
 extends EnemyBaseState
 class_name EnemyDeathState
 
+var anim_duration: float
+
 func Enter(ctx: EnemyStateMachine):
-	pass
+	ctx.animator.play(ctx.enemy_name + "/death")
+	ctx.CB2D.set_collision_layer_value(2, false)
+	anim_duration = 1
 	
 func Update(ctx: EnemyStateMachine, delta: float):
-	pass
+	if anim_duration <= 0:
+		ctx.CB2D.queue_free()
 	
 func Physics_Update(ctx: EnemyStateMachine, delta: float):
-	pass
+	anim_duration -= delta
 	
 func Exit(ctx: EnemyStateMachine):
 	pass

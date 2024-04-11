@@ -43,6 +43,7 @@ func _ready():
 	death = EnemyDeathState.new()
 	
 	health.hurt.connect(On_Hurt)
+	health.dead.connect(On_Dead)
 	knockback_timer.timeout.connect(Reset_Velocity_X)
 	knockback_timer.timeout.connect(func(): is_being_knocked_back = false)
 	attack_timer.timeout.connect(func(): can_attack = true)
@@ -100,3 +101,6 @@ func On_Hurt():
 	is_being_knocked_back = true
 	knockback_timer.start()
 	#flash white but we'll get to that
+	
+func On_Dead():
+	Switch_State(death)
