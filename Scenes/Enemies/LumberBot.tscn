@@ -163,6 +163,7 @@ collision_mask = 52
 script = ExtResource("1_hvnq8")
 hitflash_animator = NodePath("../Visuals/HitflashAnimationPlayer")
 max_health = 5
+heal_ammount = 0
 
 [node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "side", "contact")]
 script = ExtResource("3_brylt")

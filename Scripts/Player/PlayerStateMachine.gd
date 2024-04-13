@@ -10,6 +10,7 @@ class_name PlayerStateMachine
 @onready var attack_combo_cooldown: Timer = $"../Timers/AttackComboCooldown"
 @onready var hurt_cooldown = $"../Timers/HurtCooldown"
 @onready var i_frames_animator = $"../Visuals/IFramesAnimationPlayer"
+@onready var heal_cooldown = $"../Timers/HealCooldown"
 @export var health: HealthComponent
 
 #movement variables
@@ -29,6 +30,8 @@ var should_apply_gravity: bool = true
 var is_attacking: bool = false
 var can_attack: bool = true
 var can_dash: bool = true
+var can_heal: bool = true
+var heal_is_pressed: bool = false
 
 #states
 var idle: PlayerIdle
@@ -38,6 +41,7 @@ var jump_start: PlayerJumpStart
 var jump_middle: PlayerJumpMiddle
 var jump_end: PlayerJumpEnd
 var hurt: PlayerHurt
+var heal: PlayerHeal
 var death: PlayerDeath
 var swing1: PlayerSwing1
 var swing2: PlayerSwing2
@@ -52,6 +56,7 @@ func _ready():
 	jump_middle = PlayerJumpMiddle.new()
 	jump_end = PlayerJumpEnd.new()
 	hurt = PlayerHurt.new()
+	heal = PlayerHeal.new()
 	death = PlayerDeath.new()
 	swing1 = PlayerSwing1.new()
 	swing2 = PlayerSwing2.new()
@@ -59,6 +64,7 @@ func _ready():
 	dash_cooldown.connect("timeout", Reset_Dash_Cooldown)
 	attack_combo_cooldown.connect("timeout", Reset_Attack_Cooldown)
 	hurt_cooldown.connect("timeout", Reset_Hurt_Cooldown)
+	heal_cooldown.connect("timeout", func(): can_heal = true)
 	health.hurt.connect(On_Hurt)
 	
 	current_state = idle
@@ -66,6 +72,7 @@ func _ready():
 
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
+	heal_is_pressed = Input.is_action_pressed("heal")
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
 	if combo_counter >= 3:
@@ -110,6 +117,6 @@ func Reset_Hurt_Cooldown():
 	health.can_take_damage = true
 	i_frames_animator.play("reset")
 	
-func On_Hurt():
+func On_Hurt(dmg: int):
 	if health.can_take_damage:
 		Switch_State(hurt)

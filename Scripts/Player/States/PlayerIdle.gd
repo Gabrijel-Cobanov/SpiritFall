@@ -27,3 +27,5 @@ func Check_Transitions(ctx: PlayerStateMachine):
 		ctx.Switch_State(ctx.jump_middle)
 	elif ctx.input_buffer.Get_Last_Input_Action() == "attack"  and ctx.can_attack:
 		ctx.Switch_State(ctx.swing1)
+	elif ctx.heal_is_pressed and ctx.can_heal:
+		ctx.Switch_State(ctx.heal)

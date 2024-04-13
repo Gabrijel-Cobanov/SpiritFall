@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bccm2f2pyi5ei"]
+
+[ext_resource type="Texture2D" uid="uid://bli6t85cex5c8" path="res://Sprites/UI/PlayerUI/Mana UI.png" id="1_tmdt3"]
+[ext_resource type="Script" path="res://Scripts/UI/Player UI/ManaIndicator.gd" id="1_y6irx"]
+
+[node name="ManaIndicator" type="Node2D"]
+script = ExtResource("1_y6irx")
+
+[node name="ManaUi" type="Sprite2D" parent="."]
+texture = ExtResource("1_tmdt3")
+hframes = 6

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=40 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
@@ -18,6 +18,21 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8xiv"]
 radius = 4.0
 height = 12.0
+
+[sub_resource type="Animation" id="Animation_jpotx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [70]
+}
 
 [sub_resource type="Animation" id="Animation_c4l8c"]
 resource_name = "dash"
@@ -50,6 +65,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [200, 207]
+}
+
+[sub_resource type="Animation" id="Animation_cddgb"]
+resource_name = "heal"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [210, 219]
 }
 
 [sub_resource type="Animation" id="Animation_1rv2n"]
@@ -552,8 +583,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4xq4"]
 _data = {
+"RESET": SubResource("Animation_jpotx"),
 "dash": SubResource("Animation_c4l8c"),
 "death": SubResource("Animation_j1o7b"),
+"heal": SubResource("Animation_cddgb"),
 "hurt": SubResource("Animation_1rv2n"),
 "idle": SubResource("Animation_cahm5"),
 "jump_end": SubResource("Animation_jo45q"),
@@ -649,6 +682,7 @@ collision_mask = 62
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("1_rt5mu")
+max_health = 7
 
 [node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "up", "down", "side")]
 script = ExtResource("3_72k4k")
@@ -725,6 +759,10 @@ one_shot = true
 wait_time = 0.7
 one_shot = true
 
+[node name="HealCooldown" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
@@ -743,5 +781,5 @@ material = SubResource("ShaderMaterial_88k80")
 position = Vector2(1, -4)
 texture = ExtResource("1_3lfy2")
 hframes = 10
-vframes = 21
+vframes = 22
 frame = 70

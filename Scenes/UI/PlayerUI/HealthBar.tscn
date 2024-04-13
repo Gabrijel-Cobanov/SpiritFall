@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://il1pets76xi0"]
+
+[ext_resource type="Script" path="res://Scenes/UI/PlayerUI/HealthBar.gd" id="1_3cnpb"]
+[ext_resource type="PackedScene" uid="uid://b52t3bpe7xjnc" path="res://Scenes/UI/PlayerUI/HealthOrb.tscn" id="1_xehng"]
+[ext_resource type="PackedScene" uid="uid://bccm2f2pyi5ei" path="res://Scenes/UI/PlayerUI/ManaIndicator.tscn" id="2_vp4ed"]
+
+[node name="HealthBar" type="Node2D"]
+position = Vector2(18, 0)
+script = ExtResource("1_3cnpb")
+
+[node name="HealthOrb" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(-7, 0)
+
+[node name="HealthOrb2" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(1, 0)
+
+[node name="HealthOrb3" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(9, 0)
+
+[node name="HealthOrb4" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(17, 0)
+
+[node name="HealthOrb5" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(25, 0)
+
+[node name="HealthOrb6" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(33, 0)
+
+[node name="HealthOrb7" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
+position = Vector2(41, 0)
+
+[node name="ManaIndicator" parent="." instance=ExtResource("2_vp4ed")]
+position = Vector2(-18, 0)

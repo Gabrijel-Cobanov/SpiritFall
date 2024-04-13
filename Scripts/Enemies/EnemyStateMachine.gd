@@ -79,9 +79,10 @@ func Flip():
 		is_facing_right = !is_facing_right
 
 func Switch_State(new_state: EnemyBaseState):
-	current_state.Exit(self)
-	current_state = new_state
-	new_state.Enter(self)
+	if !is_being_knocked_back:
+		current_state.Exit(self)
+		current_state = new_state
+		new_state.Enter(self)
 	
 func get_movement_direction():
 	return (player_CB2D.position-CB2D.position).normalized()
@@ -97,7 +98,7 @@ func Wander(direction: int):
 func Reset_Velocity_X():
 	CB2D.velocity.x = 0
 	
-func On_Hurt():
+func On_Hurt(dmg: int):
 	is_being_knocked_back = true
 	knockback_timer.start()
 	#flash white but we'll get to that

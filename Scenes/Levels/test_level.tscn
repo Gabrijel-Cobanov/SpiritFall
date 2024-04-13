@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://31lerm3qka2x"]
+[gd_scene load_steps=23 format=3 uid="uid://31lerm3qka2x"]
 
 [ext_resource type="Texture2D" uid="uid://dr54p715041ly" path="res://Sprites/Environments/Sky.png" id="1_t7qps"]
 [ext_resource type="Texture2D" uid="uid://ckotsm2qw4l2n" path="res://Sprites/Environments/Background Factories and mountains.png" id="2_61rpo"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cgfw084vqqxug" path="res://Scenes/Environment/Tall_platform.tscn" id="14_12v2j"]
 [ext_resource type="PackedScene" uid="uid://blys5rjfktt1i" path="res://Scenes/Player/player.tscn" id="15_14nxn"]
 [ext_resource type="PackedScene" uid="uid://265duweovjr1" path="res://Scenes/Enemies/LumberBot.tscn" id="16_21iyo"]
+[ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="16_u6wke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r34m4"]
 texture = ExtResource("7_vwx4n")
@@ -449,5 +450,21 @@ z_index = 10
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="LumberBot" parent="." instance=ExtResource("16_21iyo")]
+[node name="Enemies2" type="Node2D" parent="."]
+
+[node name="LumberBot" parent="Enemies2" instance=ExtResource("16_21iyo")]
 position = Vector2(93, 57)
+
+[node name="LumberBot2" parent="Enemies2" instance=ExtResource("16_21iyo")]
+position = Vector2(365, 74)
+
+[node name="LumberBot3" parent="Enemies2" instance=ExtResource("16_21iyo")]
+position = Vector2(-488, -6)
+
+[node name="LumberBot4" parent="Enemies2" instance=ExtResource("16_21iyo")]
+position = Vector2(-146, 25)
+
+[node name="Player health UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="Player health UI" instance=ExtResource("16_u6wke")]
+position = Vector2(38, 21)
