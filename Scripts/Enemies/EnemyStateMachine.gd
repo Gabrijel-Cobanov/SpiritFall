@@ -79,10 +79,9 @@ func Flip():
 		is_facing_right = !is_facing_right
 
 func Switch_State(new_state: EnemyBaseState):
-	if !is_being_knocked_back:
-		current_state.Exit(self)
-		current_state = new_state
-		new_state.Enter(self)
+	current_state.Exit(self)
+	current_state = new_state
+	new_state.Enter(self)
 	
 func get_movement_direction():
 	return (player_CB2D.position-CB2D.position).normalized()

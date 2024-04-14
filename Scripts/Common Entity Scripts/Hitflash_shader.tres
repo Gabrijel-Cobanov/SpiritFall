@@ -16,6 +16,7 @@ parameter_name = "tint"
 default_value_enabled = true
 
 [resource]
+resource_local_to_scene = true
 code = "shader_type canvas_item;
 render_mode blend_mix;
 

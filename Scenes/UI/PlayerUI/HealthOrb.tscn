@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://dd5qw6p4oj4da" path="res://Sprites/UI/PlayerUI/Health Orb.png" id="1_addu6"]
 [ext_resource type="Script" path="res://Scripts/UI/Player UI/HealthOrb.gd" id="1_yheud"]
 
+[sub_resource type="Animation" id="Animation_slv04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrbSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_0gguj"]
 resource_name = "active"
 length = 0.5
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [5, 9]
-}
-
-[sub_resource type="Animation" id="Animation_slv04"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OrbSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_a4rxu"]

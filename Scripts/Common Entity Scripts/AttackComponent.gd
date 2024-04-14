@@ -13,6 +13,8 @@ class_name AttackComponent
 @export var dmg: int
 @export var knockback_dealt: int
 
+signal hit_something
+
 func _ready():
 	if up: 
 		up.body_entered.connect(Attack)
@@ -30,6 +32,7 @@ func Attack(body: CharacterBody2D):
 	var direction: Vector2 = body.position - CB2D.position
 	direction = direction.normalized() * knockback_dealt
 	body.velocity = direction
+	hit_something.emit()
 	
 func _process(delta):
 	if contact and contact.has_overlapping_bodies():

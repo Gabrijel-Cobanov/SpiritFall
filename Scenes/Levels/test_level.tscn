@@ -443,8 +443,6 @@ position = Vector2(-42, 51)
 [node name="TallPlatform5" parent="Environment/Platforms" instance=ExtResource("14_12v2j")]
 position = Vector2(-667, -14)
 
-[node name="Enemies" type="Node" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("15_14nxn")]
 z_index = 10
 
@@ -453,16 +451,10 @@ z_index = 10
 [node name="Enemies2" type="Node2D" parent="."]
 
 [node name="LumberBot" parent="Enemies2" instance=ExtResource("16_21iyo")]
-position = Vector2(93, 57)
+position = Vector2(94, 46)
 
 [node name="LumberBot2" parent="Enemies2" instance=ExtResource("16_21iyo")]
-position = Vector2(365, 74)
-
-[node name="LumberBot3" parent="Enemies2" instance=ExtResource("16_21iyo")]
-position = Vector2(-488, -6)
-
-[node name="LumberBot4" parent="Enemies2" instance=ExtResource("16_21iyo")]
-position = Vector2(-146, 25)
+position = Vector2(55, 55)
 
 [node name="Player health UI" type="CanvasLayer" parent="."]
 

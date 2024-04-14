@@ -18,6 +18,7 @@ func _ready():
 	
 	player_health_component.connect("hurt", On_Damage_Taken)
 	player_health_component.connect("heal", On_Heal)
+	player_attack_component.connect("hit_something", mana_indicator.Increase_Mana)
 	
 	current_health_orb = health_orbs[-1]
 	current_orb_index = len(health_orbs)-1
@@ -43,3 +44,4 @@ func On_Heal(hp_healed: int):
 			current_health_orb.play_healing()
 		current_health_orb = health_orbs[current_orb_index]
 		current_health_orb.play_active()
+		mana_indicator.Decrease_Mana()

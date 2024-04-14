@@ -760,7 +760,7 @@ wait_time = 0.7
 one_shot = true
 
 [node name="HealCooldown" type="Timer" parent="Timers"]
-wait_time = 2.0
+wait_time = 0.1
 one_shot = true
 
 [node name="Visuals" type="Node2D" parent="."]

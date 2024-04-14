@@ -17,8 +17,11 @@ func Physics_Update(ctx: PlayerStateMachine, delta:float):
 		ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 30)
 	
 func Exit(ctx: PlayerStateMachine):
-	ctx.heal_cooldown.start()
-	ctx.health.Heal()
+	if anim_duration <= 0:
+		ctx.heal_cooldown.start()
+		ctx.health.Heal()
+	else:
+		ctx.can_heal = true
 	pass
 
 func Check_Transitions(ctx: PlayerStateMachine):
