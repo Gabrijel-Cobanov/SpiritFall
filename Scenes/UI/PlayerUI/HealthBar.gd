@@ -19,29 +19,34 @@ func _ready():
 	player_health_component.connect("hurt", On_Damage_Taken)
 	player_health_component.connect("heal", On_Heal)
 	player_attack_component.connect("hit_something", mana_indicator.Increase_Mana)
+	player_attack_component.connect("hit_something", func(): player_health_component.can_heal = true)
+	
+	player_health_component.can_heal = false
 	
 	current_health_orb = health_orbs[-1]
 	current_orb_index = len(health_orbs)-1
-	current_health_orb.play_active()
+	current_health_orb.Play_Active()
 	pass # Replace with function body.
 
 func On_Damage_Taken(dmg: int):
 	if current_orb_index >= 0:
 		for i in range(current_orb_index, current_orb_index-dmg, -1):
 			current_health_orb = health_orbs[i]
-			current_health_orb.play_hurt()
-		current_orb_index -= 1
-	if current_orb_index == -1:
+			current_health_orb.Play_Hurt()
+		current_orb_index -= dmg
+	if current_orb_index <= -1:
 		return
 	current_health_orb = health_orbs[current_orb_index]
-	current_health_orb.play_active()
+	current_health_orb.Play_Active()
 
 func On_Heal(hp_healed: int):
 	if current_orb_index + hp_healed < len(health_orbs):
 		for i in range(current_orb_index, current_orb_index+hp_healed):
 			current_health_orb = health_orbs[i]
-			current_orb_index += 1
-			current_health_orb.play_healing()
+			current_health_orb.Play_Healing()
+		current_orb_index += hp_healed
 		current_health_orb = health_orbs[current_orb_index]
-		current_health_orb.play_active()
-		mana_indicator.Decrease_Mana()
+		current_health_orb.Play_Active()
+		if mana_indicator.mana_ui.frame == 0:
+			player_health_component.can_heal = false
+	mana_indicator.Decrease_Mana()

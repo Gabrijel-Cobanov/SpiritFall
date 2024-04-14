@@ -66,6 +66,7 @@ func _ready():
 	hurt_cooldown.connect("timeout", Reset_Hurt_Cooldown)
 	heal_cooldown.connect("timeout", func(): can_heal = true)
 	health.hurt.connect(On_Hurt)
+	health.dead.connect(On_Dead)
 	
 	current_state = idle
 	current_state.Enter(self)
@@ -73,6 +74,7 @@ func _ready():
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
 	heal_is_pressed = Input.is_action_pressed("heal")
+	can_heal = health.can_heal
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
 	if combo_counter >= 3:
@@ -120,3 +122,6 @@ func Reset_Hurt_Cooldown():
 func On_Hurt(dmg: int):
 	if health.can_take_damage:
 		Switch_State(hurt)
+
+func On_Dead():
+	Switch_State(death)

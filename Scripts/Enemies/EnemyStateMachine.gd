@@ -14,8 +14,9 @@ var player_CB2D: CharacterBody2D
 @export var ledge_detector: RayCast2D
 @export var animator: AnimationPlayer
 
-@export_category("Movement")
+@export_category("Other Variables")
 @export var movement_speed: float
+@export var death_anim_duration: float
 var movement_direction: Vector2
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 

@@ -3,11 +3,11 @@ class_name HealthOrb
 
 @onready var animator = $AnimationPlayer
 
-func play_active():
+func Play_Active():
 	animator.play("active")
 
-func play_hurt():
+func Play_Hurt():
 	animator.play("hurt")
 	
-func play_healing():
+func Play_Healing():
 	animator.play("healing")

@@ -6,7 +6,7 @@ var anim_duration: float
 func Enter(ctx: EnemyStateMachine):
 	ctx.animator.play(ctx.enemy_name + "/death")
 	ctx.CB2D.set_collision_layer_value(2, false)
-	anim_duration = 1
+	anim_duration = ctx.death_anim_duration
 	
 func Update(ctx: EnemyStateMachine, delta: float):
 	if anim_duration <= 0:
