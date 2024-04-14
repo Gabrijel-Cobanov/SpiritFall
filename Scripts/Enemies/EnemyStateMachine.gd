@@ -46,13 +46,15 @@ func _ready():
 	health.dead.connect(On_Dead)
 	knockback_timer.timeout.connect(Reset_Velocity_X)
 	knockback_timer.timeout.connect(func(): is_being_knocked_back = false)
-	attack_timer.timeout.connect(func(): can_attack = true)
+	if attack_timer: 
+		attack_timer.timeout.connect(func(): can_attack = true)
 	
 	pursue_area.body_entered.connect(func(body): should_pursue = true)
 	pursue_area.body_exited.connect(func(body): should_pursue = false)
 	
-	attack_area.body_entered.connect(func(body): should_attack = true)
-	attack_area.body_exited.connect(func(body): should_attack = false)
+	if attack_area:
+		attack_area.body_entered.connect(func(body): should_attack = true)
+		attack_area.body_exited.connect(func(body): should_attack = false)
 	
 	current_state = idle
 	current_state.Enter(self)
