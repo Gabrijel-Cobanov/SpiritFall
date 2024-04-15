@@ -19,9 +19,10 @@ func _ready():
 	player_health_component.connect("hurt", On_Damage_Taken)
 	player_health_component.connect("heal", On_Heal)
 	player_attack_component.connect("hit_something", mana_indicator.Increase_Mana)
-	player_attack_component.connect("hit_something", func(): player_health_component.can_heal = true)
 	
 	player_health_component.can_heal = false
+	
+	mana_indicator.mana_updated.connect(Check_Mana_Ammount)
 	
 	current_health_orb = health_orbs[-1]
 	current_orb_index = len(health_orbs)-1
@@ -47,6 +48,11 @@ func On_Heal(hp_healed: int):
 		current_orb_index += hp_healed
 		current_health_orb = health_orbs[current_orb_index]
 		current_health_orb.Play_Active()
-		if mana_indicator.mana_ui.frame == 0:
-			player_health_component.can_heal = false
 	mana_indicator.Decrease_Mana()
+	mana_indicator.Decrease_Mana()
+	
+func Check_Mana_Ammount(ammount: int):
+	if ammount > 1:
+		player_health_component.can_heal = true
+	else:
+		player_health_component.can_heal = false
