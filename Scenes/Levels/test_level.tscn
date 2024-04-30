@@ -451,6 +451,9 @@ z_index = 10
 
 [node name="Enemies2" type="Node2D" parent="."]
 
+[node name="WalkerBot" parent="Enemies2" instance=ExtResource("18_ddyde")]
+position = Vector2(-347, 8)
+
 [node name="LumberBot" parent="Enemies2" instance=ExtResource("16_21iyo")]
 position = Vector2(94, 46)
 
@@ -461,6 +464,3 @@ position = Vector2(55, 55)
 
 [node name="HealthBar" parent="Player health UI" instance=ExtResource("16_u6wke")]
 position = Vector2(38, 21)
-
-[node name="WalkerBot" parent="." instance=ExtResource("18_ddyde")]
-position = Vector2(-347, 8)
