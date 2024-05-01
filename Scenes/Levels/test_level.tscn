@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://31lerm3qka2x"]
+[gd_scene load_steps=25 format=3 uid="uid://31lerm3qka2x"]
 
+[ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="1_142n3"]
 [ext_resource type="Texture2D" uid="uid://dr54p715041ly" path="res://Sprites/Environments/Sky.png" id="1_t7qps"]
 [ext_resource type="Texture2D" uid="uid://ckotsm2qw4l2n" path="res://Sprites/Environments/Background Factories and mountains.png" id="2_61rpo"]
 [ext_resource type="Texture2D" uid="uid://dx1xuugx303rc" path="res://Sprites/Environments/Far Away trees.png" id="3_rdcad"]
@@ -449,18 +450,20 @@ z_index = 10
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Enemies2" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="WalkerBot" parent="Enemies2" instance=ExtResource("18_ddyde")]
+[node name="WalkerBot" parent="Enemies" instance=ExtResource("18_ddyde")]
 position = Vector2(-347, 8)
 
-[node name="LumberBot" parent="Enemies2" instance=ExtResource("16_21iyo")]
+[node name="LumberBot" parent="Enemies" instance=ExtResource("16_21iyo")]
 position = Vector2(94, 46)
 
-[node name="LumberBot2" parent="Enemies2" instance=ExtResource("16_21iyo")]
+[node name="LumberBot2" parent="Enemies" instance=ExtResource("16_21iyo")]
 position = Vector2(55, 55)
 
-[node name="Player health UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" parent="Player health UI" instance=ExtResource("16_u6wke")]
+[node name="PauseMenu" parent="UI" instance=ExtResource("1_142n3")]
+
+[node name="HealthBar" parent="UI" instance=ExtResource("16_u6wke")]
 position = Vector2(38, 21)
