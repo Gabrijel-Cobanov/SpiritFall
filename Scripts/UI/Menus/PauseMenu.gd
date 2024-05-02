@@ -25,4 +25,4 @@ func On_Resume_Pressed():
 	
 func On_Quit_Pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
+	SceneTransitionManager.Transition_To_Scene("res://Scenes/Menus/MainMenu.tscn")
