@@ -8,7 +8,6 @@ func Enter(ctx: PlayerStateMachine):
 	ctx.i_frames_animator.play("i_frames")
 	anim_duration = 0.3
 	ctx.health.can_take_damage = false
-	print(ctx.health.can_take_damage)
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	if anim_duration <= 0.15:

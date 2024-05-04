@@ -12,7 +12,7 @@ size = Vector2(11, 17)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e42p"]
 radius = 7.0
-height = 20.0
+height = 34.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ourmp"]
 radius = 3.0
@@ -40,6 +40,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [30, 37]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponent/side/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Turn_On"
+}, {
+"args": [],
+"method": &"Turn_Off"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_j8y80"]
@@ -133,6 +150,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AttackComponent/contact/CollisionSwitch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Turn_Off"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_bpp62"]
 resource_name = "hitflash"
@@ -189,7 +220,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/side"]
-position = Vector2(29, -3)
+position = Vector2(19, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4e42p")
 disabled = true
@@ -264,7 +295,7 @@ position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
-frame = 30
+frame = 35
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {
