@@ -23,8 +23,9 @@ SceneTransitionManager="*res://Scenes/Autoloads/SceneTransitionManager.tscn"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=2
+window/size/mode=4
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
 
 [input]

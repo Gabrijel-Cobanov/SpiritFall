@@ -58,23 +58,6 @@ tracks/1/keys = {
 "method": &"Turn_Off"
 }]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StateMachine")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.572244, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"Lunge_Forward"
-}, {
-"args": [],
-"method": &"Reset_Velocity_X"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_j8y80"]
 resource_name = "death"
@@ -258,7 +241,7 @@ knockback_timer = NodePath("../Timers/Knockback Timer")
 ledge_detector = NodePath("../EdgeChecker")
 animator = NodePath("../Visuals/AnimationPlayer")
 movement_speed = 20.0
-lunge_speed = 60.0
+lunge_speed = 20.0
 death_anim_duration = 1.0
 attack_anim_duration = 1.0
 
@@ -314,7 +297,7 @@ position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
-frame = 36
+frame = 34
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {

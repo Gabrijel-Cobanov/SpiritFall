@@ -16,7 +16,9 @@ var player_CB2D: CharacterBody2D
 
 @export_category("Other Variables")
 @export var movement_speed: float
+@export var lunge_speed: float = 0
 @export var death_anim_duration: float
+@export var attack_anim_duration: float
 var movement_direction: Vector2
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -52,6 +54,7 @@ func _ready():
 	
 	pursue_area.body_entered.connect(func(body): should_pursue = true)
 	pursue_area.body_exited.connect(func(body): should_pursue = false)
+	
 	
 	if attack_area:
 		attack_area.body_entered.connect(func(body): should_attack = true)
@@ -94,11 +97,17 @@ func Pursue():
 		CB2D.velocity.x = movement_direction.x * movement_speed
 		
 func Wander(direction: int):
-	if !is_being_knocked_back:
+	if !is_being_knocked_back and ledge_detector.is_colliding():
 		CB2D.velocity.x = movement_direction.x * movement_speed * direction
 		
 func Reset_Velocity_X():
 	CB2D.velocity.x = 0
+	
+func Lunge_Forward():
+	if is_facing_right:
+		CB2D.velocity.x = lunge_speed
+	else:
+		CB2D.velocity.x = -lunge_speed
 	
 func On_Hurt(dmg: int):
 	is_being_knocked_back = true
