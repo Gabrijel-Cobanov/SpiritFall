@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coom8lh5kd8a7"
-path="res://.godot/imported/Fog 1.png-5af78fec368957209004dddb70e0cdb9.ctex"
+uid="uid://t0uflssaaac6"
+path="res://.godot/imported/Ground edges and elevations.png-83b07ff2c7d1e5bab736904133e5cdc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Fog 1.png"
-dest_files=["res://.godot/imported/Fog 1.png-5af78fec368957209004dddb70e0cdb9.ctex"]
+source_file="res://Sprites/Environments/Forrest/Ground edges and elevations.png"
+dest_files=["res://.godot/imported/Ground edges and elevations.png-83b07ff2c7d1e5bab736904133e5cdc7.ctex"]
 
 [params]
 

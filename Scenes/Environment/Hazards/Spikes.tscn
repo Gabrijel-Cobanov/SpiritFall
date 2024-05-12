@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxv1nn17r6m7k"]
+
+[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/spike.gd" id="1_x81kn"]
+[ext_resource type="Texture2D" uid="uid://b2mnetcuodtd1" path="res://Sprites/Environments/Hazards/Spike1-dark.png" id="2_tnp3g"]
+[ext_resource type="Texture2D" uid="uid://34wjfr1hmdfb" path="res://Sprites/Environments/Hazards/Spike1-light.png" id="3_u48xn"]
+[ext_resource type="Texture2D" uid="uid://cid0ycg1y24a1" path="res://Sprites/Environments/Hazards/Spike2-dark.png" id="4_kqmer"]
+[ext_resource type="Texture2D" uid="uid://s3goqxir68ll" path="res://Sprites/Environments/Hazards/Spike3-dark.png" id="5_luvfg"]
+[ext_resource type="Texture2D" uid="uid://d0vpv6c2m3fk" path="res://Sprites/Environments/Hazards/Spike2-light.png" id="6_k2d55"]
+[ext_resource type="Texture2D" uid="uid://s21ufd8sjpio" path="res://Sprites/Environments/Hazards/Spike3-light.png" id="7_rl8w1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo0md"]
+size = Vector2(59, 26)
+
+[node name="Spikes" type="Node2D"]
+script = ExtResource("1_x81kn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -13)
+shape = SubResource("RectangleShape2D_uo0md")
+
+[node name="Spkies" type="Node2D" parent="."]
+
+[node name="Spike1-dark" type="Sprite2D" parent="Spkies"]
+position = Vector2(-1, -15)
+scale = Vector2(1, 0.9375)
+texture = ExtResource("2_tnp3g")
+
+[node name="Spike1-light" type="Sprite2D" parent="Spkies"]
+position = Vector2(-5, -17)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("3_u48xn")
+
+[node name="Spike2-dark" type="Sprite2D" parent="Spkies"]
+position = Vector2(6, -16)
+texture = ExtResource("4_kqmer")
+
+[node name="Spike3-dark" type="Sprite2D" parent="Spkies"]
+position = Vector2(14, -20.5)
+scale = Vector2(1, 1.28125)
+texture = ExtResource("5_luvfg")
+
+[node name="Spike1-dark2" type="Sprite2D" parent="Spkies"]
+position = Vector2(-13, -16)
+texture = ExtResource("2_tnp3g")
+
+[node name="Spike3-dark2" type="Sprite2D" parent="Spkies"]
+position = Vector2(21, -16)
+texture = ExtResource("5_luvfg")
+
+[node name="Spike2-dark2" type="Sprite2D" parent="Spkies"]
+position = Vector2(-9, -16)
+texture = ExtResource("4_kqmer")
+
+[node name="Spike1-light2" type="Sprite2D" parent="Spkies"]
+position = Vector2(-23, -17.5)
+scale = Vector2(1, 1.09375)
+texture = ExtResource("3_u48xn")
+
+[node name="Spike2-light" type="Sprite2D" parent="Spkies"]
+position = Vector2(26, -20)
+scale = Vector2(1, 1.25)
+texture = ExtResource("6_k2d55")
+
+[node name="Spike3-light" type="Sprite2D" parent="Spkies"]
+position = Vector2(10, -16)
+texture = ExtResource("7_rl8w1")
+
+[node name="Spike3-dark3" type="Sprite2D" parent="Spkies"]
+position = Vector2(-20, -19)
+scale = Vector2(1, 1.1875)
+texture = ExtResource("5_luvfg")
+
+[node name="Spike3-dark4" type="Sprite2D" parent="Spkies"]
+position = Vector2(2, -19)
+texture = ExtResource("5_luvfg")

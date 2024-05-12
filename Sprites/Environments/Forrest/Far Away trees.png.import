@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8rpkt2m74dsl"
-path="res://.godot/imported/Tree 2.png-18cc2a16a9b728307fe8203ed1988023.ctex"
+uid="uid://dx1xuugx303rc"
+path="res://.godot/imported/Far Away trees.png-24678ec0142bd23421336faa28d094c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Tree 2.png"
-dest_files=["res://.godot/imported/Tree 2.png-18cc2a16a9b728307fe8203ed1988023.ctex"]
+source_file="res://Sprites/Environments/Forrest/Far Away trees.png"
+dest_files=["res://.godot/imported/Far Away trees.png-24678ec0142bd23421336faa28d094c1.ctex"]
 
 [params]
 

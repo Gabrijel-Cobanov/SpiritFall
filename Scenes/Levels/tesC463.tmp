@@ -500,7 +500,6 @@ shape = SubResource("RectangleShape2D_6i7l1")
 
 [node name="Player" parent="." instance=ExtResource("15_14nxn")]
 z_index = 10
-position = Vector2(965, 34)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

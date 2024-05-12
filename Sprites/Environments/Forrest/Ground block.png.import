@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eg2yp4qu8l7v"
-path="res://.godot/imported/Fog 3.png-8cee2773c435d72bd0a7a4c933aae4b0.ctex"
+uid="uid://bp63qygkrvtgy"
+path="res://.godot/imported/Ground block.png-c9d5975b17e7dd269a16376c3c2284ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Fog 3.png"
-dest_files=["res://.godot/imported/Fog 3.png-8cee2773c435d72bd0a7a4c933aae4b0.ctex"]
+source_file="res://Sprites/Environments/Forrest/Ground block.png"
+dest_files=["res://.godot/imported/Ground block.png-c9d5975b17e7dd269a16376c3c2284ea.ctex"]
 
 [params]
 

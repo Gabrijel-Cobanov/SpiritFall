@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t0uflssaaac6"
-path="res://.godot/imported/Ground edges and elevations.png-c048b3c1760cc1f40c6dff675cfcf94a.ctex"
+uid="uid://ck6gybawvw41a"
+path="res://.godot/imported/Metal platform.png-2128b48021dfc566578f190b7aea1d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Ground edges and elevations.png"
-dest_files=["res://.godot/imported/Ground edges and elevations.png-c048b3c1760cc1f40c6dff675cfcf94a.ctex"]
+source_file="res://Sprites/Environments/Forrest/Metal platform.png"
+dest_files=["res://.godot/imported/Metal platform.png-2128b48021dfc566578f190b7aea1d12.ctex"]
 
 [params]
 

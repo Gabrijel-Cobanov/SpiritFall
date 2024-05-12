@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr54p715041ly"
-path="res://.godot/imported/Sky.png-49f5883c12d8ad22a74fb7a03a835a41.ctex"
+uid="uid://d0vpv6c2m3fk"
+path="res://.godot/imported/Spike2-light.png-134cabfc97b987033f4c335e18daf738.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Sky.png"
-dest_files=["res://.godot/imported/Sky.png-49f5883c12d8ad22a74fb7a03a835a41.ctex"]
+source_file="res://Sprites/Environments/Hazards/Spike2-light.png"
+dest_files=["res://.godot/imported/Spike2-light.png-134cabfc97b987033f4c335e18daf738.ctex"]
 
 [params]
 

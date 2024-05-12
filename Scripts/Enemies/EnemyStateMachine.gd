@@ -97,7 +97,7 @@ func Pursue():
 		CB2D.velocity.x = movement_direction.x * movement_speed
 		
 func Wander(direction: int):
-	if !is_being_knocked_back and ledge_detector.is_colliding():
+	if !is_being_knocked_back:
 		CB2D.velocity.x = movement_direction.x * movement_speed * direction
 		
 func Reset_Velocity_X():

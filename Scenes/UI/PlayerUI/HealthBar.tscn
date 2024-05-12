@@ -23,11 +23,5 @@ position = Vector2(17, 0)
 [node name="HealthOrb5" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
 position = Vector2(25, 0)
 
-[node name="HealthOrb6" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
-position = Vector2(33, 0)
-
-[node name="HealthOrb7" parent="." groups=["health_orbs"] instance=ExtResource("1_xehng")]
-position = Vector2(41, 0)
-
 [node name="ManaIndicator" parent="." instance=ExtResource("2_vp4ed")]
 position = Vector2(-18, 0)

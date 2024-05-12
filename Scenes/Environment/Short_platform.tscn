@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvqejgapuvo6w"]
 
-[ext_resource type="Texture2D" uid="uid://ck6gybawvw41a" path="res://Sprites/Environments/Metal platform.png" id="1_2441r"]
+[ext_resource type="Texture2D" uid="uid://ck6gybawvw41a" path="res://Sprites/Environments/Forrest/Metal platform.png" id="1_2441r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grvur"]
 size = Vector2(34, 3)

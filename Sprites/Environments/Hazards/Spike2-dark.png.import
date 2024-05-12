@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxitdjqyjj6ad"
-path="res://.godot/imported/Fog 2.png-19c91ab29647b9b5ab398371c9f5b4e0.ctex"
+uid="uid://cid0ycg1y24a1"
+path="res://.godot/imported/Spike2-dark.png-eb9f9484a2be0b4061c489d22a2c72a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Fog 2.png"
-dest_files=["res://.godot/imported/Fog 2.png-19c91ab29647b9b5ab398371c9f5b4e0.ctex"]
+source_file="res://Sprites/Environments/Hazards/Spike2-dark.png"
+dest_files=["res://.godot/imported/Spike2-dark.png-eb9f9484a2be0b4061c489d22a2c72a8.ctex"]
 
 [params]
 

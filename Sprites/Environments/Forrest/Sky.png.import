@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckotsm2qw4l2n"
-path="res://.godot/imported/Background Factories and mountains.png-e2b676aeb6baa9410b156ae0abcb3aec.ctex"
+uid="uid://dr54p715041ly"
+path="res://.godot/imported/Sky.png-62f857410c7a17bfc049c73328b7ea4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Background Factories and mountains.png"
-dest_files=["res://.godot/imported/Background Factories and mountains.png-e2b676aeb6baa9410b156ae0abcb3aec.ctex"]
+source_file="res://Sprites/Environments/Forrest/Sky.png"
+dest_files=["res://.godot/imported/Sky.png-62f857410c7a17bfc049c73328b7ea4d.ctex"]
 
 [params]
 

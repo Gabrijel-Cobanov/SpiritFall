@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cifeg3x6gxt70"
-path="res://.godot/imported/Rocks and folliage.png-2eec7f2637d626cadb7878ddb2f6e247.ctex"
+path="res://.godot/imported/Rocks and folliage.png-e8c52180027838e14168ac20f865750f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environments/Rocks and folliage.png"
-dest_files=["res://.godot/imported/Rocks and folliage.png-2eec7f2637d626cadb7878ddb2f6e247.ctex"]
+source_file="res://Sprites/Environments/Forrest/Rocks and folliage.png"
+dest_files=["res://.godot/imported/Rocks and folliage.png-e8c52180027838e14168ac20f865750f.ctex"]
 
 [params]
 

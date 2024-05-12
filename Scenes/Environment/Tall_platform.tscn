@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgfw084vqqxug"]
 
-[ext_resource type="Texture2D" uid="uid://ck6gybawvw41a" path="res://Sprites/Environments/Metal platform.png" id="1_qfkvq"]
+[ext_resource type="Texture2D" uid="uid://ck6gybawvw41a" path="res://Sprites/Environments/Forrest/Metal platform.png" id="1_qfkvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wjld"]
 texture = ExtResource("1_qfkvq")

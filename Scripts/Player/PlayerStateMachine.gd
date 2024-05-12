@@ -16,11 +16,11 @@ class_name PlayerStateMachine
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO
-const MOVEMENT_SPEED: float = 100
-const JUMP_VELOCITY: float = -320
-const MAX_FALL_VELOCITY: float = 300
+const MOVEMENT_SPEED: float = 80
+const JUMP_VELOCITY: float = -300
+const MAX_FALL_VELOCITY: float = 290
 const MAX_HEIGHT_TIME: float = 0.3
-const DASH_VELOCITY: float = 210
+const DASH_VELOCITY: float = 170
 
 var combo_counter: int = 1
 
