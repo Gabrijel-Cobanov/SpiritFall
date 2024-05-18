@@ -233,6 +233,7 @@ debug_color = Color(0.988235, 0, 0.317647, 0.419608)
 script = ExtResource("3_j5oqw")
 
 [node name="side" type="Area2D" parent="AttackComponent"]
+position = Vector2(-2, 0)
 collision_layer = 0
 monitorable = false
 
@@ -314,7 +315,7 @@ position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
-frame = 36
+frame = 34
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {

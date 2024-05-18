@@ -680,6 +680,7 @@ nodes/fragment/0/position = Vector2(480, 160)
 shader = SubResource("VisualShader_75at7")
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 5
 collision_mask = 62
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -701,18 +702,19 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/up"]
-position = Vector2(3, -19)
+position = Vector2(3, -14)
 shape = SubResource("CircleShape2D_fd1l3")
 disabled = true
 script = ExtResource("4_ok4u5")
 
 [node name="side" type="Area2D" parent="AttackComponent"]
+position = Vector2(-2, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/side"]
-position = Vector2(27, 0)
+position = Vector2(24, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_uukt2")
 disabled = true
@@ -724,7 +726,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionSwitch" type="CollisionShape2D" parent="AttackComponent/down"]
-position = Vector2(2, 19)
+position = Vector2(2, 20)
 shape = SubResource("CircleShape2D_x17br")
 disabled = true
 script = ExtResource("4_ok4u5")

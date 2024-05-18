@@ -23,6 +23,7 @@ const MAX_HEIGHT_TIME: float = 0.3
 const DASH_VELOCITY: float = 170
 
 var combo_counter: int = 1
+var max_combo_counter:int = 2
 
 #flags
 var is_facing_right: bool = true
@@ -77,7 +78,7 @@ func _process(delta):
 	can_heal = health.can_heal
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
-	if combo_counter >= 3:
+	if combo_counter >= max_combo_counter:
 		can_attack = false
 		combo_counter = 1
 		attack_combo_cooldown.start()

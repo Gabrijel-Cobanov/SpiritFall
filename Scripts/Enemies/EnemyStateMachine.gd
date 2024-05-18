@@ -117,7 +117,6 @@ func Lunge_Forward():
 func On_Hurt(dmg: int):
 	is_being_knocked_back = true
 	knockback_timer.start()
-	#flash white but we'll get to that
 	
 func On_Dead():
 	Switch_State(death)
