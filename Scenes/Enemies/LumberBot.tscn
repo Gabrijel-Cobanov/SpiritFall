@@ -258,7 +258,7 @@ knockback_timer = NodePath("../Timers/Knockback Timer")
 ledge_detector = NodePath("../EdgeChecker")
 animator = NodePath("../Visuals/AnimationPlayer")
 movement_speed = 20.0
-lunge_speed = 60.0
+lunge_speed = 80.0
 death_anim_duration = 1.0
 attack_anim_duration = 1.0
 
@@ -270,7 +270,7 @@ collision_mask = 16
 [node name="Timers" type="Node" parent="."]
 
 [node name="Attack Timer" type="Timer" parent="Timers"]
-wait_time = 0.75
+wait_time = 0.65
 one_shot = true
 
 [node name="Knockback Timer" type="Timer" parent="Timers"]

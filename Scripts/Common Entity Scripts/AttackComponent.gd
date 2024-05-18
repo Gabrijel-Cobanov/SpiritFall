@@ -14,12 +14,14 @@ class_name AttackComponent
 @export var knockback_dealt: int
 
 signal hit_something
+signal should_pogo
 
 func _ready():
 	if up: 
 		up.body_entered.connect(Attack)
 	if down: 
 		down.body_entered.connect(Attack)
+		down.body_entered.connect(func(body): should_pogo.emit())
 	if side:
 		side.body_entered.connect(Attack)
 	if contact:

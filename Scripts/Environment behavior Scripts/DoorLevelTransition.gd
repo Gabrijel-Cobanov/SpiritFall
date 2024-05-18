@@ -7,7 +7,6 @@ var path_to_level: String = "res://Scenes/Levels/"
 
 var player_near_door: bool = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	body_entered.connect(func(body): enter_level_pointer.visible = true)

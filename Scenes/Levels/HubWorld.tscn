@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://diag3s58wlnot" path="res://Sprites/Environments/Hub/Tree/Leaves9.png" id="18_cmow6"]
 [ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/HubLoop.gd" id="19_3uy75"]
 [ext_resource type="PackedScene" uid="uid://blys5rjfktt1i" path="res://Scenes/Player/player.tscn" id="20_ab2ys"]
-[ext_resource type="Script" path="res://Scenes/Levels/LevelTransition.gd" id="22_kr8sc"]
+[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/DoorLevelTransition.gd" id="22_dqqpb"]
 [ext_resource type="PackedScene" uid="uid://dqduw1weaq6mr" path="res://Scenes/UI/EnterLevelPointer.tscn" id="23_w1npr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8b0l"]
@@ -165,7 +165,7 @@ texture = ExtResource("8_paqgt")
 [node name="Door1" type="Area2D" parent="Doors/Door_functionality"]
 position = Vector2(78, -1)
 collision_layer = 0
-script = ExtResource("22_kr8sc")
+script = ExtResource("22_dqqpb")
 level_name = "test_level.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door_functionality/Door1"]
