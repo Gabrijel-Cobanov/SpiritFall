@@ -4,6 +4,8 @@ extends CanvasItem
 @onready var options_button: Button = $PanelContainer/VBoxContainer/Options
 @onready var quit_button: Button = $PanelContainer/VBoxContainer/Quit
 
+@export var path_to_scene_to_quit_to: String = "res://Scenes/Menus/MainMenu.tscn"
+
 var focus_grabbed: bool = false
 
 func _ready():
@@ -24,4 +26,4 @@ func On_Resume_Pressed():
 	get_tree().paused = false
 	
 func On_Quit_Pressed():
-	SceneTransitionManager.Transition_To_Scene("res://Scenes/Menus/MainMenu.tscn")
+	SceneTransitionManager.Transition_To_Scene(path_to_scene_to_quit_to)

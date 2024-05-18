@@ -12,7 +12,7 @@ func _ready():
 	exit_button.pressed.connect(On_Exit_Pressed)
 	
 func On_Start_Button_Pressed():
-	SceneTransitionManager.Transition_To_Scene("res://Scenes/Gameplay.tscn")
+	SceneTransitionManager.Transition_To_Scene("res://Scenes/Levels/HubWorld.tscn")
 	
 func On_Exit_Pressed():
 	get_tree().quit()

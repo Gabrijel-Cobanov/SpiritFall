@@ -517,6 +517,7 @@ position = Vector2(-286, 10)
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("1_142n3")]
 visible = false
+path_to_scene_to_quit_to = "res://Scenes/Levels/HubWorld.tscn"
 
 [node name="HealthBar" parent="UI" instance=ExtResource("16_u6wke")]
 position = Vector2(38, 21)
