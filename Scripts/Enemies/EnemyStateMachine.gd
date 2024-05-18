@@ -3,6 +3,7 @@ class_name EnemyStateMachine
 
 @export var enemy_name: String
 var player_CB2D: CharacterBody2D
+var enemy_active: bool = false
 
 @export_category("Nodes")
 @export var CB2D: CharacterBody2D
@@ -38,6 +39,8 @@ var death: EnemyDeathState
 var current_state: EnemyBaseState
 
 func _ready():
+	await GlobalSignalBus.player_spawned
+	enemy_active = true
 	player_CB2D = get_tree().get_first_node_in_group("Player")
 	
 	idle = EnemyIdleState.new()
@@ -64,15 +67,17 @@ func _ready():
 	current_state.Enter(self)
 	
 func _process(delta):
-	current_state.Update(self, delta)
-	Flip()
+	if enemy_active:
+		current_state.Update(self, delta)
+		Flip()
 	
 func _physics_process(delta):
-	if !CB2D.is_on_floor():
-		CB2D.velocity.y += gravity * delta
-	current_state.Physics_Update(self, delta)
-	movement_direction = get_movement_direction()
-	CB2D.move_and_slide()
+	if enemy_active:
+		if !CB2D.is_on_floor():
+			CB2D.velocity.y += gravity * delta
+		current_state.Physics_Update(self, delta)
+		movement_direction = get_movement_direction()
+		CB2D.move_and_slide()
 	
 func Flip():
 	if is_being_knocked_back:

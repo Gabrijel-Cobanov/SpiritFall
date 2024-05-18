@@ -24,5 +24,4 @@ func On_Resume_Pressed():
 	get_tree().paused = false
 	
 func On_Quit_Pressed():
-	get_tree().paused = false
 	SceneTransitionManager.Transition_To_Scene("res://Scenes/Menus/MainMenu.tscn")

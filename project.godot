@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneTransitionManager="*res://Scenes/Autoloads/SceneTransitionManager.tscn"
+GlobalSignalBus="*res://Scenes/Autoloads/GlobalSignalBus.gd"
 
 [display]
 

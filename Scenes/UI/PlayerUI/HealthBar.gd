@@ -8,9 +8,11 @@ var health_orbs = []
 var current_health_orb: HealthOrb
 var current_orb_index: int
 @onready var mana_indicator = $ManaIndicator
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
+	await GlobalSignalBus.player_spawned
+	visible = true
 	player_CB2D = get_tree().get_first_node_in_group("Player")
 	health_orbs = get_tree().get_nodes_in_group("health_orbs")
 	player_health_component = player_CB2D.get_child(0)
