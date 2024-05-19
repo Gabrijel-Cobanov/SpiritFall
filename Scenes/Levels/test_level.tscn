@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://31lerm3qka2x"]
+[gd_scene load_steps=29 format=3 uid="uid://31lerm3qka2x"]
 
 [ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="1_142n3"]
 [ext_resource type="Script" path="res://Scenes/Levels/test_level.gd" id="1_syuse"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://i7r7djcr47tj" path="res://Scenes/Enemies/WalkerBot.tscn" id="18_ddyde"]
 [ext_resource type="PackedScene" uid="uid://oopk72aad6pq" path="res://Scenes/Environment/Spawn_Stone.tscn" id="20_r74r3"]
 [ext_resource type="PackedScene" uid="uid://cxv1nn17r6m7k" path="res://Scenes/Environment/Hazards/Spikes.tscn" id="20_wbhbp"]
+[ext_resource type="PackedScene" uid="uid://bph31pcq5v5m" path="res://Scenes/Environment/BreakableWall.tscn" id="22_r8swg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r34m4"]
 texture = ExtResource("7_vwx4n")
@@ -533,3 +534,6 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-772, -69)
+
+[node name="BreakableWall" parent="." instance=ExtResource("22_r8swg")]
+position = Vector2(-469, -14)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bph31pcq5v5m"]
+
+[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/BreakableWall.gd" id="1_1p4su"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_q2j3c"]
+[ext_resource type="Texture2D" uid="uid://dh4jjypovdqb2" path="res://Sprites/Environments/Breakable Wall.png" id="1_ro01d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66hdo"]
+size = Vector2(8, 32)
+
+[node name="BreakableWall" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_1p4su")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("1_q2j3c")
+max_health = 3
+heal_ammount = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_66hdo")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="BreakableWall" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_ro01d")
+hframes = 3
+
+[node name="BreakableWall2" type="Sprite2D" parent="Visuals"]
+visible = false
+texture = ExtResource("1_ro01d")
+hframes = 3
+frame = 1
+
+[node name="BreakableWall3" type="Sprite2D" parent="Visuals"]
+visible = false
+texture = ExtResource("1_ro01d")
+hframes = 3
+frame = 2

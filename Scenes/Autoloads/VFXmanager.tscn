@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://c21ru2gjpxha6"]
+
+[ext_resource type="Script" path="res://Scenes/Autoloads/VFXmanager.gd" id="1_vkyx6"]
+[ext_resource type="Texture2D" uid="uid://d4c72snlt6ufn" path="res://Sprites/VFX/HitVFX.png" id="2_1cf7w"]
+
+[sub_resource type="Animation" id="Animation_wx4bg"]
+resource_name = "hit_1"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXsprites/HitVfx:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_4gtdx"]
+resource_name = "hit_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXsprites/HitVfx:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_8385b"]
+resource_name = "hit_3"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXsprites/HitVfx:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_m12w2"]
+resource_name = "hit_4"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXsprites/HitVfx:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_cbe0n"]
+resource_name = "wall_hit_1"
+length = 0.2
+
+[sub_resource type="Animation" id="Animation_x0poi"]
+resource_name = "wall_hit_2"
+length = 0.2
+
+[sub_resource type="Animation" id="Animation_cs5ti"]
+resource_name = "wall_hit_3"
+length = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7hndx"]
+_data = {
+"hit_1": SubResource("Animation_wx4bg"),
+"hit_2": SubResource("Animation_4gtdx"),
+"hit_3": SubResource("Animation_8385b"),
+"hit_4": SubResource("Animation_m12w2"),
+"wall_hit_1": SubResource("Animation_cbe0n"),
+"wall_hit_2": SubResource("Animation_x0poi"),
+"wall_hit_3": SubResource("Animation_cs5ti")
+}
+
+[node name="VFXmanager" type="Node2D"]
+script = ExtResource("1_vkyx6")
+
+[node name="VFXsprites" type="Node2D" parent="."]
+
+[node name="HitVfx" type="Sprite2D" parent="VFXsprites"]
+visible = false
+texture = ExtResource("2_1cf7w")
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7hndx")
+}

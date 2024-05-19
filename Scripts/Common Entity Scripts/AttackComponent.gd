@@ -14,6 +14,7 @@ class_name AttackComponent
 @export var knockback_dealt: int
 
 signal hit_something
+signal hit_something_at_pos(position: Vector2)
 signal should_pogo
 
 func _ready():
@@ -33,8 +34,10 @@ func Attack(body: CharacterBody2D):
 	health.Take_Damage(dmg)
 	var direction: Vector2 = body.position - CB2D.position
 	direction = direction.normalized() * knockback_dealt
-	body.velocity = direction
+	if body.is_in_group("enemies") or body.is_in_group("Player"):
+		body.velocity = direction
 	hit_something.emit()
+	GlobalSignalBus.something_got_hit_at_pos.emit(body.position)
 	
 func _process(delta):
 	if contact and contact.has_overlapping_bodies():

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneTransitionManager="*res://Scenes/Autoloads/SceneTransitionManager.tscn"
 GlobalSignalBus="*res://Scenes/Autoloads/GlobalSignalBus.gd"
+VFXmanager="*res://Scenes/Autoloads/VFXmanager.tscn"
 
 [display]
 
