@@ -21,6 +21,7 @@ func Spawn_Player():
 	var camera_2D: Camera2D = Camera2D.new()
 	get_parent().add_child(player_scene)
 	player_scene.add_child(camera_2D)
+	camera_2D.offset.y = -10
 	camera_2D.make_current()
 	player_scene.velocity.y += -250
 	get_parent().remove_child(camera_to_remove)

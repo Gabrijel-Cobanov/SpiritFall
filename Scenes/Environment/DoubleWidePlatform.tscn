@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://7di6q4jj2bsn"]
+
+[ext_resource type="Texture2D" uid="uid://cyd51770ngyp4" path="res://Sprites/Environments/Forrest/Double wide metal platform.png" id="1_qhi6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a40y5"]
+size = Vector2(74, 3)
+
+[node name="DoubleWidePlatform" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 7
+
+[node name="DoubleWideMetalPlatform" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+texture = ExtResource("1_qhi6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_a40y5")
+one_way_collision = true

@@ -82,10 +82,10 @@ func _physics_process(delta):
 func Flip():
 	if is_being_knocked_back:
 		return
-	if is_facing_right and CB2D.velocity.x < 0:
+	if (is_facing_right and CB2D.velocity.x < 0) or !ledge_detector.is_colliding():
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
-	elif !is_facing_right and CB2D.velocity.x > 0:
+	elif (!is_facing_right and CB2D.velocity.x > 0) or !ledge_detector.is_colliding():
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
 

@@ -166,7 +166,7 @@ texture = ExtResource("8_paqgt")
 position = Vector2(78, -1)
 collision_layer = 0
 script = ExtResource("22_dqqpb")
-level_name = "test_level.tscn"
+level_name = "LevelOne.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door_functionality/Door1"]
 shape = SubResource("RectangleShape2D_dp2l0")
