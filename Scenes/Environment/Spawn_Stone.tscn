@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id="Animation_lql57"]
 resource_name = "active"
-length = 1.2
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -14,7 +14,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"times": PackedFloat32Array(0, 0.141943, 0.243621, 0.35872, 0.485564, 0.609052, 0.730862, 0.864417, 0.987905, 1.12481, 1.27515, 1.40367, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 35]
