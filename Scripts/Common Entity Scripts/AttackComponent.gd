@@ -36,7 +36,7 @@ func Attack(body: CharacterBody2D):
 	direction = direction.normalized() * knockback_dealt
 	if body.is_in_group("enemies") or body.is_in_group("Player"):
 		body.velocity = direction
-	hit_something.emit()
+		hit_something.emit()
 	GlobalSignalBus.something_got_hit_at_pos.emit(body.position)
 	
 func _process(delta):
