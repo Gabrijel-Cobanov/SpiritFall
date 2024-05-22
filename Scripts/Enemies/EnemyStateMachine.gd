@@ -82,10 +82,10 @@ func _physics_process(delta):
 func Flip():
 	if is_being_knocked_back:
 		return
-	if (is_facing_right and CB2D.velocity.x < 0) or !ledge_detector.is_colliding():
+	if is_facing_right and CB2D.velocity.x < 0:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
-	elif (!is_facing_right and CB2D.velocity.x > 0) or !ledge_detector.is_colliding():
+	elif !is_facing_right and CB2D.velocity.x > 0:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
 
@@ -103,7 +103,7 @@ func Pursue():
 		
 func Wander(direction: int):
 	if !is_being_knocked_back:
-		CB2D.velocity.x = movement_direction.x * movement_speed * direction
+		CB2D.velocity.x = movement_speed * direction
 		
 func Reset_Velocity_X():
 	CB2D.velocity.x = 0

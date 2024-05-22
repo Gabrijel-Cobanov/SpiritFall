@@ -258,13 +258,13 @@ attack_timer = NodePath("../Timers/Attack Timer")
 knockback_timer = NodePath("../Timers/Knockback Timer")
 ledge_detector = NodePath("../EdgeChecker")
 animator = NodePath("../Visuals/AnimationPlayer")
-movement_speed = 20.0
+movement_speed = 30.0
 lunge_speed = 80.0
 death_anim_duration = 1.0
 attack_anim_duration = 1.0
 
 [node name="EdgeChecker" type="RayCast2D" parent="."]
-position = Vector2(4, 5)
+position = Vector2(7, 5)
 target_position = Vector2(0, 6)
 collision_mask = 16
 
@@ -315,7 +315,6 @@ position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
-frame = 34
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {

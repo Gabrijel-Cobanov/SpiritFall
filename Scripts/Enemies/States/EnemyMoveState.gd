@@ -23,9 +23,13 @@ func Update(ctx: EnemyStateMachine, delta: float):
 func Physics_Update(ctx: EnemyStateMachine, delta: float):
 	wander_time -= delta
 	if ctx.should_pursue:
-		if ctx.ledge_detector.is_colliding():
-			ctx.Pursue()
-	else:
+		ctx.Pursue()
+	elif ctx.ledge_detector.is_colliding():
+		ctx.Wander(direction)
+	elif (!ctx.ledge_detector.is_colliding() 
+		and (ctx.is_facing_right == true and direction > 0 
+		or ctx.is_facing_right == false and direction < 0)):
+		direction = -direction
 		ctx.Wander(direction)
 	
 func Exit(ctx: EnemyStateMachine):

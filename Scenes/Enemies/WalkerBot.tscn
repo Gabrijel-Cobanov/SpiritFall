@@ -176,11 +176,11 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_f5xgy")
 
 [node name="LedgeChecker" type="RayCast2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(10, 0)
 target_position = Vector2(0, 9)
 collision_mask = 16
 
-[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("CB2D", "health", "pursue_area", "knockback_timer", "ledge_detector", "animator")]
+[node name="EnemyStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "pursue_area", "knockback_timer", "ledge_detector", "animator")]
 script = ExtResource("5_7caw0")
 enemy_name = "walker_bot"
 CB2D = NodePath("..")
