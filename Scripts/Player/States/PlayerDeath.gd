@@ -10,11 +10,11 @@ func Enter(ctx: PlayerStateMachine):
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	if anim_duration <= 0:
-		print("Player is dead.")
+		Exit(ctx)
 
 func Physics_Update(ctx: PlayerStateMachine, delta:float):
 	anim_duration -= delta
 	ctx.CB2D.velocity.x = move_toward(ctx.CB2D.velocity.x, 0, 10)
 	
 func Exit(ctx: PlayerStateMachine):
-	pass
+	GlobalSignalBus.player_died.emit()

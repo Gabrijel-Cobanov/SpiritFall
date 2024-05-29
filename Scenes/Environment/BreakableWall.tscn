@@ -47,7 +47,7 @@ _data = {
 }
 
 [node name="BreakableWall" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 18
 collision_mask = 3
 script = ExtResource("1_1p4su")
 
