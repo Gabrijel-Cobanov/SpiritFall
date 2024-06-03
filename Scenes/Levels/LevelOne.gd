@@ -12,9 +12,13 @@ func _ready():
 	
 func Complete_Level(body: CharacterBody2D):
 	print("Player entered")
+	var thread = Thread.new()
+	thread.start(Save_Pregress, 1)
+	thread.wait_to_finish()
+	SceneTransitionManager.Transition_To_Scene(hub_scene_path)	
+	
+func Save_Pregress():
 	var game_data = SaveSystem.get_var("save_file_1")
 	game_data.unlocked_level_ids[1] = 1
 	SaveSystem.set_var("save_file_1", game_data)
 	SaveSystem.save()
-	SceneTransitionManager.Transition_To_Scene(hub_scene_path)
-	
