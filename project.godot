@@ -20,16 +20,20 @@ config/icon="res://icon.svg"
 SceneTransitionManager="*res://Scenes/Autoloads/SceneTransitionManager.tscn"
 GlobalSignalBus="*res://Scenes/Autoloads/GlobalSignalBus.gd"
 VFXmanager="*res://Scenes/Autoloads/VFXmanager.tscn"
-SaverAndLoader="*res://Scenes/Autoloads/SaverAndLoader.gd"
+SaveSystem="*res://addons/save_system/save_system.gd"
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=4
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
 
 [input]
 

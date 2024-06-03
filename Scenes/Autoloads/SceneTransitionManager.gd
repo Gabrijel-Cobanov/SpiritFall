@@ -8,7 +8,7 @@ func Transition_To_Scene(scene_path: String):
 	get_tree().change_scene_to_file(scene_path)
 	get_tree().paused = true
 	animation_player.play_backwards("fade_to_black")
-	await  animation_player.animation_finished
+	await animation_player.animation_finished
 	get_tree().paused = false
 	
 

@@ -4,8 +4,8 @@ extends Node2D
 @onready var animator = $AnimationPlayer
 @onready var hit_vfx = $VFXsprites/HitVfx
 
-func Play_Hit_Anim(position: Vector2):
-	hit_vfx.position = position
+func Play_Hit_Anim(vfx_position: Vector2):
+	hit_vfx.position = vfx_position
 	var index = randi()%2 + 1
 	hit_vfx.visible = true
 	animator.play("hit_" + str(index))

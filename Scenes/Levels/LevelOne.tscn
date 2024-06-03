@@ -741,12 +741,13 @@ position = Vector2(1714, -21.5)
 shape = SubResource("RectangleShape2D_nk7l8")
 
 [node name="MineEntranceArea" type="Area2D" parent="Environment/Mine Entrance/The top of the mine entrance"]
-position = Vector2(1715, -5)
+position = Vector2(1717, -4)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Mine Entrance/The top of the mine entrance/MineEntranceArea"]
 z_index = 5
-position = Vector2(53, -1)
+z_as_relative = false
+position = Vector2(46, -2)
 shape = SubResource("RectangleShape2D_o4cwn")
 
 [node name="Tree1" type="Sprite2D" parent="Environment"]
