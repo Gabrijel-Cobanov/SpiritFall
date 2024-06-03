@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name HubTree
 
 @onready var l1 = $Leaves1
 @onready var l2 = $Leaves2
@@ -14,6 +15,11 @@ extends Sprite2D
 var num_of_found_secrets: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(SaverAndLoader.SAVE_DIR + SaverAndLoader.GAME_SAVE_FILE_NAME)
+	var game_data: GameData = SaverAndLoader.Load_Game_Data(SaverAndLoader.SAVE_DIR + SaverAndLoader.GAME_SAVE_FILE_NAME)
+	if game_data:
+		num_of_found_secrets = game_data.total_found_totems
+	
 	var leaves_array = [l1, l2, l3, l4, l5, l6, l7, l8]
 	if num_of_found_secrets == 0:
 		pass

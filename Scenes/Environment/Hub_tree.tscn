@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqdpet1qh4mft"]
+
+[ext_resource type="Texture2D" uid="uid://dwksem2raibco" path="res://Sprites/Environments/Hub/Tree/BareTree.png" id="1_4phkp"]
+[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/HubTree.gd" id="2_3qbgt"]
+[ext_resource type="Texture2D" uid="uid://bf7gab2l6t2nq" path="res://Sprites/Environments/Hub/Tree/Leaves1.png" id="3_ts00q"]
+[ext_resource type="Texture2D" uid="uid://g0bjwbsn82w0" path="res://Sprites/Environments/Hub/Tree/Leaves2.png" id="4_ge1ki"]
+[ext_resource type="Texture2D" uid="uid://n3qvqosd5a7e" path="res://Sprites/Environments/Hub/Tree/Leaves3.png" id="5_7p82t"]
+[ext_resource type="Texture2D" uid="uid://tlp2dn8gpnrp" path="res://Sprites/Environments/Hub/Tree/Leaves4.png" id="6_4uqnt"]
+[ext_resource type="Texture2D" uid="uid://bwijfa5ymns5k" path="res://Sprites/Environments/Hub/Tree/Leaves5.png" id="7_0fwec"]
+[ext_resource type="Texture2D" uid="uid://defb37xcbrs8c" path="res://Sprites/Environments/Hub/Tree/Leaves6.png" id="8_bp5jh"]
+[ext_resource type="Texture2D" uid="uid://ldvhr56duh0r" path="res://Sprites/Environments/Hub/Tree/Leaves7.png" id="9_gk04l"]
+[ext_resource type="Texture2D" uid="uid://b3cnthnrmplhb" path="res://Sprites/Environments/Hub/Tree/Leaves8.png" id="10_bubda"]
+[ext_resource type="Texture2D" uid="uid://diag3s58wlnot" path="res://Sprites/Environments/Hub/Tree/Leaves9.png" id="11_cechx"]
+
+[node name="BareTree" type="Sprite2D"]
+position = Vector2(-12, -40)
+texture = ExtResource("1_4phkp")
+script = ExtResource("2_3qbgt")
+
+[node name="Leaves1" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(11, -11)
+texture = ExtResource("3_ts00q")
+
+[node name="Leaves2" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(-3, -4)
+texture = ExtResource("4_ge1ki")
+
+[node name="Leaves3" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(-23, -4)
+texture = ExtResource("5_7p82t")
+
+[node name="Leaves4" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(-25, -9)
+texture = ExtResource("6_4uqnt")
+
+[node name="Leaves5" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(8, -19)
+texture = ExtResource("7_0fwec")
+
+[node name="Leaves6" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(9, -22)
+texture = ExtResource("8_bp5jh")
+
+[node name="Leaves7" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(1, -32)
+texture = ExtResource("9_gk04l")
+
+[node name="Leaves8" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(1, -43)
+texture = ExtResource("10_bubda")
+
+[node name="Leaves9" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(-2, -22)
+texture = ExtResource("11_cechx")
