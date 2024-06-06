@@ -4,37 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/TotemBehavior.gd" id="2_1wdjv"]
 [ext_resource type="Texture2D" uid="uid://b5uq4lfdjm28f" path="res://Sprites/Environments/CollectibleStoneSelected.png" id="2_l6m14"]
 
-[sub_resource type="Animation" id="Animation_ma55j"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_g5u8a"]
-resource_name = "waking"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [8, 11]
-}
-
 [sub_resource type="Animation" id="Animation_4xce6"]
 resource_name = "awake"
 length = 0.8
@@ -52,6 +21,21 @@ tracks/0/keys = {
 "values": [24, 25, 26, 27, 28, 29, 30, 31]
 }
 
+[sub_resource type="Animation" id="Animation_ma55j"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_u81bj"]
 resource_name = "launching"
 length = 0.4
@@ -66,6 +50,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [16, 18, 21]
+}
+
+[sub_resource type="Animation" id="Animation_g5u8a"]
+resource_name = "waking"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v48c1"]
@@ -91,13 +91,13 @@ libraries = {
 "": SubResource("AnimationLibrary_v48c1")
 }
 
-[node name="CollectibleStoneSelected" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_l6m14")
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 11)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8t58g")
+
+[node name="CollectibleStoneSelected" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_l6m14")

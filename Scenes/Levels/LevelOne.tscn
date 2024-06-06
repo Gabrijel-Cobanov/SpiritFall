@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://oamw4led5ob7"]
+[gd_scene load_steps=37 format=3 uid="uid://oamw4led5ob7"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelOne.gd" id="1_m3kwt"]
 [ext_resource type="Texture2D" uid="uid://dr54p715041ly" path="res://Sprites/Environments/Forrest/Sky.png" id="1_w3x08"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://djwhytjg0uora" path="res://Sprites/Environments/Forrest/Mine Entrance front.png" id="19_rbjw1"]
 [ext_resource type="Texture2D" uid="uid://dd13ms3ujfqro" path="res://Sprites/Environments/Forrest/Mine Entrance back.png" id="20_lp81a"]
 [ext_resource type="PackedScene" uid="uid://265duweovjr1" path="res://Scenes/Enemies/LumberBot.tscn" id="20_nawhk"]
+[ext_resource type="PackedScene" uid="uid://dd4puwc145yj6" path="res://Scenes/Environment/Totem.tscn" id="23_5j464"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r34m4"]
 texture = ExtResource("7_wxox2")
@@ -712,6 +713,9 @@ position = Vector2(-2136, 18)
 [node name="BreakableWall2" parent="Environment/Secrets" instance=ExtResource("13_5fppf")]
 position = Vector2(216, -78)
 scale = Vector2(-1, 1)
+
+[node name="Totem" parent="Environment/Secrets" instance=ExtResource("23_5j464")]
+position = Vector2(-1805, -2)
 
 [node name="Mine Entrance" type="Node2D" parent="Environment"]
 
