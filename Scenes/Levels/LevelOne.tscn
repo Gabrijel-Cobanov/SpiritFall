@@ -707,6 +707,9 @@ shape = SubResource("RectangleShape2D_jtkel")
 
 [node name="Secrets" type="Node2D" parent="Environment"]
 
+[node name="Totem" parent="Environment/Secrets" instance=ExtResource("23_5j464")]
+position = Vector2(-2151, 14)
+
 [node name="BreakableWall" parent="Environment/Secrets" instance=ExtResource("13_5fppf")]
 position = Vector2(-2136, 18)
 
@@ -714,8 +717,13 @@ position = Vector2(-2136, 18)
 position = Vector2(216, -78)
 scale = Vector2(-1, 1)
 
-[node name="Totem" parent="Environment/Secrets" instance=ExtResource("23_5j464")]
-position = Vector2(-1805, -2)
+[node name="Totem2" parent="Environment/Secrets" instance=ExtResource("23_5j464")]
+position = Vector2(-247, -154)
+totem_id = 1
+
+[node name="Totem3" parent="Environment/Secrets" instance=ExtResource("23_5j464")]
+position = Vector2(993, -154)
+totem_id = 2
 
 [node name="Mine Entrance" type="Node2D" parent="Environment"]
 

@@ -15,6 +15,10 @@ class_name HubTree
 var num_of_found_secrets: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	var game_data = SaveSystem.get_var("save_file_1")
+	num_of_found_secrets = game_data.total_found_totems
+	
 	var leaves_array = [l1, l2, l3, l4, l5, l6, l7, l8]
 	if num_of_found_secrets == 0:
 		pass

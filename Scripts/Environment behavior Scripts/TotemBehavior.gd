@@ -18,6 +18,11 @@ func _ready():
 	area_2d.body_entered.connect(func(body): if !is_awake: stone_selected.visible = true)
 	area_2d.body_exited.connect(func(body): stone_selected.visible = false)
 	
+	var game_data = SaveSystem.get_var("save_file_1")
+	var totem_found = game_data.found_totem_ids[totem_id]
+	if totem_found == 1:
+		is_awake = true
+	
 	if !is_awake:
 		animation_player.play("idle")
 	else:
@@ -32,7 +37,16 @@ func _process(delta):
 		animation_player.play("launching")
 		await animation_player.animation_finished
 		animation_player.play("awake")
-
+		var thread = Thread.new()
+		thread.start(Save_Progress, 1)
+		thread.wait_to_finish()
+		
+func Save_Progress():
+	var game_data = SaveSystem.get_var("save_file_1")
+	game_data.total_found_totems += 1
+	game_data.found_totem_ids[totem_id] = 1
+	SaveSystem.set_var("save_file_1", game_data)
+	SaveSystem.save()
 		
 	
 	# read from the savefile whether this stone should be active
