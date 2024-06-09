@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhseq4s88acpo"]
+[gd_scene load_steps=21 format=3 uid="uid://dhseq4s88acpo"]
 
 [ext_resource type="Texture2D" uid="uid://bxqwgdpt6kk2n" path="res://Sprites/Environments/Hub/FloorTile.png" id="1_3uueb"]
 [ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="1_u4gb1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cs1hx8xupx1bb" path="res://Sprites/Environments/Hub/Door1Active.png" id="6_rkocf"]
 [ext_resource type="Texture2D" uid="uid://c6xtbh0o3710k" path="res://Sprites/Environments/Hub/Door2Active.png" id="7_s38an"]
 [ext_resource type="Texture2D" uid="uid://dk8yjl451lqcd" path="res://Sprites/Environments/Hub/Door3Active.png" id="8_paqgt"]
+[ext_resource type="Script" path="res://Scripts/ShakeCam.gd" id="15_cmjix"]
 [ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/HubLoop.gd" id="19_3uy75"]
 [ext_resource type="PackedScene" uid="uid://blys5rjfktt1i" path="res://Scenes/Player/player.tscn" id="20_ab2ys"]
 [ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/DoorLevelTransition.gd" id="22_dqqpb"]
@@ -135,3 +136,4 @@ position = Vector2(9, 2)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, 0)
 offset = Vector2(0, -20)
+script = ExtResource("15_cmjix")

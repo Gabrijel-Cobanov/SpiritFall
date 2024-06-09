@@ -3,11 +3,13 @@ class_name PlayerHurt
 
 var anim_duration: float
 
+
 func Enter(ctx: PlayerStateMachine):
 	ctx.animator.play("hurt")
 	ctx.i_frames_animator.play("i_frames")
 	anim_duration = 0.3
 	ctx.health.can_take_damage = false
+	ctx.hit_stop.Freeze_Frame_Taking_Damage()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	if anim_duration <= 0.15:

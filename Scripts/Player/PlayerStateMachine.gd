@@ -12,6 +12,7 @@ class_name PlayerStateMachine
 @onready var i_frames_animator = $"../Visuals/IFramesAnimationPlayer"
 @onready var heal_cooldown = $"../Timers/HealCooldown"
 @export var health: HealthComponent
+@export var hit_stop: HitStopComponent
 
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

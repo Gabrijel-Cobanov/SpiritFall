@@ -13,6 +13,7 @@ func _ready():
 	if game_data == null:
 		print("Data was null")
 		game_data = GameData.new()
+		print(game_data)
 		print("Game data was null, saving this %s", [game_data])
 		SaveSystem.set_var("save_file_1", game_data)
 		SaveSystem.save()
@@ -23,5 +24,7 @@ func On_Start_Button_Pressed():
 	SceneTransitionManager.Transition_To_Scene("res://Scenes/Levels/HubWorld.tscn")
 	
 func On_Exit_Pressed():
+	var game_data = SaveSystem.get_var("save_file_1")
+	SaveSystem.set_var("save_file_1", game_data)
 	SaveSystem.save()
 	get_tree().quit()

@@ -736,13 +736,14 @@ script = ExtResource("4_ok4u5")
 [node name="CB2D collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_b8xiv")
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote", "health")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "animator", "input_buffer", "coyote", "health", "hit_stop")]
 script = ExtResource("3_x1wnp")
 CB2D = NodePath("..")
 animator = NodePath("../Visuals/AnimationPlayer")
 input_buffer = NodePath("../InputBuffer")
 coyote = NodePath("../Coyote")
 health = NodePath("../HealthComponent")
+hit_stop = NodePath("../HitStopComponent")
 
 [node name="InputBuffer" type="Node2D" parent="."]
 script = ExtResource("3_ybqoq")

@@ -18,11 +18,12 @@ func Activate_Stone():
 func Spawn_Player():
 	var player_scene = load(player_scene_path).instantiate()
 	player_scene.position = player_spawn_position.global_position
-	var camera_2D: Camera2D = Camera2D.new()
+	var camera: ShakeCam = ShakeCam.new()
 	get_parent().add_child(player_scene)
-	player_scene.add_child(camera_2D)
-	camera_2D.offset.y = -10
-	camera_2D.make_current()
+	player_scene.add_child(camera)
+	camera.offset.y = -10
+	camera.make_current()
+	player_scene.get_child(1).hit_something.connect(camera.Apply_Shake)
 	player_scene.velocity.y += -250
 	get_parent().remove_child(camera_to_remove)
 	GlobalSignalBus.player_spawned.emit()

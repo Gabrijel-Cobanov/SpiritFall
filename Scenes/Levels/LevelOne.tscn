@@ -844,3 +844,6 @@ position = Vector2(1509, -23)
 
 [node name="LumberBot9" parent="Enemies" instance=ExtResource("20_nawhk")]
 position = Vector2(-1700, -12)
+
+[node name="LumberBot" parent="." instance=ExtResource("20_nawhk")]
+position = Vector2(1048, -129)
