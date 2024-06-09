@@ -6,5 +6,3 @@ class_name GameData
 @export var unlocked_level_ids = [1, 0, 0]
 
 
-
-

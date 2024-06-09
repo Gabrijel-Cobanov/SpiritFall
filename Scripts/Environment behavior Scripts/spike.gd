@@ -19,4 +19,11 @@ func _ready():
 func Hurt_Player(body: CharacterBody2D):
 	var health: HealthComponent = body.get_child(0)
 	health.Take_Damage(dmg)
+	Freeze_Frame(0.02, 0.5)
 	body.global_position = current_marker.global_position
+	
+func Freeze_Frame(timeScale, duration):
+	Engine.time_scale = timeScale
+	await get_tree().create_timer(duration * timeScale).timeout
+	Engine.time_scale = 1.0
+	

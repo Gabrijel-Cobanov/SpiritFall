@@ -31,7 +31,7 @@ extends Node
 # The default file path of your save data. You can freely modify this.
 const default_file_path : String = "user://saves/save_data.sav"
 const encryption_key : String = "abcdefg1234567"
-const use_encryption : bool = true
+const use_encryption : bool = false
 # Typecasting the keys manually may increase loading times, so if you feel like
 # this feature is irrelevant in your project, set this to false.
 # You typically only need this enabled if you are using dictionary keys

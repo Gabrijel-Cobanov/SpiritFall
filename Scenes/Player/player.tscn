@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=42 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
 [ext_resource type="Script" path="res://Scripts/Player/PogoComponent.gd" id="8_hexup"]
+[ext_resource type="Script" path="res://Scripts/Player/HitStopComponent.gd" id="9_ivyfy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
 
@@ -791,3 +792,6 @@ frame = 70
 
 [node name="PogoComponent" type="Node2D" parent="."]
 script = ExtResource("8_hexup")
+
+[node name="HitStopComponent" type="Node2D" parent="."]
+script = ExtResource("9_ivyfy")

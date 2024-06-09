@@ -20,6 +20,7 @@ func _ready():
 	
 	var game_data = SaveSystem.get_var("save_file_1")
 	var totem_found = game_data.found_totem_ids[totem_id]
+	
 	if totem_found == 1:
 		is_awake = true
 	
@@ -29,7 +30,7 @@ func _ready():
 		animation_player.play("awake")
 		
 func _process(delta):
-	if stone_selected.visible and Input.is_action_just_pressed("interact") and !is_awake:
+	if !is_awake and stone_selected.visible and Input.is_action_just_pressed("interact"):
 		stone_selected.visible = false
 		is_awake = true
 		animation_player.play("waking")
@@ -37,9 +38,7 @@ func _process(delta):
 		animation_player.play("launching")
 		await animation_player.animation_finished
 		animation_player.play("awake")
-		var thread = Thread.new()
-		thread.start(Save_Progress, 1)
-		thread.wait_to_finish()
+		Save_Progress()
 		
 func Save_Progress():
 	var game_data = SaveSystem.get_var("save_file_1")
@@ -48,11 +47,3 @@ func Save_Progress():
 	SaveSystem.set_var("save_file_1", game_data)
 	SaveSystem.save()
 		
-	
-	# read from the savefile whether this stone should be active
-	# find the id, if it's flipped, turn on the stone when the level is first loaded and
-	# destroy that wall! Ah, gamedev never ceases to amaze! That'll be fun to implement
-	# Actually, it's not necesarry for this game, but I'll keep that in mind for the 
-	# next one
-
-

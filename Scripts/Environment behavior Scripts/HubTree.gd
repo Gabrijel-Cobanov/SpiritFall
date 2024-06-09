@@ -29,6 +29,3 @@ func _ready():
 		for i in range(0, num_of_found_secrets-1):
 			leaves_array[i].visible = false
 		l9.visible = true
-
-func Update_Leaves():
-	_ready()

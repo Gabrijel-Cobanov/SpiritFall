@@ -1,10 +1,12 @@
 extends Node2D
 
-
+@onready var particles = $CPUParticles2D
 @onready var animator = $AnimationPlayer
 @onready var hit_vfx = $VFXsprites/HitVfx
 
 func Play_Hit_Anim(vfx_position: Vector2):
+	particles.position = vfx_position
+	particles.emitting = true
 	hit_vfx.position = vfx_position
 	var index = randi()%2 + 1
 	hit_vfx.visible = true

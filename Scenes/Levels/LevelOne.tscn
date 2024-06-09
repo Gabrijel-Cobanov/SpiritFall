@@ -458,6 +458,26 @@ texture = ExtResource("15_woquc")
 position = Vector2(-2214, -260)
 texture = ExtResource("16_6sigk")
 
+[node name="Tree20" type="Sprite2D" parent="Environment/Trees"]
+position = Vector2(1566, -43)
+texture = ExtResource("14_aivo1")
+
+[node name="Tree21" type="Sprite2D" parent="Environment/Trees"]
+position = Vector2(1678, -34)
+texture = ExtResource("15_woquc")
+
+[node name="Tree22" type="Sprite2D" parent="Environment/Trees"]
+position = Vector2(1364, -43)
+texture = ExtResource("16_6sigk")
+
+[node name="Tree23" type="Sprite2D" parent="Environment/Trees"]
+position = Vector2(1707, -127)
+texture = ExtResource("15_woquc")
+
+[node name="Tree24" type="Sprite2D" parent="Environment/Trees"]
+position = Vector2(1737, -206)
+texture = ExtResource("14_aivo1")
+
 [node name="Platforms" type="Node2D" parent="Environment"]
 z_index = -1
 
@@ -762,14 +782,6 @@ z_as_relative = false
 position = Vector2(50, -2)
 shape = SubResource("RectangleShape2D_o4cwn")
 
-[node name="Tree1" type="Sprite2D" parent="Environment"]
-position = Vector2(1566, -43)
-texture = ExtResource("14_aivo1")
-
-[node name="Tree2" type="Sprite2D" parent="Environment"]
-position = Vector2(1678, -34)
-texture = ExtResource("15_woquc")
-
 [node name="SpawnStone" parent="." instance=ExtResource("10_m2uup")]
 position = Vector2(-1979, -25)
 
@@ -830,14 +842,5 @@ position = Vector2(1466, 4)
 [node name="WalkerBot7" parent="Enemies" instance=ExtResource("15_dc1ry")]
 position = Vector2(1509, -23)
 
-[node name="Tree3" type="Sprite2D" parent="."]
-position = Vector2(1364, -43)
-texture = ExtResource("16_6sigk")
-
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(1707, -127)
-texture = ExtResource("15_woquc")
-
-[node name="Tree1" type="Sprite2D" parent="."]
-position = Vector2(1737, -206)
-texture = ExtResource("14_aivo1")
+[node name="LumberBot9" parent="Enemies" instance=ExtResource("20_nawhk")]
+position = Vector2(-1700, -12)
