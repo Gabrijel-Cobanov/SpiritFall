@@ -11,4 +11,3 @@ func Transition_To_Scene(scene_path: String):
 	await animation_player.animation_finished
 	get_tree().paused = false
 	
-

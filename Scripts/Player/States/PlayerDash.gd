@@ -36,7 +36,7 @@ func Check_Transitions(ctx: PlayerStateMachine):
 			ctx.Switch_State(ctx.run)
 		elif ctx.input_buffer.Get_Last_Input_Action() == "attack" and ctx.can_attack:
 			ctx.Switch_State(ctx.swing1)
-		elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
+		elif ctx.input_buffer.Get_Last_Input_Action() == "jump" and ctx.CB2D.is_on_floor():
 			ctx.Switch_State(ctx.jump_start)
 		elif ctx.CB2D.is_on_floor():
 			ctx.Switch_State(ctx.idle)

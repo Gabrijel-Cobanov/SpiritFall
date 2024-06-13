@@ -31,13 +31,14 @@ func _ready():
 	
 func Attack(body: CharacterBody2D):
 	var health: HealthComponent = body.get_child(0)
-	health.Take_Damage(dmg)
-	var direction: Vector2 = body.position - CB2D.position
-	direction = direction.normalized() * knockback_dealt
-	if body.is_in_group("enemies") or body.is_in_group("Player"):
-		body.velocity = direction
-		hit_something.emit()
-	GlobalSignalBus.something_got_hit_at_pos.emit(body.position)
+	if health.can_take_damage:
+		health.Take_Damage(dmg)
+		var direction: Vector2 = body.position - CB2D.position
+		direction = direction.normalized() * knockback_dealt
+		if body.is_in_group("enemies") or body.is_in_group("Player"):
+			body.velocity = direction
+			hit_something.emit()
+			GlobalSignalBus.something_got_hit_at_pos.emit(body.position)
 	
 func _process(delta):
 	if contact and contact.has_overlapping_bodies():

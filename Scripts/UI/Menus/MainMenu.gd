@@ -4,6 +4,7 @@ extends Control
 @onready var exit_button = $Buttons/Exit
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_button.grab_focus()
 	start_button.pressed.connect(On_Start_Button_Pressed)
 	exit_button.pressed.connect(On_Exit_Pressed)
