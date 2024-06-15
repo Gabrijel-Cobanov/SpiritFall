@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://crjwmq6sssdk6"]
+[gd_scene load_steps=5 format=3 uid="uid://crjwmq6sssdk6"]
 
 [ext_resource type="Texture2D" uid="uid://wrncofnb8l2a" path="res://Sprites/SpiritFall Logo.png" id="1_8aetl"]
 [ext_resource type="Script" path="res://Scripts/UI/Menus/MainMenu.gd" id="1_mox6m"]
+[ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="3_doopc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s817"]
 bg_color = Color(0.85098, 0.494118, 0.317647, 1)
@@ -80,3 +81,7 @@ focus_previous = NodePath("../Options")
 theme_override_font_sizes/font_size = 13
 text = "Exit
 "
+
+[node name="InputSettings" parent="." instance=ExtResource("3_doopc")]
+visible = false
+layout_mode = 1
