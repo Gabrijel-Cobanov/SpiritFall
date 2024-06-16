@@ -8,7 +8,7 @@ extends Control
 @onready var input_settings = $InputSettings
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_button.grab_focus()
 	start_button.pressed.connect(On_Start_Button_Pressed)
 	options_button.pressed.connect(Toggle_Elements_Visibility)
@@ -26,10 +26,11 @@ func _ready():
 	else:
 		print("Data was not null, loaded this %s", [game_data])
 		
-func _process(delta):
-	if input_settings.visible and Input.is_action_just_pressed("pause_game"):
-		Toggle_Elements_Visibility()
-		start_button.grab_focus()
+func _unhandled_input(event):
+	if input_settings.visible and event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			Toggle_Elements_Visibility()
+			start_button.grab_focus()
 	
 func On_Start_Button_Pressed():
 	SceneTransitionManager.Transition_To_Scene("res://Scenes/Levels/HubWorld.tscn")

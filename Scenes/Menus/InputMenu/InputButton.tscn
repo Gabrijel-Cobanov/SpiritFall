@@ -1,23 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgtgkhecfu4h2"]
+[gd_scene load_steps=6 format=3 uid="uid://cgtgkhecfu4h2"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/InputMenu/InputButton.gd" id="1_6hhv3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmado"]
+resource_name = "ButtonColor"
 bg_color = Color(0, 0, 0, 0.368627)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sat1"]
+resource_name = "ButtonHoverColor"
 bg_color = Color(0.619608, 0.0745098, 0.776471, 0.658824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fugk"]
+resource_name = "ButtonPressedColor"
 bg_color = Color(0.796078, 0.27451, 0.968627, 0.658824)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g47lk"]
+bg_color = Color(0.619608, 0.0745098, 0.776471, 0.658824)
 
 [node name="InputButton" type="Button"]
 custom_minimum_size = Vector2(0, 18)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_vmado")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7sat1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6fugk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g47lk")
+script = ExtResource("1_6hhv3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

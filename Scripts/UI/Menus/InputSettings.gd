@@ -24,6 +24,8 @@ var input_actions = {
 
 func _ready():
 	Create_Action_List()
+	visibility_changed.connect(On_Visibility_Changed)
+	
 	
 
 func Create_Action_List():
@@ -45,6 +47,11 @@ func Create_Action_List():
 			input_label.text = ""
 			
 		action_list.add_child(button)
-	var action_buttons = action_list.get_children()
+		
+func On_Visibility_Changed():
+	if visible:
+		var buttons = action_list.get_children()
+		var first_button: Button = buttons[0]
+		first_button.grab_focus()
 
 

@@ -26,8 +26,7 @@ SaveSystem="*res://addons/save_system/save_system.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=3
-window/size/borderless=true
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
@@ -149,6 +148,10 @@ interact={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
