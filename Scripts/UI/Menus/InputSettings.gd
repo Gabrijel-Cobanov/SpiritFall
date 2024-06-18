@@ -3,6 +3,7 @@ extends Control
 
 @onready var input_button = preload("res://Scenes/Menus/InputMenu/InputButton.tscn")
 @onready var action_list = $Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList
+@onready var reset = $Panel/MarginContainer/VBoxContainer/Reset
 
 
 var is_remapping: bool = false
@@ -25,6 +26,7 @@ var input_actions = {
 func _ready():
 	Create_Action_List()
 	visibility_changed.connect(On_Visibility_Changed)
+	reset.pressed.connect(Create_Action_List)
 	
 	
 
@@ -47,7 +49,43 @@ func Create_Action_List():
 			input_label.text = ""
 			
 		action_list.add_child(button)
+		button.pressed.connect(On_Input_Button_Pressed.bind(button, action))
+	action_list.get_children()[0].grab_focus()
+
+
+func On_Input_Button_Pressed(button, action):
+	if !is_remapping:
+		is_remapping = true
+		action_to_remap = action
+		remapping_button = button
+		button.find_child("LabelInput").text = "Press key to bind..."
 		
+
+func _input(event):
+	if is_remapping:
+		if (
+			event is InputEventKey ||
+			(event is InputEventMouseButton && event.pressed)
+		):
+			if event is InputEventMouseButton && event.double_click:
+				event.double_click = false
+			
+			InputMap.action_erase_events(action_to_remap)
+			InputMap.action_add_event(action_to_remap, event)
+			Update_Action_List(remapping_button, event)
+			
+			is_remapping = false
+			action_to_remap = null
+			remapping_button = null
+			
+			accept_event()
+
+
+func Update_Action_List(button, event):
+	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
+
+
+
 func On_Visibility_Changed():
 	if visible:
 		var buttons = action_list.get_children()

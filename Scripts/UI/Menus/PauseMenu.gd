@@ -1,8 +1,11 @@
 extends CanvasItem
 
-@onready var resume = $PanelContainer/VBoxContainer/Resume
-@onready var options = $PanelContainer/VBoxContainer/Options
-@onready var quit = $PanelContainer/VBoxContainer/Quit
+@onready var resume = $PanelContainer/Buttons/Resume
+@onready var options = $PanelContainer/Buttons/Options
+@onready var quit = $PanelContainer/Buttons/Quit
+@onready var input_settings = $InputSettings
+@onready var panel_container = $PanelContainer
+
 
 
 @export var path_to_scene_to_quit_to: String = "res://Scenes/Menus/MainMenu.tscn"
@@ -13,6 +16,7 @@ func _ready():
 	visible = false
 	
 	resume.pressed.connect(On_Resume_Pressed)
+	options.pressed.connect(Toggle_Elements_Visibility)
 	quit.pressed.connect(On_Quit_Pressed)
 	
 
@@ -21,13 +25,21 @@ func _process(delta):
 		visible = true
 		get_tree().paused = true
 		resume.grab_focus()
+	elif Input.is_action_just_pressed("pause_game") and input_settings.visible:
+		Toggle_Elements_Visibility()
+		resume.grab_focus()
 	elif Input.is_action_just_pressed("pause_game") and get_tree().paused:
 		visible = false
 		get_tree().paused = false
-
+		
 func On_Resume_Pressed():
 	visible = false
 	get_tree().paused = false
 	
+	
 func On_Quit_Pressed():
 	SceneTransitionManager.Transition_To_Scene(path_to_scene_to_quit_to)
+	
+func Toggle_Elements_Visibility():
+	panel_container.visible = !panel_container.visible
+	input_settings.visible = !input_settings.visible

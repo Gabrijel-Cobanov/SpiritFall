@@ -53,3 +53,7 @@ size_flags_horizontal = 3
 
 [node name="InputButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_ubs61")]
 layout_mode = 2
+
+[node name="Reset" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
