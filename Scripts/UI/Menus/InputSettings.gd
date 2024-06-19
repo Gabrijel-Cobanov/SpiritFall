@@ -24,14 +24,19 @@ var input_actions = {
 
 
 func _ready():
+	Load_Key_Bindings_From_Settings()
 	Create_Action_List()
 	visibility_changed.connect(On_Visibility_Changed)
 	reset.pressed.connect(Create_Action_List)
-	
+
+func Load_Key_Bindings_From_Settings():
+	var key_bindings = ConfigFileHandler.Load_Key_Bindings()
+	for action in key_bindings.keys():
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, key_bindings[action])
 	
 
 func Create_Action_List():
-	InputMap.load_from_project_settings()
 	for item in action_list.get_children():
 		item.queue_free()
 		
@@ -72,6 +77,7 @@ func _input(event):
 			
 			InputMap.action_erase_events(action_to_remap)
 			InputMap.action_add_event(action_to_remap, event)
+			ConfigFileHandler.Save_Key_Binding(action_to_remap, event)
 			Update_Action_List(remapping_button, event)
 			
 			is_remapping = false
@@ -85,11 +91,18 @@ func Update_Action_List(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
 
 
-
 func On_Visibility_Changed():
 	if visible:
 		var buttons = action_list.get_children()
 		var first_button: Button = buttons[0]
 		first_button.grab_focus()
+		
+func On_Reset_Button_Pressed():
+	InputMap.load_from_project_settings()
+	for action in input_actions:
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			ConfigFileHandler.Save_Key_Binding(action, events[0])
+	Create_Action_List()
 
 

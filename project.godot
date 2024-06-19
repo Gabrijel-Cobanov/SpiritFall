@@ -21,6 +21,7 @@ SceneTransitionManager="*res://Scenes/Autoloads/SceneTransitionManager.tscn"
 GlobalSignalBus="*res://Scenes/Autoloads/GlobalSignalBus.gd"
 VFXmanager="*res://Scenes/Autoloads/VFXmanager.tscn"
 SaveSystem="*res://addons/save_system/save_system.gd"
+ConfigFileHandler="*res://Scenes/Autoloads/ConfigFileHandler.gd"
 
 [display]
 
