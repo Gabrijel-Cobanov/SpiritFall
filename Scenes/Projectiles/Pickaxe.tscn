@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfndcdl1ee17q"]
+
+[ext_resource type="Texture2D" uid="uid://blfooovyc3w1e" path="res://Sprites/Projectiles/Pickaxe projectile.png" id="1_bstc0"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/Pickaxe.gd" id="1_dg1mp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k866v"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_jnvfd"]
+resource_name = "falling"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickaxeProjectile:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5pxfl"]
+_data = {
+"falling": SubResource("Animation_jnvfd")
+}
+
+[node name="Pickaxe" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_dg1mp")
+
+[node name="PickaxeProjectile" type="Sprite2D" parent="."]
+texture = ExtResource("1_bstc0")
+hframes = 4
+frame = 2
+
+[node name="CB2Dcollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k866v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5pxfl")
+}

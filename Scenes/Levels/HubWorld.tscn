@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhseq4s88acpo"]
+[gd_scene load_steps=22 format=3 uid="uid://dhseq4s88acpo"]
 
 [ext_resource type="Texture2D" uid="uid://bxqwgdpt6kk2n" path="res://Sprites/Environments/Hub/FloorTile.png" id="1_3uueb"]
 [ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="1_u4gb1"]
@@ -39,6 +39,9 @@ sources/1 = SubResource("TileSetAtlasSource_ly3c8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp2l0"]
 size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yoxe"]
+size = Vector2(13, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6urxq"]
 size = Vector2(177, 231)
@@ -93,11 +96,11 @@ position = Vector2(195, 1)
 texture = ExtResource("8_paqgt")
 
 [node name="Door_functionality" type="Node2D" parent="Doors"]
+script = ExtResource("22_dqqpb")
 
 [node name="Door1" type="Area2D" parent="Doors/Door_functionality"]
 position = Vector2(78, -1)
 collision_layer = 0
-script = ExtResource("22_dqqpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door_functionality/Door1"]
 shape = SubResource("RectangleShape2D_dp2l0")
@@ -105,6 +108,16 @@ shape = SubResource("RectangleShape2D_dp2l0")
 [node name="EnterLevelPointer" parent="Doors/Door_functionality/Door1" instance=ExtResource("23_w1npr")]
 visible = false
 position = Vector2(-1, -24)
+
+[node name="Door2" type="Area2D" parent="Doors/Door_functionality"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door_functionality/Door2"]
+position = Vector2(125.5, -2)
+shape = SubResource("RectangleShape2D_5yoxe")
+
+[node name="EnterLevelPointer" parent="Doors/Door_functionality/Door2" instance=ExtResource("23_w1npr")]
+visible = false
+position = Vector2(125, -24)
 
 [node name="Looping Nodes" type="Node2D" parent="."]
 script = ExtResource("19_3uy75")

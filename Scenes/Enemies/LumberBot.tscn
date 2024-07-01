@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://265duweovjr1"]
+[gd_scene load_steps=20 format=3 uid="uid://265duweovjr1"]
 
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
 [ext_resource type="Texture2D" uid="uid://cnwqrpqct0jev" path="res://Sprites/Enemies/Lumber Bot.png" id="1_kalv3"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_brylt"]
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="3_j5oqw"]
-[ext_resource type="Shader" uid="uid://dp5korylg2ywq" path="res://Scripts/Common Entity Scripts/Hitflash_shader.tres" id="5_eiclk"]
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_ou0rk"]
+[ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="5_uevrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rt5l"]
 size = Vector2(11, 17)
@@ -147,12 +147,6 @@ _data = {
 "move": SubResource("Animation_0wd1k")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqyhd"]
-resource_local_to_scene = true
-shader = ExtResource("5_eiclk")
-shader_parameter/enabled = false
-shader_parameter/tint = Color(1, 1, 1, 1)
-
 [sub_resource type="Animation" id="Animation_yp4e3"]
 length = 0.001
 tracks/0/type = "value"
@@ -206,7 +200,7 @@ _data = {
 
 [node name="LumberBot" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
-collision_mask = 52
+collision_mask = 48
 
 [node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("hitflash_animator")]
 script = ExtResource("1_hvnq8")
@@ -310,11 +304,12 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-material = SubResource("ShaderMaterial_nqyhd")
+material = ExtResource("5_uevrc")
 position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
+frame = 30
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {

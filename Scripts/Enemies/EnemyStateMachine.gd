@@ -55,9 +55,9 @@ func _ready():
 	if attack_timer: 
 		attack_timer.timeout.connect(func(): can_attack = true)
 	
-	pursue_area.body_entered.connect(func(body): should_pursue = true)
-	pursue_area.body_exited.connect(func(body): should_pursue = false)
-	
+	if pursue_area:
+		pursue_area.body_entered.connect(func(body): should_pursue = true)
+		pursue_area.body_exited.connect(func(body): should_pursue = false)
 	
 	if attack_area:
 		attack_area.body_entered.connect(func(body): should_attack = true)

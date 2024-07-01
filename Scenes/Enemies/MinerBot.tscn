@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0rgih383vsay"]
+
+[ext_resource type="Texture2D" uid="uid://bumwuntk77h4b" path="res://Sprites/Enemies/Miner Bot.png" id="1_6ks4t"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_pxeoi"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_arhu2"]
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="4_q02n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33n41"]
+size = Vector2(8, 14)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7l0e"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j421w"]
+radius = 125.036
+
+[sub_resource type="Animation" id="Animation_2gsqf"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_nqipk"]
+resource_name = "move"
+
+[sub_resource type="Animation" id="Animation_e47sl"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_fqpjs"]
+resource_name = "death"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mjt7"]
+_data = {
+"attack": SubResource("Animation_e47sl"),
+"death": SubResource("Animation_fqpjs"),
+"idle": SubResource("Animation_2gsqf"),
+"move": SubResource("Animation_nqipk")
+}
+
+[node name="MinerBot" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 48
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("1_pxeoi")
+max_health = 4
+heal_ammount = 0
+
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "contact")]
+script = ExtResource("2_arhu2")
+CB2D = NodePath("..")
+contact = NodePath("Contact")
+dmg = 1
+knockback_dealt = 150
+
+[node name="Contact" type="Area2D" parent="AttackComponent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/Contact"]
+shape = SubResource("RectangleShape2D_33n41")
+debug_color = Color(0.905882, 0.133333, 0.294118, 0.419608)
+
+[node name="CB2Dcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k7l0e")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(6, 4)
+target_position = Vector2(0, 6)
+collision_mask = 48
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("CB2D", "health", "attack_area", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
+script = ExtResource("4_q02n4")
+enemy_name = "MinerBot"
+CB2D = NodePath("..")
+health = NodePath("../HealthComponent")
+attack_area = NodePath("../CombatAreas/AttackArea")
+attack_timer = NodePath("../Timers/AttackTimer")
+knockback_timer = NodePath("../Timers/KnockbackTimer")
+ledge_detector = NodePath("../RayCast2D")
+animator = NodePath("../Visuals/AnimationPlayer")
+movement_speed = 30.0
+death_anim_duration = 1.0
+attack_anim_duration = 1.0
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.8
+
+[node name="KnockbackTimer" type="Timer" parent="Timers"]
+wait_time = 0.08
+
+[node name="CombatAreas" type="Node2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="CombatAreas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatAreas/AttackArea"]
+visible = false
+shape = SubResource("CircleShape2D_j421w")
+debug_color = Color(0.8, 0.129412, 0.278431, 0.419608)
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../..")
+libraries = {
+"MinerBot": SubResource("AnimationLibrary_4mjt7")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(3, -9)
+texture = ExtResource("1_6ks4t")
+hframes = 15
+vframes = 4

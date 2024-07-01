@@ -27,7 +27,7 @@ func _ready():
 	Load_Key_Bindings_From_Settings()
 	Create_Action_List()
 	visibility_changed.connect(On_Visibility_Changed)
-	reset.pressed.connect(Create_Action_List)
+	reset.pressed.connect(On_Reset_Button_Pressed)
 
 func Load_Key_Bindings_From_Settings():
 	var key_bindings = ConfigFileHandler.Load_Key_Bindings()
@@ -104,5 +104,5 @@ func On_Reset_Button_Pressed():
 		if events.size() > 0:
 			ConfigFileHandler.Save_Key_Binding(action, events[0])
 	Create_Action_List()
-
+	action_list.get_children()[0].grab_focus()
 
