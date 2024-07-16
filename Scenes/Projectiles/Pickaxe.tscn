@@ -1,13 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfndcdl1ee17q"]
+[gd_scene load_steps=6 format=3 uid="uid://bfndcdl1ee17q"]
 
 [ext_resource type="Texture2D" uid="uid://blfooovyc3w1e" path="res://Sprites/Projectiles/Pickaxe projectile.png" id="1_bstc0"]
 [ext_resource type="Script" path="res://Scripts/Projectiles/Pickaxe.gd" id="1_dg1mp"]
-
-[sub_resource type="Curve2D" id="Curve2D_tiamf"]
-_data = {
-"points": PackedVector2Array(0, 0, 50, -200, 0, 0, 0, 0, 0, 0, 100, 0)
-}
-point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k866v"]
 radius = 5.0
@@ -19,7 +13,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D/Area2D/PickaxeProjectile:frame")
+tracks/0/path = NodePath("PickaxeProjectile:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,26 +28,22 @@ _data = {
 "falling": SubResource("Animation_jnvfd")
 }
 
-[node name="Pickaxe" type="Path2D"]
-curve = SubResource("Curve2D_tiamf")
+[node name="Pickaxe" type="CharacterBody2D"]
+collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_dg1mp")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotation = -1.32582
-
-[node name="Area2D" type="Area2D" parent="PathFollow2D"]
-rotation = 0.785398
-collision_layer = 4
-
-[node name="CB2Dcollider" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+[node name="CB2Dcollider" type="CollisionShape2D" parent="."]
+rotation = -0.54042
 shape = SubResource("CircleShape2D_k866v")
 
-[node name="PickaxeProjectile" type="Sprite2D" parent="PathFollow2D/Area2D"]
+[node name="PickaxeProjectile" type="Sprite2D" parent="."]
+rotation = -0.54042
 texture = ExtResource("1_bstc0")
 hframes = 4
+frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/Area2D"]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5pxfl")
 }

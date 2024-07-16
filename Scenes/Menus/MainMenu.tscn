@@ -3,21 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://wrncofnb8l2a" path="res://Sprites/SpiritFall Logo.png" id="1_8aetl"]
 [ext_resource type="Script" path="res://Scripts/UI/Menus/MainMenu.gd" id="1_mox6m"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="3_doopc"]
+[ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="3_ptb11"]
+[ext_resource type="StyleBox" uid="uid://ccko3jp5ko0jg" path="res://Scenes/Menus/HoverBUtton.tres" id="4_ncfob"]
+[ext_resource type="StyleBox" uid="uid://dtu8scvvehk2" path="res://Scenes/Menus/PressedButton.tres" id="5_hlags"]
+[ext_resource type="StyleBox" uid="uid://c567t73y2npjl" path="res://Scenes/Menus/FocusButton.tres" id="6_xkh1t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s817"]
 bg_color = Color(0.313726, 0.490196, 0.458824, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uatl"]
-bg_color = Color(0, 0, 0, 0.368627)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw7o7"]
-bg_color = Color(0.619608, 0.0745098, 0.776471, 0.658824)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0v6f"]
-bg_color = Color(0.862745, 0.537255, 0.984314, 0.658824)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk30b"]
-bg_color = Color(0.619608, 0.0745098, 0.776471, 0.658824)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,30 +64,30 @@ alignment = 2
 [node name="Start" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_5uatl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yw7o7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_r0v6f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nk30b")
+theme_override_styles/normal = ExtResource("3_ptb11")
+theme_override_styles/hover = ExtResource("4_ncfob")
+theme_override_styles/pressed = ExtResource("5_hlags")
+theme_override_styles/focus = ExtResource("6_xkh1t")
 text = "Start
 "
 
 [node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_5uatl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yw7o7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_r0v6f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nk30b")
+theme_override_styles/normal = ExtResource("3_ptb11")
+theme_override_styles/hover = ExtResource("4_ncfob")
+theme_override_styles/pressed = ExtResource("5_hlags")
+theme_override_styles/focus = ExtResource("6_xkh1t")
 text = "Options
 "
 
 [node name="Exit" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_5uatl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yw7o7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_r0v6f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nk30b")
+theme_override_styles/normal = ExtResource("3_ptb11")
+theme_override_styles/hover = ExtResource("4_ncfob")
+theme_override_styles/pressed = ExtResource("5_hlags")
+theme_override_styles/focus = ExtResource("6_xkh1t")
 text = "Exit
 "
 

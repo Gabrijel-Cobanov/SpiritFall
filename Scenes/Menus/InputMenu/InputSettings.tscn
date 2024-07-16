@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxr7vkjbo8ft5"]
+[gd_scene load_steps=7 format=3 uid="uid://cxr7vkjbo8ft5"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Menus/InputSettings.gd" id="1_tcgxr"]
 [ext_resource type="PackedScene" uid="uid://cgtgkhecfu4h2" path="res://Scenes/Menus/InputMenu/InputButton.tscn" id="1_ubs61"]
+[ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="3_mlr2e"]
+[ext_resource type="StyleBox" uid="uid://ccko3jp5ko0jg" path="res://Scenes/Menus/HoverBUtton.tres" id="4_rpm71"]
+[ext_resource type="StyleBox" uid="uid://dtu8scvvehk2" path="res://Scenes/Menus/PressedButton.tres" id="5_ifhsi"]
+[ext_resource type="StyleBox" uid="uid://c567t73y2npjl" path="res://Scenes/Menus/FocusButton.tres" id="6_ju7dq"]
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
@@ -59,4 +63,8 @@ custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("3_mlr2e")
+theme_override_styles/hover = ExtResource("4_rpm71")
+theme_override_styles/pressed = ExtResource("5_ifhsi")
+theme_override_styles/focus = ExtResource("6_ju7dq")
 text = "Reset"

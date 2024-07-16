@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c51ndw76c0wfo"]
+[gd_scene load_steps=7 format=3 uid="uid://c51ndw76c0wfo"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Menus/PauseMenu.gd" id="1_j7rxq"]
+[ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="2_kapra"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="2_qaf4e"]
+[ext_resource type="StyleBox" uid="uid://ccko3jp5ko0jg" path="res://Scenes/Menus/HoverBUtton.tres" id="3_81trl"]
+[ext_resource type="StyleBox" uid="uid://dtu8scvvehk2" path="res://Scenes/Menus/PressedButton.tres" id="4_pcitq"]
+[ext_resource type="StyleBox" uid="uid://c567t73y2npjl" path="res://Scenes/Menus/FocusButton.tres" id="5_ghpmw"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -38,6 +42,10 @@ focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Quit")
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("2_kapra")
+theme_override_styles/hover = ExtResource("3_81trl")
+theme_override_styles/pressed = ExtResource("4_pcitq")
+theme_override_styles/focus = ExtResource("5_ghpmw")
 text = "Resume"
 
 [node name="Options" type="Button" parent="PanelContainer/Buttons"]
@@ -47,6 +55,10 @@ focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Resume")
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("2_kapra")
+theme_override_styles/hover = ExtResource("3_81trl")
+theme_override_styles/pressed = ExtResource("4_pcitq")
+theme_override_styles/focus = ExtResource("5_ghpmw")
 text = "Options"
 
 [node name="Quit" type="Button" parent="PanelContainer/Buttons"]
@@ -56,6 +68,10 @@ focus_neighbor_bottom = NodePath("../Resume")
 focus_next = NodePath("../Resume")
 focus_previous = NodePath("../Options")
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("2_kapra")
+theme_override_styles/hover = ExtResource("3_81trl")
+theme_override_styles/pressed = ExtResource("4_pcitq")
+theme_override_styles/focus = ExtResource("5_ghpmw")
 text = "Quit"
 
 [node name="InputSettings" parent="." instance=ExtResource("2_qaf4e")]
