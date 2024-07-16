@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfndcdl1ee17q"]
+[gd_scene load_steps=7 format=3 uid="uid://bfndcdl1ee17q"]
 
 [ext_resource type="Texture2D" uid="uid://blfooovyc3w1e" path="res://Sprites/Projectiles/Pickaxe projectile.png" id="1_bstc0"]
 [ext_resource type="Script" path="res://Scripts/Projectiles/Pickaxe.gd" id="1_dg1mp"]
+[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_8cp3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k866v"]
 radius = 5.0
@@ -28,9 +29,8 @@ _data = {
 "falling": SubResource("Animation_jnvfd")
 }
 
-[node name="Pickaxe" type="CharacterBody2D"]
+[node name="Pickaxe" type="Area2D"]
 collision_layer = 4
-motion_mode = 1
 script = ExtResource("1_dg1mp")
 
 [node name="CB2Dcollider" type="CollisionShape2D" parent="."]
@@ -47,3 +47,17 @@ frame = 3
 libraries = {
 "": SubResource("AnimationLibrary_5pxfl")
 }
+
+[node name="p0" type="Marker2D" parent="."]
+
+[node name="p1" type="Marker2D" parent="."]
+position = Vector2(42, -64)
+
+[node name="p2" type="Marker2D" parent="."]
+position = Vector2(86, 0)
+
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("contact")]
+script = ExtResource("3_8cp3v")
+contact = NodePath("..")
+dmg = 1
+knockback_dealt = 120

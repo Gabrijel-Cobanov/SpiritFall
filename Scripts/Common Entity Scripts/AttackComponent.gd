@@ -31,8 +31,25 @@ func _ready():
 	
 func Attack(body: CharacterBody2D):
 	var health: HealthComponent = body.get_child(0)
+	
 	if health.can_take_damage:
 		health.Take_Damage(dmg)
+		#HACK -------------------------------------------------------------
+		# the hack is to make the pickaxe work without having to make a whole
+		# different infrastructure, this is a learning process, gotta make 
+		# some high level mistakes in order to make some even more high
+		#level shit later
+		if not CB2D:
+			var direction: Vector2 = body.position - get_parent().position
+			direction = direction.normalized() * knockback_dealt
+			if body.is_in_group("enemies") or body.is_in_group("Player"):
+				body.velocity = direction
+				hit_something.emit()
+				GlobalSignalBus.something_got_hit_at_pos.emit(body.position)
+				return
+		#------------------------------------------------------------------
+		
+		
 		var direction: Vector2 = body.position - CB2D.position
 		direction = direction.normalized() * knockback_dealt
 		if body.is_in_group("enemies") or body.is_in_group("Player"):

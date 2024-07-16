@@ -154,9 +154,8 @@ hitflash_animator = NodePath("../Visuals/HitflashAnimator")
 max_health = 4
 heal_ammount = 0
 
-[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "contact")]
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("contact")]
 script = ExtResource("2_arhu2")
-CB2D = NodePath("..")
 contact = NodePath("Contact")
 dmg = 1
 knockback_dealt = 150
