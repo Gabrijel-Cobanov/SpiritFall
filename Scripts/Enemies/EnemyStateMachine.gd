@@ -126,4 +126,7 @@ func Face_Player():
 	if x < 0 and is_facing_right:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
+	elif x > 0 and !is_facing_right:
+		get_parent().scale.x *= -1
+		is_facing_right = !is_facing_right
 	
