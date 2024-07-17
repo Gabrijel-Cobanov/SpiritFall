@@ -4,6 +4,7 @@ class_name EnemyAttackState
 var anim_duration: float
 
 func Enter(ctx: EnemyStateMachine):
+	ctx.Face_Player()
 	anim_duration = ctx.attack_anim_duration
 	ctx.can_attack = false
 	ctx.animator.play(ctx.enemy_name + "/attack")

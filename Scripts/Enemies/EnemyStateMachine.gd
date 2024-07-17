@@ -120,3 +120,10 @@ func On_Hurt(dmg: int):
 	
 func On_Dead():
 	Switch_State(death)
+	
+func Face_Player():
+	var x = (player_CB2D.position-CB2D.position).x
+	if x < 0 and is_facing_right:
+		get_parent().scale.x *= -1
+		is_facing_right = !is_facing_right
+	

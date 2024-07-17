@@ -17,7 +17,9 @@ func _ready():
 	p0 = source.global_position
 	p2 = player_CB2D.global_position
 	p1.x = (p0.x + p2.x)/2
-	p1.y = (-34 - abs(p0.x - p2.x))
+	p1.y = -abs(p0.x - p2.x)
+	
+	body_entered.connect(func(body): queue_free())
 
 	
 func Bezier(t):
@@ -28,10 +30,12 @@ func Bezier(t):
 	
 func _physics_process(delta):
 	position = Bezier(time)
-	time += delta
+	time += (delta*2)
 	
 	if time > 5:
 		queue_free()
+		
+
 	
 	
 	
