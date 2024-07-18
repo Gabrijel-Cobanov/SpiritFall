@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4a0b4r2jxgpa"]
+[gd_scene load_steps=10 format=3 uid="uid://d4a0b4r2jxgpa"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelTwo.gd" id="1_4mtkr"]
 [ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="1_mb6u0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgfw084vqqxug" path="res://Scenes/Environment/Tall_platform.tscn" id="2_wn3ne"]
 [ext_resource type="PackedScene" uid="uid://bupn8htfs8wia" path="res://Scenes/Menus/RetryMenu.tscn" id="3_3fus2"]
 [ext_resource type="PackedScene" uid="uid://b0rgih383vsay" path="res://Scenes/Enemies/MinerBot.tscn" id="3_yu68e"]
+[ext_resource type="PackedScene" uid="uid://be5bsm1kwvtc" path="res://Scenes/Environment/Firefly.tscn" id="8_b4ynb"]
 [ext_resource type="PackedScene" uid="uid://oopk72aad6pq" path="res://Scenes/Environment/Spawn_Stone.tscn" id="8_skrss"]
 
 [node name="LevelTwo" type="Node2D"]
@@ -37,6 +38,11 @@ layer_0/tile_data = PackedInt32Array(65515, 0, 0, 131051, 0, 0, 196587, 0, 0, 26
 [node name="Platforms" type="Node2D" parent="Environment"]
 
 [node name="TallPlatform" parent="Environment/Platforms" instance=ExtResource("2_wn3ne")]
+
+[node name="Fireflies" type="Node2D" parent="Environment"]
+
+[node name="Firefly" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
+position = Vector2(-418, -27)
 
 [node name="SpawnStone" parent="." node_paths=PackedStringArray("camera_to_remove") instance=ExtResource("8_skrss")]
 position = Vector2(-536, -60)
