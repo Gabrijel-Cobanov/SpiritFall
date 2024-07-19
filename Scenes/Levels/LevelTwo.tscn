@@ -44,6 +44,15 @@ layer_0/tile_data = PackedInt32Array(65515, 0, 0, 131051, 0, 0, 196587, 0, 0, 26
 [node name="Firefly" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
 position = Vector2(-418, -27)
 
+[node name="Firefly2" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
+position = Vector2(-323, -21)
+
+[node name="Firefly3" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
+position = Vector2(-456, -34)
+
+[node name="Firefly4" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
+position = Vector2(-377, -34)
+
 [node name="SpawnStone" parent="." node_paths=PackedStringArray("camera_to_remove") instance=ExtResource("8_skrss")]
 position = Vector2(-536, -60)
 camera_to_remove = NodePath("../Camera2D")
