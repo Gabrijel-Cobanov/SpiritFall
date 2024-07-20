@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d4a0b4r2jxgpa"]
+[gd_scene load_steps=15 format=3 uid="uid://d4a0b4r2jxgpa"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelTwo.gd" id="1_4mtkr"]
 [ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="1_mb6u0"]
@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cgfw084vqqxug" path="res://Scenes/Environment/Tall_platform.tscn" id="2_wn3ne"]
 [ext_resource type="PackedScene" uid="uid://bupn8htfs8wia" path="res://Scenes/Menus/RetryMenu.tscn" id="3_3fus2"]
 [ext_resource type="PackedScene" uid="uid://b0rgih383vsay" path="res://Scenes/Enemies/MinerBot.tscn" id="3_yu68e"]
+[ext_resource type="Texture2D" uid="uid://cfbk57q1b1hyv" path="res://Sprites/Environments/Cave/Background Blue.png" id="6_cvjkm"]
+[ext_resource type="Texture2D" uid="uid://ch3jbguvc4cp0" path="res://Sprites/Environments/Cave/Background Light Blue.png" id="7_mdsvq"]
 [ext_resource type="PackedScene" uid="uid://be5bsm1kwvtc" path="res://Scenes/Environment/Firefly.tscn" id="8_b4ynb"]
 [ext_resource type="PackedScene" uid="uid://oopk72aad6pq" path="res://Scenes/Environment/Spawn_Stone.tscn" id="8_skrss"]
+[ext_resource type="Texture2D" uid="uid://c5dl2i4cg3s1n" path="res://Sprites/Environments/Cave/Background stalagmites.png" id="8_w4i1t"]
+[ext_resource type="Texture2D" uid="uid://ds6dt8vp8kwpm" path="res://Sprites/Environments/Cave/Background closer stalagmites.png" id="9_0iwsr"]
+[ext_resource type="Texture2D" uid="uid://cx1v1xs8tn8c4" path="res://Sprites/Environments/Cave/Cave ceiling.png" id="9_ncr4a"]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource("1_4mtkr")
@@ -29,6 +34,56 @@ path_to_scene_to_quit_to = "res://Scenes/Levels/HubWorld.tscn"
 path_to_scene_to_rerty = "res://Scenes/Levels/LevelOne.tscn"
 
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
+offset = Vector2(160, 90)
+transform = Transform2D(1, 0, 0, 1, 160, 90)
+scroll_base_offset = Vector2(160, -90)
+
+[node name="Background Blue" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/Background Blue"]
+texture = ExtResource("6_cvjkm")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="Light Blue" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2(0.01, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/Light Blue"]
+texture = ExtResource("7_mdsvq")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="Background stalagmites" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/Background stalagmites"]
+texture = ExtResource("8_w4i1t")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="Stalagmites" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/Stalagmites"]
+texture = ExtResource("9_0iwsr")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="Cave ceiling" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+position = Vector2(0, -50)
+motion_mirroring = Vector2(320, 0)
+
+[node name="CaveCeiling" type="Sprite2D" parent="Environment/ParallaxBackground/Cave ceiling"]
+texture = ExtResource("9_ncr4a")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 400)
 
 [node name="Ground" type="TileMap" parent="Environment" groups=["ground"]]
 tile_set = ExtResource("1_pdvjt")
