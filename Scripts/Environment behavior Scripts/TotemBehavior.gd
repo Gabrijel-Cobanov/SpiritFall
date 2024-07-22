@@ -36,6 +36,7 @@ func _process(delta):
 		animation_player.play("waking")
 		await animation_player.animation_finished
 		animation_player.play("launching")
+		Heal_Player()
 		await animation_player.animation_finished
 		animation_player.play("awake")
 		Save_Progress()
@@ -46,4 +47,10 @@ func Save_Progress():
 	game_data.found_totem_ids[totem_id] = 1
 	SaveSystem.set_var("save_file_1", game_data)
 	SaveSystem.save()
+	
+func Heal_Player():
+	var player = get_tree().get_first_node_in_group("Player")
+	var health: HealthComponent = player.get_child(0)
+	health.Heal_To_Full_Health()
+	
 		

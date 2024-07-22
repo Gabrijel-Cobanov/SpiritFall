@@ -80,7 +80,7 @@ _data = {
 size = Vector2(22, 18)
 
 [node name="Totem" type="Sprite2D"]
-position = Vector2(0, -11)
+position = Vector2(0, -43)
 texture = ExtResource("1_6qty6")
 hframes = 8
 vframes = 4
@@ -96,8 +96,10 @@ position = Vector2(0, 11)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_8t58g")
 
 [node name="CollectibleStoneSelected" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, 23)
 texture = ExtResource("2_l6m14")

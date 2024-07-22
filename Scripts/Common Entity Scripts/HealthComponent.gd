@@ -11,6 +11,7 @@ var can_heal: bool = true
 
 signal hurt(int)
 signal heal(int)
+signal health_restored
 signal dead
 
 func _ready():
@@ -32,3 +33,7 @@ func Heal():
 		else:
 			current_health = max_health
 		heal.emit(heal_ammount)
+		
+func Heal_To_Full_Health():
+	current_health = max_health
+	health_restored.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4a0b4r2jxgpa"]
+[gd_scene load_steps=17 format=3 uid="uid://d4a0b4r2jxgpa"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelTwo.gd" id="1_4mtkr"]
 [ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="1_mb6u0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ds6dt8vp8kwpm" path="res://Sprites/Environments/Cave/Background closer stalagmites.png" id="9_0iwsr"]
 [ext_resource type="Texture2D" uid="uid://cx1v1xs8tn8c4" path="res://Sprites/Environments/Cave/Cave ceiling.png" id="9_ncr4a"]
 [ext_resource type="PackedScene" uid="uid://bgq3kuw50wuat" path="res://Scenes/Environment/Hazards/DissapearingPlatform.tscn" id="13_is5yd"]
+[ext_resource type="PackedScene" uid="uid://dd4puwc145yj6" path="res://Scenes/Environment/Totem.tscn" id="15_wa1en"]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource("1_4mtkr")
@@ -111,6 +112,12 @@ position = Vector2(-456, -34)
 
 [node name="Firefly4" parent="Environment/Fireflies" instance=ExtResource("8_b4ynb")]
 position = Vector2(-377, -34)
+
+[node name="Totems" type="Node2D" parent="Environment"]
+
+[node name="Totem" parent="Environment/Totems" instance=ExtResource("15_wa1en")]
+position = Vector2(-398, -43)
+totem_id = 3
 
 [node name="SpawnStone" parent="." node_paths=PackedStringArray("camera_to_remove") instance=ExtResource("8_skrss")]
 position = Vector2(-536, -60)
