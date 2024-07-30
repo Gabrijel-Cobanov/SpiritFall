@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://crjwmq6sssdk6"]
+[gd_scene load_steps=11 format=3 uid="uid://crjwmq6sssdk6"]
 
 [ext_resource type="Texture2D" uid="uid://wrncofnb8l2a" path="res://Sprites/SpiritFall Logo.png" id="1_8aetl"]
 [ext_resource type="Script" path="res://Scripts/UI/Menus/MainMenu.gd" id="1_mox6m"]
+[ext_resource type="AudioStream" uid="uid://batw5l0ju6eqa" path="res://SFX/UI/Click_1.wav" id="2_koeau"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="3_doopc"]
+[ext_resource type="AudioStream" uid="uid://dg7bgfi7760hy" path="res://SFX/UI/Hover_1.wav" id="3_m2qry"]
 [ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="3_ptb11"]
 [ext_resource type="StyleBox" uid="uid://ccko3jp5ko0jg" path="res://Scenes/Menus/HoverBUtton.tres" id="4_ncfob"]
 [ext_resource type="StyleBox" uid="uid://dtu8scvvehk2" path="res://Scenes/Menus/PressedButton.tres" id="5_hlags"]
@@ -20,6 +22,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_mox6m")
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_koeau")
+bus = &"UI"
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m2qry")
 
 [node name="Panel" type="Panel" parent="."]
 z_as_relative = false

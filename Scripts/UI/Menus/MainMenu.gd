@@ -7,12 +7,23 @@ extends Control
 @onready var exit_button = $Buttons/Exit
 @onready var input_settings = $InputSettings
 
+@onready var button_click = $ButtonClick
+@onready var button_hover = $ButtonHover
+
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_button.grab_focus()
 	start_button.pressed.connect(On_Start_Button_Pressed)
 	options_button.pressed.connect(Toggle_Elements_Visibility)
 	exit_button.pressed.connect(On_Exit_Pressed)
+	
+	start_button.pressed.connect(Play_Click_Sound)
+	options_button.pressed.connect(Play_Click_Sound)
+	exit_button.pressed.connect(Play_Click_Sound)
+	
+	start_button.focus_entered.connect(Play_Hover_Sound)
+	options_button.focus_entered.connect(Play_Hover_Sound)
+	exit_button.focus_entered.connect(Play_Hover_Sound)
 	
 	#Upon first start up, make a game_data file, only one save file, to not complicate things
 	var game_data = SaveSystem.get_var("save_file_1")
@@ -45,5 +56,12 @@ func Toggle_Elements_Visibility():
 	logo.visible = !logo.visible
 	buttons.visible = !buttons.visible
 	input_settings.visible = !input_settings.visible
+	
+func Play_Hover_Sound():
+	button_hover.play()
+	
+func Play_Click_Sound():
+	button_click.pitch_scale = randf_range(0.95, 1.05)
+	button_click.play()
 	
 	

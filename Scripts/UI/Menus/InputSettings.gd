@@ -5,6 +5,9 @@ extends Control
 @onready var action_list = $Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 @onready var reset = $Panel/MarginContainer/VBoxContainer/Reset
 
+@onready var button_click = $ButtonClick
+@onready var button_hover = $ButtonHover
+
 
 var is_remapping: bool = false
 var action_to_remap = null
@@ -28,6 +31,7 @@ func _ready():
 	Create_Action_List()
 	visibility_changed.connect(On_Visibility_Changed)
 	reset.pressed.connect(On_Reset_Button_Pressed)
+	Install_Sounds()
 
 func Load_Key_Bindings_From_Settings():
 	var key_bindings = ConfigFileHandler.Load_Key_Bindings()
@@ -105,4 +109,17 @@ func On_Reset_Button_Pressed():
 			ConfigFileHandler.Save_Key_Binding(action, events[0])
 	Create_Action_List()
 	action_list.get_children()[0].grab_focus()
+	
+func Install_Sounds():
+	var buttons = action_list.get_children()
+	for button in buttons:
+		button.focus_entered.connect(Play_Hover_Sound)
+		button.pressed.connect(Play_Click_Sound)
+		
+func Play_Hover_Sound():
+	button_hover.play()
+	
+func Play_Click_Sound():
+	button_click.pitch_scale = randf_range(0.95, 1.05)
+	button_click.play()
 

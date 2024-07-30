@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c51ndw76c0wfo"]
+[gd_scene load_steps=9 format=3 uid="uid://c51ndw76c0wfo"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Menus/PauseMenu.gd" id="1_j7rxq"]
 [ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="2_kapra"]
+[ext_resource type="AudioStream" uid="uid://batw5l0ju6eqa" path="res://SFX/UI/Click_1.wav" id="2_lckqf"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="2_qaf4e"]
+[ext_resource type="AudioStream" uid="uid://dg7bgfi7760hy" path="res://SFX/UI/Hover_1.wav" id="3_48ys6"]
 [ext_resource type="StyleBox" uid="uid://ccko3jp5ko0jg" path="res://Scenes/Menus/HoverBUtton.tres" id="3_81trl"]
 [ext_resource type="StyleBox" uid="uid://dtu8scvvehk2" path="res://Scenes/Menus/PressedButton.tres" id="4_pcitq"]
 [ext_resource type="StyleBox" uid="uid://c567t73y2npjl" path="res://Scenes/Menus/FocusButton.tres" id="5_ghpmw"]
@@ -16,6 +18,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j7rxq")
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lckqf")
+bus = &"UI"
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_48ys6")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
