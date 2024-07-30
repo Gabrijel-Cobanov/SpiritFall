@@ -10,6 +10,8 @@ func Enter(ctx: PlayerStateMachine):
 	ctx.should_apply_gravity = false
 	ctx.CB2D.velocity.y = 0
 	ctx.dash_cooldown.start()
+	ctx.dash_sound.pitch_scale = randf_range(0.9, 1.1)
+	ctx.dash_sound.play()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)

@@ -8,6 +8,8 @@ func Enter(ctx: PlayerStateMachine):
 	ctx.animator.play("jump_start")
 	anim_duration = ctx.MAX_HEIGHT_TIME
 	ctx.CB2D.velocity.y = ctx.JUMP_VELOCITY
+	ctx.jump_sound.pitch_scale = randf_range(0.9, 1.1)
+	ctx.jump_sound.play()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)

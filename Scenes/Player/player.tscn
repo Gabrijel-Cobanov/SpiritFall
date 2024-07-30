@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=47 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
@@ -9,6 +9,11 @@
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
 [ext_resource type="Script" path="res://Scripts/Player/PogoComponent.gd" id="8_hexup"]
 [ext_resource type="Script" path="res://Scripts/Player/HitStopComponent.gd" id="9_ivyfy"]
+[ext_resource type="AudioStream" uid="uid://t6n7yv7xkim" path="res://SFX/Player/Player_jump.wav" id="10_ge8jy"]
+[ext_resource type="AudioStream" uid="uid://p2l23kmpf5gc" path="res://SFX/Player/Player_swing.wav" id="11_223ui"]
+[ext_resource type="AudioStream" uid="uid://derv8rycwsm5f" path="res://SFX/Player/Player_dash.wav" id="12_fq4md"]
+[ext_resource type="AudioStream" uid="uid://c6nqr7xjngoen" path="res://SFX/Player/Player_hurt.wav" id="13_26tyr"]
+[ext_resource type="AudioStream" uid="uid://bh2pfv7oucmc0" path="res://SFX/Player/player_landing.wav" id="13_cpuxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
 
@@ -796,3 +801,31 @@ script = ExtResource("8_hexup")
 
 [node name="HitStopComponent" type="Node2D" parent="."]
 script = ExtResource("9_ivyfy")
+
+[node name="PlayerAudioManager" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("10_ge8jy")
+bus = &"PlayerSFX"
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("11_223ui")
+bus = &"PlayerSFX"
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("12_fq4md")
+bus = &"PlayerSFX"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("13_26tyr")
+bus = &"PlayerSFX"
+
+[node name="Land" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("13_cpuxd")
+bus = &"PlayerSFX"
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]

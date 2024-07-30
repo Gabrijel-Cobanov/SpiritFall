@@ -5,11 +5,12 @@ var anim_duration: float
 var early_transition_time: float
 
 func Enter(ctx: PlayerStateMachine):
+	ctx.land_sound.pitch_scale = randf_range(0.9, 1.1)
+	ctx.land_sound.play()
 	ctx.animator.play("jump_end")
 	anim_duration = 0.25
 	early_transition_time = anim_duration/1.5
 	ctx.CB2D.velocity.x /= 2
-	pass
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)

@@ -14,6 +14,13 @@ class_name PlayerStateMachine
 @export var health: HealthComponent
 @export var hit_stop: HitStopComponent
 
+@onready var jump_sound = $"../PlayerAudioManager/Jump"
+@onready var attack_sound = $"../PlayerAudioManager/Attack"
+@onready var dash_sound = $"../PlayerAudioManager/Dash"
+@onready var hurt_sound = $"../PlayerAudioManager/Hurt"
+@onready var land_sound = $"../PlayerAudioManager/Land"
+
+
 #movement variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input: Vector2 = Vector2.ZERO

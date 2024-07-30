@@ -9,6 +9,8 @@ func Enter(ctx: PlayerStateMachine):
 	anim_duration = 0.3
 	early_transition_time = 0.05
 	Pick_Attack_Anim(ctx)
+	ctx.attack_sound.pitch_scale = randf_range(0.9, 1.1)
+	ctx.attack_sound.play()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)

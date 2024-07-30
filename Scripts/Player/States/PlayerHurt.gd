@@ -9,6 +9,8 @@ func Enter(ctx: PlayerStateMachine):
 	ctx.i_frames_animator.play("i_frames")
 	anim_duration = 0.3
 	ctx.health.can_take_damage = false
+	ctx.hurt_sound.play()
+	ctx.dash_sound.pitch_scale = randf_range(0.9, 1.1)
 	ctx.hit_stop.Freeze_Frame_Taking_Damage()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
