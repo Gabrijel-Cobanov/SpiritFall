@@ -5,6 +5,8 @@ extends Sprite2D
 
 @export var camera_to_remove: Camera2D
 
+@onready var hum = $Hum
+
 var player_scene_path = "res://Scenes/Player/player.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +29,6 @@ func Spawn_Player():
 	player_scene.velocity.y += -250
 	get_parent().remove_child(camera_to_remove)
 	GlobalSignalBus.player_spawned.emit()
+	
+func _exit_tree():
+	hum.stream_paused = true

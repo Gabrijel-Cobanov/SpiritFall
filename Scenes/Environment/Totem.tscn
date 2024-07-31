@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd4puwc145yj6"]
+[gd_scene load_steps=13 format=3 uid="uid://dd4puwc145yj6"]
 
 [ext_resource type="Texture2D" uid="uid://bk210lchoutqm" path="res://Sprites/Environments/CollectibleStone.png" id="1_6qty6"]
 [ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/TotemBehavior.gd" id="2_1wdjv"]
 [ext_resource type="Texture2D" uid="uid://b5uq4lfdjm28f" path="res://Sprites/Environments/CollectibleStoneSelected.png" id="2_l6m14"]
 [ext_resource type="AudioStream" uid="uid://dueqc3ac3u4q8" path="res://SFX/Environment/Totem_Activation_Sound.wav" id="4_8opt0"]
+[ext_resource type="AudioStream" uid="uid://cwa460r2myhc" path="res://SFX/Environment/Totem_hum.wav" id="5_bjcnl"]
+[ext_resource type="AudioStream" uid="uid://bx7nhhetl02jw" path="res://SFX/Environment/Totem_rustle.wav" id="6_36uks"]
 
 [sub_resource type="Animation" id="Animation_4xce6"]
 resource_name = "awake"
@@ -20,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Totem Hum:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ma55j"]
@@ -55,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/path = NodePath("Activation sound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,6 +94,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [8, 11]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rustle:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v48c1"]
 _data = {
@@ -97,7 +123,7 @@ position = Vector2(0, -43)
 texture = ExtResource("1_6qty6")
 hframes = 8
 vframes = 4
-frame = 21
+frame = 11
 script = ExtResource("2_1wdjv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -118,5 +144,14 @@ visible = false
 position = Vector2(0, 23)
 texture = ExtResource("2_l6m14")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Activation sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8opt0")
+
+[node name="Totem Hum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bjcnl")
+max_distance = 100.0
+
+[node name="Rustle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_36uks")
+volume_db = -4.0
+bus = &"EnvironmentSFX"

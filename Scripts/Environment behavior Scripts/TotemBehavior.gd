@@ -4,6 +4,7 @@ extends Sprite2D
 
 @onready var area_2d = $Area2D
 @onready var stone_selected = $CollectibleStoneSelected
+@onready var totem_hum = $"Totem Hum"
 
 
 @onready var animation_player = $AnimationPlayer
@@ -52,5 +53,8 @@ func Heal_Player():
 	var player = get_tree().get_first_node_in_group("Player")
 	var health: HealthComponent = player.get_child(0)
 	health.Heal_To_Full_Health()
+	
+func _exit_tree():
+	totem_hum.stream_paused = true
 	
 		

@@ -3,9 +3,11 @@ extends Node2D
 @onready var spawn_player_timer = $SpawnPlayerTimer
 @onready var spawn_stone = $SpawnStone
 var hub_scene_path: String = "res://Scenes/Levels/HubWorld.tscn"
+@onready var audio_stream_player_2d = $Environment/AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio_stream_player_2d.play()
 	spawn_player_timer.timeout.connect(func(): spawn_stone.Activate_Stone())
 	
 func Complete_Level(body: CharacterBody2D):

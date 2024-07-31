@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://oopk72aad6pq"]
+[gd_scene load_steps=9 format=3 uid="uid://oopk72aad6pq"]
 
 [ext_resource type="Texture2D" uid="uid://dmy14b0xni8vk" path="res://Sprites/Environments/SpawnStone.png" id="1_eu7qj"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Stone.gd" id="2_i36pk"]
+[ext_resource type="AudioStream" uid="uid://bbhoi4uf76m0" path="res://SFX/Environment/Spawn_Totem_Hum.wav" id="3_iibrj"]
+[ext_resource type="AudioStream" uid="uid://x0n5ur8t48ci" path="res://SFX/Environment/Spawn_totem_explosion.wav" id="4_o12qg"]
 
 [sub_resource type="Animation" id="Animation_lql57"]
 resource_name = "active"
@@ -18,6 +20,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 35]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hum:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_tcsok"]
@@ -37,7 +51,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6km4l"]
 resource_name = "waking"
-length = 1.1
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,7 +59,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [12, 22]
@@ -63,6 +77,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"Spawn_Player"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpawnBoom:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.00266039),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj5ki"]
@@ -85,3 +111,12 @@ libraries = {
 
 [node name="PlayerSpawnPosition" type="Marker2D" parent="."]
 position = Vector2(-4, -43)
+
+[node name="Hum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iibrj")
+bus = &"EnvironmentSFX"
+
+[node name="SpawnBoom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o12qg")
+max_distance = 200.0
+bus = &"EnvironmentSFX"

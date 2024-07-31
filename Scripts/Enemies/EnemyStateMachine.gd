@@ -23,6 +23,14 @@ var enemy_active: bool = false
 var movement_direction: Vector2
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export_category("Sounds")
+@export var step_sound: AudioStream
+@export var taking_damage_sound: AudioStream
+@export var attacking_sound: AudioStream
+@export var death_sound: AudioStream
+
+@onready var audio_stream_player_2d = $"../AudioStreamPlayer2D"
+
 #flags
 var is_facing_right: bool = true
 var can_attack: bool = true
@@ -129,4 +137,25 @@ func Face_Player():
 	elif x > 0 and !is_facing_right:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right
+		
+func Play_Death_Sound():
+	audio_stream_player_2d.stream = death_sound
+	audio_stream_player_2d.play()
+	
+func Play_Step_Sound():
+	audio_stream_player_2d.stream = step_sound
+	audio_stream_player_2d.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player_2d.play()
+	
+func Play_Attack_Sound():
+	audio_stream_player_2d.stream = attacking_sound
+	audio_stream_player_2d.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player_2d.play()
+	
+func Play_Damage_Sound():
+	audio_stream_player_2d.stream = taking_damage_sound
+	audio_stream_player_2d.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player_2d.play()
+	
+	
 	
