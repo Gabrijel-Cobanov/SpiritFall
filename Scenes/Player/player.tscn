@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://blys5rjfktt1i"]
+[gd_scene load_steps=50 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bh2pfv7oucmc0" path="res://SFX/Player/player_landing.wav" id="13_cpuxd"]
 [ext_resource type="AudioStream" uid="uid://dqjugg015ix6y" path="res://SFX/Player/Footsteps_Rock_Run_02.wav" id="15_a1a17"]
 [ext_resource type="AudioStream" uid="uid://b465s2uth1582" path="res://SFX/Player/Footsteps_Rock_Run_03.wav" id="16_pv2pa"]
+[ext_resource type="AudioStream" uid="uid://bc1fv7l8qon10" path="res://SFX/Player/Player_heal.wav" id="17_xbs87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fd1l3"]
 
@@ -798,7 +799,6 @@ wait_time = 0.7
 one_shot = true
 
 [node name="HealCooldown" type="Timer" parent="Timers"]
-wait_time = 0.1
 one_shot = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -862,4 +862,5 @@ volume_db = -11.0
 pitch_scale = 1.03
 bus = &"PlayerSFX"
 
-[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+[node name="Heal" type="AudioStreamPlayer2D" parent="PlayerAudioManager"]
+stream = ExtResource("17_xbs87")

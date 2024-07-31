@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://oamw4led5ob7"]
+[gd_scene load_steps=38 format=3 uid="uid://oamw4led5ob7"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelOne.gd" id="1_m3kwt"]
 [ext_resource type="Texture2D" uid="uid://dr54p715041ly" path="res://Sprites/Environments/Forrest/Sky.png" id="1_w3x08"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dd13ms3ujfqro" path="res://Sprites/Environments/Forrest/Mine Entrance back.png" id="20_lp81a"]
 [ext_resource type="PackedScene" uid="uid://265duweovjr1" path="res://Scenes/Enemies/LumberBot.tscn" id="20_nawhk"]
 [ext_resource type="PackedScene" uid="uid://dd4puwc145yj6" path="res://Scenes/Environment/Totem.tscn" id="23_5j464"]
+[ext_resource type="AudioStream" uid="uid://c0qv7djvfols7" path="res://SFX/Environment/Ambiance_Wind_Forest_Loop_Stereo.wav" id="26_cwrwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r34m4"]
 texture = ExtResource("7_wxox2")
@@ -781,6 +782,10 @@ z_index = 5
 z_as_relative = false
 position = Vector2(50, -2)
 shape = SubResource("RectangleShape2D_o4cwn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment"]
+stream = ExtResource("26_cwrwt")
+autoplay = true
 
 [node name="SpawnStone" parent="." instance=ExtResource("10_m2uup")]
 position = Vector2(-1979, -25)

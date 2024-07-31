@@ -19,6 +19,8 @@ class_name PlayerStateMachine
 @onready var dash_sound = $"../PlayerAudioManager/Dash"
 @onready var hurt_sound = $"../PlayerAudioManager/Hurt"
 @onready var land_sound = $"../PlayerAudioManager/Land"
+@onready var heal_sound = $"../PlayerAudioManager/Heal"
+
 
 
 #movement variables
@@ -83,7 +85,6 @@ func _ready():
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
 	heal_is_pressed = Input.is_action_pressed("heal")
-	can_heal = health.can_heal
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
 	if combo_counter >= max_combo_counter:

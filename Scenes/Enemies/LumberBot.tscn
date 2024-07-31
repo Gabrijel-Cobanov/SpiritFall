@@ -1,11 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://265duweovjr1"]
+[gd_scene load_steps=25 format=3 uid="uid://265duweovjr1"]
 
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
 [ext_resource type="Texture2D" uid="uid://cnwqrpqct0jev" path="res://Sprites/Enemies/Lumber Bot.png" id="1_kalv3"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_brylt"]
 [ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="3_j5oqw"]
+[ext_resource type="AudioStream" uid="uid://csay4amcuoghf" path="res://SFX/Enemies/LumberBot_Step.wav" id="5_63wob"]
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_ou0rk"]
 [ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="5_uevrc"]
+[ext_resource type="AudioStream" uid="uid://cgixiovwbqsmr" path="res://SFX/Enemies/LumberBot_taking_damage.wav" id="6_cp5ic"]
+[ext_resource type="AudioStream" uid="uid://cvhb3jdm30spm" path="res://SFX/Enemies/Bot_Death_Beep.wav" id="7_0ms8g"]
+[ext_resource type="AudioStream" uid="uid://k5b7y72gama1" path="res://SFX/Enemies/LumberBot_attack_sound.wav" id="7_u8gnf"]
+[ext_resource type="AudioStream" uid="uid://2l67ko6p5sge" path="res://SFX/Enemies/LumberBot_death.wav" id="8_ufgvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rt5l"]
 size = Vector2(11, 17)
@@ -75,9 +80,24 @@ tracks/2/keys = {
 "method": &"Reset_Velocity_X"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Play_Attack_Sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_j8y80"]
 resource_name = "death"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -103,6 +123,47 @@ tracks/1/keys = {
 "args": [],
 "method": &"Turn_Off"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathPing:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Play_Death_Sound"
+}, {
+"args": [],
+"method": &"Play_Death_Sound"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7bykv"]
@@ -137,6 +198,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [20, 21, 22, 23, 24, 25, 26, 27]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.129945, 0.638691),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Play_Step_Sound"
+}, {
+"args": [],
+"method": &"Play_Step_Sound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv4lw"]
@@ -191,6 +269,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Play_Damage_Sound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25lpe"]
 _data = {
@@ -241,7 +333,7 @@ script = ExtResource("3_j5oqw")
 [node name="CB2D collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ourmp")
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "health", "pursue_area", "attack_area", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CB2D", "health", "pursue_area", "attack_area", "attack_timer", "knockback_timer", "ledge_detector", "animator")]
 script = ExtResource("5_ou0rk")
 enemy_name = "lumber_bot"
 CB2D = NodePath("..")
@@ -254,8 +346,12 @@ ledge_detector = NodePath("../EdgeChecker")
 animator = NodePath("../Visuals/AnimationPlayer")
 movement_speed = 30.0
 lunge_speed = 80.0
-death_anim_duration = 1.0
+death_anim_duration = 2.0
 attack_anim_duration = 1.0
+step_sound = ExtResource("5_63wob")
+taking_damage_sound = ExtResource("6_cp5ic")
+attacking_sound = ExtResource("7_u8gnf")
+death_sound = ExtResource("8_ufgvf")
 
 [node name="EdgeChecker" type="RayCast2D" parent="."]
 position = Vector2(7, 5)
@@ -309,9 +405,18 @@ position = Vector2(0, -3)
 texture = ExtResource("1_kalv3")
 hframes = 10
 vframes = 5
-frame = 30
+frame = 48
 
 [node name="HitflashAnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {
 "": SubResource("AnimationLibrary_25lpe")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+max_distance = 200.0
+bus = &"EnemySFX"
+
+[node name="DeathPing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0ms8g")
+volume_db = -12.0

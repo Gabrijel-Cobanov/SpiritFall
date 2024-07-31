@@ -324,7 +324,7 @@ position = Vector2(3, -9)
 texture = ExtResource("1_6ks4t")
 hframes = 16
 vframes = 4
-frame = 3
+frame = 32
 
 [node name="HitflashAnimator" type="AnimationPlayer" parent="Visuals"]
 libraries = {

@@ -7,6 +7,7 @@ func Enter(ctx: PlayerStateMachine):
 	anim_duration = 0.8
 	ctx.can_heal = false
 	ctx.animator.play("heal")
+	ctx.heal_sound.play()
 	
 func Update(ctx: PlayerStateMachine, delta:float):
 	Check_Transitions(ctx)
@@ -22,9 +23,11 @@ func Exit(ctx: PlayerStateMachine):
 		ctx.health.Heal()
 	else:
 		ctx.can_heal = true
-	pass
 
 func Check_Transitions(ctx: PlayerStateMachine):
+	if !ctx.heal_is_pressed:
+		ctx.heal_sound.playing = false
+	
 	if anim_duration <=0 or !ctx.heal_is_pressed:
 		if ctx.input_buffer.Get_Last_Input_Action() == "jump":
 			ctx.Switch_State(ctx.jump_start)
