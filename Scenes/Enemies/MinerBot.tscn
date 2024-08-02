@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dmam76yau62bu" path="res://SFX/Enemies/WalkerBot_death.wav" id="8_jer8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33n41"]
-size = Vector2(8, 14)
+size = Vector2(12, 14)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7l0e"]
 radius = 3.0
@@ -254,16 +254,18 @@ hitflash_animator = NodePath("../Visuals/HitflashAnimator")
 max_health = 4
 heal_ammount = 0
 
-[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("contact")]
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "contact")]
 script = ExtResource("2_arhu2")
+CB2D = NodePath("..")
 contact = NodePath("Contact")
 dmg = 1
 knockback_dealt = 150
 
 [node name="Contact" type="Area2D" parent="AttackComponent"]
-monitoring = false
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/Contact"]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_33n41")
 debug_color = Color(0.905882, 0.133333, 0.294118, 0.419608)
 
@@ -324,7 +326,6 @@ position = Vector2(3, -9)
 texture = ExtResource("1_6ks4t")
 hframes = 16
 vframes = 4
-frame = 32
 
 [node name="HitflashAnimator" type="AnimationPlayer" parent="Visuals"]
 libraries = {

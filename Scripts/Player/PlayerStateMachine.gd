@@ -41,7 +41,7 @@ var should_apply_gravity: bool = true
 var is_attacking: bool = false
 var can_attack: bool = true
 var can_dash: bool = true
-var can_heal: bool = true
+var can_heal: bool = false
 var heal_is_pressed: bool = false
 
 #states
@@ -85,6 +85,7 @@ func _ready():
 func _process(delta):
 	movement_input = Input.get_vector("left", "right", "up", "down").normalized()
 	heal_is_pressed = Input.is_action_pressed("heal")
+	can_heal = health.can_heal
 	if Input.is_action_just_pressed("attack") and can_attack:
 		is_attacking = true
 	if combo_counter >= max_combo_counter:

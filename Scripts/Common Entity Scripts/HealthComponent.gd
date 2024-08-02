@@ -7,7 +7,7 @@ class_name HealthComponent
 var current_health: int
 
 var can_take_damage: bool = true
-var can_heal: bool = true
+var can_heal: bool = false
 
 signal hurt(int)
 signal heal(int)
