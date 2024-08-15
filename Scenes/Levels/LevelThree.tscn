@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cju2hxj7kc8mn"]
+[gd_scene load_steps=16 format=3 uid="uid://cju2hxj7kc8mn"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelThree.gd" id="1_frufq"]
 [ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="1_s22cx"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bp63qygkrvtgy" path="res://Sprites/Environments/Forrest/Ground block.png" id="7_7u7is"]
 [ext_resource type="PackedScene" uid="uid://oopk72aad6pq" path="res://Scenes/Environment/Spawn_Stone.tscn" id="7_kxf6q"]
 [ext_resource type="Texture2D" uid="uid://coom8lh5kd8a7" path="res://Sprites/Environments/Forrest/Fog 1.png" id="10_54f77"]
+[ext_resource type="PackedScene" uid="uid://btdiqemrpjds0" path="res://Scenes/Environment/FirePipeBig.tscn" id="11_r7ft4"]
 [ext_resource type="Texture2D" uid="uid://dxitdjqyjj6ad" path="res://Sprites/Environments/Forrest/Fog 2.png" id="11_svm8o"]
+[ext_resource type="PackedScene" uid="uid://bvkw4l2gdh073" path="res://Scenes/Environment/FirePipeSmall.tscn" id="12_5f5fj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64c62"]
 texture = ExtResource("7_7u7is")
@@ -100,6 +102,14 @@ motion_mirroring = Vector2(320, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/Fog2"]
 texture = ExtResource("11_svm8o")
 centered = false
+
+[node name="FirePipes" type="Node2D" parent="Environment"]
+
+[node name="FirePipeBig" parent="Environment/FirePipes" instance=ExtResource("11_r7ft4")]
+position = Vector2(-360, 72)
+
+[node name="FirePipeSmall" parent="Environment/FirePipes" instance=ExtResource("12_5f5fj")]
+position = Vector2(-622, 72)
 
 [node name="SpawnStone" parent="." node_paths=PackedStringArray("camera_to_remove") instance=ExtResource("7_kxf6q")]
 position = Vector2(-522, 28)
