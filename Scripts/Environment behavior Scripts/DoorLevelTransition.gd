@@ -9,12 +9,15 @@ class_name Door1
 
 @onready var enter_level_pointer_1 = $Door1/EnterLevelPointer
 @onready var enter_level_pointer_2 = $Door2/EnterLevelPointer
+@onready var enter_level_pointer_3 = $Door3/EnterLevelPointer
 
 @onready var door_1_area2D = $Door1
 @onready var door_2_area2D = $Door2
+@onready var door_3_area2D = $Door3
 
 var path_to_level_one: String = "res://Scenes/Levels/LevelOne.tscn"
 var path_to_level_two: String = "res://Scenes/Levels/LevelTwo.tscn"
+var path_to_level_three: String = "res://Scenes/Levels/LevelThree.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,11 +25,14 @@ func _ready():
 	
 	var level_one_unlocked = game_data.unlocked_level_ids[0]
 	var level_two_unlocked = game_data.unlocked_level_ids[1]
+	var level_three_unlocked = game_data.unlocked_level_ids[2]
 	
 	if level_one_unlocked:
 		door_1_active.visible = true
 	if level_two_unlocked:
 		door_2_active.visible = true
+	if level_three_unlocked:
+		door_3_active.visible = true
 	
 	if level_one_unlocked:
 		door_1_area2D.body_entered.connect(func(body): enter_level_pointer_1.visible = true)
@@ -35,6 +41,10 @@ func _ready():
 	if level_two_unlocked:
 		door_2_area2D.body_entered.connect(func(body): enter_level_pointer_2.visible = true)
 		door_2_area2D.body_exited.connect(func(body): enter_level_pointer_2.visible = false)
+		
+	if level_three_unlocked:
+		door_3_area2D.body_entered.connect(func(body): enter_level_pointer_3.visible = true)
+		door_3_area2D.body_exited.connect(func(body): enter_level_pointer_3.visible = false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,3 +54,6 @@ func _process(delta):
 	
 	elif  enter_level_pointer_2.visible and Input.is_action_just_pressed("interact"):
 		SceneTransitionManager.Transition_To_Scene(path_to_level_two)
+		
+	elif  enter_level_pointer_3.visible and Input.is_action_just_pressed("interact"):
+		SceneTransitionManager.Transition_To_Scene(path_to_level_three)

@@ -119,6 +119,17 @@ shape = SubResource("RectangleShape2D_5yoxe")
 visible = false
 position = Vector2(125, -24)
 
+[node name="Door3" type="Area2D" parent="Doors/Door_functionality"]
+position = Vector2(49, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door_functionality/Door3"]
+position = Vector2(125.5, -2)
+shape = SubResource("RectangleShape2D_5yoxe")
+
+[node name="EnterLevelPointer" parent="Doors/Door_functionality/Door3" instance=ExtResource("23_w1npr")]
+visible = false
+position = Vector2(125, -24)
+
 [node name="Looping Nodes" type="Node2D" parent="."]
 script = ExtResource("19_3uy75")
 
