@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://btbldd3oy1vgp"]
+
+[ext_resource type="Texture2D" uid="uid://vyuxxgixkhf6" path="res://Sprites/Enemies/Final Boss/Burn attack flame.png" id="1_k02hb"]
+[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/FirePipe.gd" id="2_3d56y"]
+
+[sub_resource type="Animation" id="Animation_jafb1"]
+resource_name = "burning"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2jvx"]
+_data = {
+"burning": SubResource("Animation_jafb1")
+}
+
+[node name="BossFlame" type="Sprite2D"]
+texture = ExtResource("1_k02hb")
+hframes = 5
+frame = 4
+script = ExtResource("2_3d56y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h2jvx")
+}
