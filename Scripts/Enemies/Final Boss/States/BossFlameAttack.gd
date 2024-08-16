@@ -1,4 +1,4 @@
-extends Node2D
+extends BossState
 class_name BossFlameMiddle
 
 func Enter(ctx: BossStateMachine):

@@ -21,7 +21,6 @@ var enemy_active: bool = false
 @export var death_anim_duration: float
 @export var attack_anim_duration: float
 var movement_direction: Vector2
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export_category("Sounds")
 @export var step_sound: AudioStream

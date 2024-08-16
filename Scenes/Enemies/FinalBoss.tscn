@@ -1,12 +1,122 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxcpfc7gp4v8d"]
+[gd_scene load_steps=34 format=3 uid="uid://cxcpfc7gp4v8d"]
 
 [ext_resource type="Texture2D" uid="uid://bpdtxj6j3oxk4" path="res://Sprites/Enemies/Final Boss/Final Boss.png" id="1_bhlrx"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_duhut"]
 [ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_nhamq"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/WalkerBotSpawner.gd" id="3_jb22i"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossIdle.gd" id="3_kinnj"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/BossStateMachine.gd" id="3_onsla"]
 [ext_resource type="PackedScene" uid="uid://btbldd3oy1vgp" path="res://Scenes/Projectiles/BossFlame.tscn" id="4_76naw"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossMove.gd" id="4_wfhvo"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameStart.gd" id="5_6u2rg"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameAttack.gd" id="6_y6ote"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameEnd.gd" id="7_trkia"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossSpawnWalkerAttack.gd" id="8_6js60"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossSwingAttack.gd" id="9_6u12q"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossDeath.gd" id="10_j2ibe"]
+[ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="11_r2acp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c81rc"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpgwy"]
+radius = 5.0
+height = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85try"]
+radius = 17.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44gyy"]
 height = 28.0
+
+[sub_resource type="Animation" id="Animation_55kvf"]
+resource_name = "death"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+}
+
+[sub_resource type="Animation" id="Animation_thxyu"]
+resource_name = "flame_end"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [64, 70]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponent/FireArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6egkr"]
+resource_name = "flame_middle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [48, 49, 48]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponent/FireArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_m3ohv"]
+resource_name = "flame_start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [32, 38]
+}
 
 [sub_resource type="Animation" id="Animation_rbxk0"]
 resource_name = "idle"
@@ -42,9 +152,9 @@ tracks/0/keys = {
 "values": [16, 17, 18, 19, 20, 21, 22, 23]
 }
 
-[sub_resource type="Animation" id="Animation_m3ohv"]
-resource_name = "flame_start"
-length = 0.5
+[sub_resource type="Animation" id="Animation_srwvt"]
+resource_name = "spawn_walker"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,43 +162,10 @@ tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [32, 38]
-}
-
-[sub_resource type="Animation" id="Animation_6egkr"]
-resource_name = "flame_middle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [48, 49, 48]
-}
-
-[sub_resource type="Animation" id="Animation_thxyu"]
-resource_name = "flame_end"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [64, 70]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 83, 84, 85, 86, 87, 88]
 }
 
 [sub_resource type="Animation" id="Animation_si83n"]
@@ -106,37 +183,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [96, 102]
 }
-
-[sub_resource type="Animation" id="Animation_srwvt"]
-resource_name = "spawn_walker"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponent/SwingArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [80, 81, 82, 83, 84, 85, 86, 87, 88]
-}
-
-[sub_resource type="Animation" id="Animation_55kvf"]
-resource_name = "death"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.4, 1.5, 1.6, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lcupr"]
@@ -151,30 +208,136 @@ _data = {
 "swing": SubResource("Animation_si83n")
 }
 
-[node name="FinalBoss" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_rmunt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[sub_resource type="Animation" id="Animation_7yu1b"]
+resource_name = "hitflash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rm3v3"]
+_data = {
+"RESET": SubResource("Animation_rmunt"),
+"hitflash": SubResource("Animation_7yu1b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pob8k"]
+size = Vector2(240, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieial"]
+size = Vector2(94, 20)
+
+[node name="FinalBoss" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 16
+
+[node name="HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("hitflash_animator")]
 script = ExtResource("1_duhut")
+hitflash_animator = NodePath("../Visuals/HitflashAnimator")
+max_health = 25
+heal_ammount = 0
 
-[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D")]
+[node name="AttackComponent" type="Node2D" parent="." node_paths=PackedStringArray("CB2D", "down", "side", "contact")]
 script = ExtResource("2_nhamq")
 CB2D = NodePath("..")
+down = NodePath("FireArea")
+side = NodePath("SwingArea")
+contact = NodePath("ContactDamageArea")
 dmg = 1
 knockback_dealt = 170
+
+[node name="ContactDamageArea" type="Area2D" parent="AttackComponent"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/ContactDamageArea"]
+shape = SubResource("CapsuleShape2D_c81rc")
+debug_color = Color(0.564706, 0, 0.207843, 0.419608)
+
+[node name="FireArea" type="Area2D" parent="AttackComponent"]
+collision_layer = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/FireArea"]
+position = Vector2(43, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_gpgwy")
+debug_color = Color(0.54902, 0.545098, 0.419608, 0.419608)
+
+[node name="SwingArea" type="Area2D" parent="AttackComponent"]
+collision_layer = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent/SwingArea"]
+position = Vector2(8, -4)
+shape = SubResource("CircleShape2D_85try")
+debug_color = Color(0.992157, 0, 0.235294, 0.419608)
+
+[node name="WalkerBotSpawner" type="Node2D" parent="AttackComponent"]
+script = ExtResource("3_jb22i")
 
 [node name="CB2D collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_44gyy")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_onsla")
+
+[node name="BossIdle" type="Node2D" parent="StateMachine"]
+script = ExtResource("3_kinnj")
+
+[node name="BossMove" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_wfhvo")
+
+[node name="BossFlameStart" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_6u2rg")
+
+[node name="BossFlameMiddle" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_y6ote")
+
+[node name="BossFlameEnd" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_trkia")
+
+[node name="BossSpawnWalker" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_6js60")
+
+[node name="BossSwing" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_6u12q")
+
+[node name="BossDeath" type="Node2D" parent="StateMachine"]
+script = ExtResource("10_j2ibe")
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+material = ExtResource("11_r2acp")
 position = Vector2(0, -5)
 texture = ExtResource("1_bhlrx")
 hframes = 16
 vframes = 8
-frame = 127
+frame = 102
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 root_node = NodePath("../..")
@@ -185,3 +348,35 @@ libraries = {
 [node name="BossFlame" parent="Visuals" instance=ExtResource("4_76naw")]
 visible = false
 position = Vector2(44, 1)
+
+[node name="HitflashAnimator" type="AnimationPlayer" parent="Visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_rm3v3")
+}
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="PursueArea" type="Area2D" parent="Areas"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/PursueArea"]
+shape = SubResource("RectangleShape2D_pob8k")
+debug_color = Color(0.631373, 0.52549, 0.192157, 0.419608)
+
+[node name="AttackArea" type="Area2D" parent="Areas"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AttackArea"]
+shape = SubResource("RectangleShape2D_ieial")
+debug_color = Color(0.992157, 0, 0.247059, 0.419608)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="KnockbackTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.4
+
+[node name="IdleCooldown" type="Timer" parent="Timers"]
+wait_time = 2.3

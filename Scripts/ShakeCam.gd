@@ -1,7 +1,7 @@
 extends Camera2D
 class_name ShakeCam
 
-var shake_strength: float = 0.5
+var shake_strength: float = 0.62
 var shake_fade: float = 10
 
 var current_shake: float = 0

@@ -1,4 +1,4 @@
-extends Node2D
+extends BossState
 class_name BossSpawnWalker
 
 func Enter(ctx: BossStateMachine):
