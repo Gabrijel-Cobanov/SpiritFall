@@ -4,7 +4,6 @@ class_name BossIdle
 func Enter(ctx: BossStateMachine):
 	ctx.animator.play("idle")
 	ctx.Reset_Velocity_X()
-	print_debug("ENTERED THE IDLE STATE")
 
 func Update(ctx: BossStateMachine):
 	Check_Transitions(ctx)

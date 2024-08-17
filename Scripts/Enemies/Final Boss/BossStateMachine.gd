@@ -25,12 +25,15 @@ var player_CB2D: CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var num_of_attacks_done: int = 0
+
 var is_active: bool = false
 var is_facing_right: bool = true
 var is_is_being_knocked_back: bool = false
 var should_pursue_player: bool = false
 var should_attack_player: bool = false
 var can_attack_player: bool = true
+var can_spawn_walker_bot: bool = false
 
 #exports
 @export var movement_speed: int = 3000
@@ -57,6 +60,9 @@ func _ready():
 	current_state.Enter(self)
 	
 func _process(delta):
+	
+	can_spawn_walker_bot = num_of_attacks_done % 5 == 0
+	
 	if is_active:
 		Flip()
 		current_state.Update(self)
@@ -71,6 +77,8 @@ func _physics_process(delta):
 		current_state.Pyhsics_Update(self, delta)
 
 func Flip():
+	if is_is_being_knocked_back:
+		return
 	if is_facing_right and CB2D.velocity.x < 0:
 		get_parent().scale.x *= -1
 		is_facing_right = !is_facing_right

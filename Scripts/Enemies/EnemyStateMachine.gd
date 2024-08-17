@@ -4,6 +4,7 @@ class_name EnemyStateMachine
 @export var enemy_name: String
 var player_CB2D: CharacterBody2D
 var enemy_active: bool = false
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export_category("Nodes")
 @export var CB2D: CharacterBody2D
