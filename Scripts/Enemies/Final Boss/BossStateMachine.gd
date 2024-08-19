@@ -44,6 +44,7 @@ func _ready():
 	player_CB2D = get_tree().get_first_node_in_group("Player")
 	
 	health.hurt.connect(On_Hurt)
+	health.dead.connect(func(): Switch_State(death))
 	
 	knockback_timer.timeout.connect(func(): is_is_being_knocked_back = false)
 	knockback_timer.timeout.connect(Reset_Velocity_X)
@@ -60,17 +61,16 @@ func _ready():
 	current_state.Enter(self)
 	
 func _process(delta):
-	
-	can_spawn_walker_bot = num_of_attacks_done % 5 == 0
-	
 	if is_active:
+		can_attack_player = num_of_attacks_done <= 2
+		can_spawn_walker_bot = randf() <= 0.1
 		Flip()
 		current_state.Update(self)
 	
 func _physics_process(delta):
 	if is_active:
 		if not CB2D.is_on_floor():
-			CB2D.velocity.y += gravity * delta
+			CB2D.velocity.y += gravity
 		if not is_is_being_knocked_back:
 			CB2D.move_and_slide()
 			

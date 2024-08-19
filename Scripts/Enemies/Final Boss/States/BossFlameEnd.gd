@@ -24,7 +24,7 @@ func Check_Transitions(ctx: BossStateMachine):
 		ctx.Switch_State(ctx.move)
 	elif ctx.should_attack_player and ctx.can_spawn_walker_bot:
 		ctx.Switch_State(ctx.spawn_walker)
-	elif ctx.should_attack_player:
+	elif ctx.should_attack_player and ctx.can_attack_player:
 		ctx.Switch_State(ctx.swing)
 	else:
 		ctx.Switch_State(ctx.idle)

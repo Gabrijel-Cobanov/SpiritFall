@@ -18,7 +18,7 @@ func Check_Transitions(ctx: BossStateMachine):
 		ctx.Switch_State(ctx.idle)
 	elif ctx.should_attack_player and ctx.can_spawn_walker_bot:
 		ctx.Switch_State(ctx.spawn_walker)
-	elif ctx.should_attack_player:
+	elif ctx.should_attack_player and ctx.can_attack_player:
 		var x = randi_range(0, 1)
 		if x == 1:
 			ctx.Switch_State(ctx.swing)

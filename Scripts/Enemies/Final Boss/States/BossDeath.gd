@@ -1,14 +1,21 @@
-extends Node2D
+extends BossMove
 class_name BossDeath
 
-func Enter(ctx: BossStateMachine):
-	pass
+var anim_duration: float
 
+func Enter(ctx: BossStateMachine):
+	anim_duration = 1.7
+	ctx.animator.play("death")
+	
+	
 func Update(ctx: BossStateMachine):
-	pass
+	if anim_duration <= 0:
+		Exit(ctx)
 	
 func Pyhsics_Update(ctx: BossStateMachine, delta: float):
-	pass
+	anim_duration -= delta
 	
 func Exit(ctx: BossStateMachine):
-	pass
+	var boss = get_tree().get_first_node_in_group("boss")
+	GlobalSignalBus.show_platforms.emit()
+	boss.queue_free()
