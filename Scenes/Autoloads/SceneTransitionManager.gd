@@ -10,4 +10,3 @@ func Transition_To_Scene(scene_path: String):
 	animation_player.play_backwards("fade_to_black")
 	await animation_player.animation_finished
 	get_tree().paused = false
-	

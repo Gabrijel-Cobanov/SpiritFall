@@ -38,7 +38,7 @@ func Check_Transitions(ctx: PlayerStateMachine):
 			ctx.combo_counter = 1
 			if ctx.movement_input.x != 0:
 				ctx.Switch_State(ctx.run)
-			elif ctx.input_buffer.Get_Last_Input_Action() == "jump":
+			elif ctx.input_buffer.Get_Last_Input_Action() == "jump" and ctx.CB2D.is_on_floor():
 				ctx.Switch_State(ctx.jump_start)
 			elif ctx.input_buffer.Get_Last_Input_Action() == "dash" and ctx.can_dash:
 				ctx.Switch_State(ctx.dash)

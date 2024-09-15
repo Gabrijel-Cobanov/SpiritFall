@@ -10,8 +10,11 @@ extends Control
 @onready var button_click = $ButtonClick
 @onready var button_hover = $ButtonHover
 
+@onready var animation_player = $AnimationPlayer
+
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	animation_player.play("fade_in")
 	start_button.grab_focus()
 	start_button.pressed.connect(On_Start_Button_Pressed)
 	options_button.pressed.connect(Toggle_Elements_Visibility)

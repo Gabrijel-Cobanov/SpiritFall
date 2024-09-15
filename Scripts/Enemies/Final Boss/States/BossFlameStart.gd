@@ -11,6 +11,7 @@ func Enter(ctx: BossStateMachine):
 	ctx.animator.play("flame_start")
 	
 func Update(ctx: BossStateMachine):
+	ctx.Face_Player()
 	if anim_duration <= 0:
 		ctx.Switch_State(ctx.flame_middle)
 	
@@ -19,3 +20,4 @@ func Pyhsics_Update(ctx: BossStateMachine, delta: float):
 	
 func Exit(ctx: BossStateMachine):
 	pass
+	

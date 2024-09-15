@@ -13,7 +13,10 @@ config_version=5
 config/name="SpiritFall"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://Splashscreen 1.png"
+boot_splash/use_filter=false
+config/icon="res://Sprites/SpiritFall Logo.png"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -27,7 +30,7 @@ ConfigFileHandler="*res://Scenes/Autoloads/ConfigFileHandler.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=2
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"

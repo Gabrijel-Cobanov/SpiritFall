@@ -1,6 +1,8 @@
 extends BossState
 class_name BossMove
 
+@onready var footstep = $"../../Audio/Footstep"
+
 func Enter(ctx: BossStateMachine):
 	ctx.animator.play("move")
 
@@ -25,3 +27,6 @@ func Check_Transitions(ctx: BossStateMachine):
 		else:
 			ctx.Switch_State(ctx.flame_start)
 
+func Play_Footstep_Sound():
+	footstep.pitch_scale = randf_range(0.9, 1.1)
+	footstep.play()

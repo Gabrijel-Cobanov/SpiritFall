@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhseq4s88acpo"]
+[gd_scene load_steps=24 format=3 uid="uid://dhseq4s88acpo"]
 
 [ext_resource type="Texture2D" uid="uid://bxqwgdpt6kk2n" path="res://Sprites/Environments/Hub/FloorTile.png" id="1_3uueb"]
+[ext_resource type="Script" path="res://Scenes/Levels/HubWorld.gd" id="1_njp33"]
 [ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="1_u4gb1"]
 [ext_resource type="Texture2D" uid="uid://drdldyqikub3a" path="res://Sprites/Environments/Hub/BackgroundTile.png" id="2_4fsq0"]
 [ext_resource type="Texture2D" uid="uid://cq1kidpmene4m" path="res://Sprites/Environments/Hub/Door1Inactive.png" id="3_l0do4"]
+[ext_resource type="Texture2D" uid="uid://ducn5legkdyt7" path="res://Sprites/Thanks for playing.png" id="3_uh37v"]
 [ext_resource type="Texture2D" uid="uid://bmgshiwyvvqf0" path="res://Sprites/Environments/Hub/Door2Inactive.png" id="4_ygsgf"]
 [ext_resource type="PackedScene" uid="uid://dqdpet1qh4mft" path="res://Scenes/Environment/Hub_tree.tscn" id="5_hrp18"]
 [ext_resource type="Texture2D" uid="uid://ciouvwogpnkfe" path="res://Sprites/Environments/Hub/Door3Inactive.png" id="5_pcm0s"]
@@ -47,6 +49,7 @@ size = Vector2(13, 20)
 size = Vector2(177, 231)
 
 [node name="HubWorld" type="Node2D"]
+script = ExtResource("1_njp33")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -161,3 +164,9 @@ position = Vector2(9, 2)
 position = Vector2(-1, 0)
 offset = Vector2(0, -20)
 script = ExtResource("15_cmjix")
+
+[node name="ThanksForPlaying" type="Sprite2D" parent="."]
+z_index = 17
+z_as_relative = false
+position = Vector2(128, -43)
+texture = ExtResource("3_uh37v")

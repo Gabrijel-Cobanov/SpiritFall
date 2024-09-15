@@ -2,7 +2,7 @@ extends PlayerBaseState
 class_name PlayerJumpStart
 
 var anim_duration: float
-const ADDITIONAL_GRAVITY: float = 10
+const ADDITIONAL_GRAVITY: float = 50
 
 func Enter(ctx: PlayerStateMachine):
 	ctx.animator.play("jump_start")
@@ -18,6 +18,7 @@ func Physics_Update(ctx: PlayerStateMachine, delta:float):
 	anim_duration -= delta
 	if !Input.is_action_pressed("jump"):
 		ctx.CB2D.velocity.y += ADDITIONAL_GRAVITY
+		ctx.Switch_State(ctx.jump_middle)
 	ctx.Move_Player_Horizontally()
 
 func Exit(ctx: PlayerStateMachine):

@@ -20,6 +20,7 @@ var current_state: BossState
 @onready var idle_cooldown = $"../Timers/IdleCooldown"
 @onready var pursue_area = $"../Areas/PursueArea"
 @onready var attack_area = $"../Areas/AttackArea"
+@onready var hurt = $"../Audio/Hurt"
 
 var player_CB2D: CharacterBody2D
 
@@ -103,4 +104,11 @@ func Reset_Velocity_X():
 func On_Hurt(dmg: int):
 	is_is_being_knocked_back = true
 	knockback_timer.start()
+	hurt.play()
+	
+func Face_Player():
+	if (player_CB2D.position.x - CB2D.position.x > 0 and not is_facing_right
+		or player_CB2D.position.x - CB2D.position.x < 0 and is_facing_right):
+		get_parent().scale.x *= -1
+		is_facing_right = !is_facing_right
 

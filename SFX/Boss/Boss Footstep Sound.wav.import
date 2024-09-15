@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgdos8cuqiu7n"
+path="res://.godot/imported/Boss Footstep Sound.wav-248423dec4ff56054916d7dc821b7700.sample"
+
+[deps]
+
+source_file="res://SFX/Boss/Boss Footstep Sound.wav"
+dest_files=["res://.godot/imported/Boss Footstep Sound.wav-248423dec4ff56054916d7dc821b7700.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

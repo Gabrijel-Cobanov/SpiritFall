@@ -26,7 +26,7 @@ func Exit(ctx: PlayerStateMachine):
 	pass
 	
 func Check_Transitions(ctx: PlayerStateMachine):
-	if anim_duration <= early_transition_time and ctx.input_buffer.Get_Last_Input_Action() == "jump":
+	if anim_duration <= early_transition_time and Input.is_action_just_pressed("jump") and ctx.CB2D.is_on_floor():
 		ctx.Switch_State(ctx.jump_start)
 	
 	if anim_duration <= 0:
