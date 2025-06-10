@@ -1,14 +1,14 @@
 [gd_scene load_steps=50 format=3 uid="uid://blys5rjfktt1i"]
 
 [ext_resource type="Texture2D" uid="uid://coh2a73tuaddd" path="res://Sprites/Player/The spirit.png" id="1_3lfy2"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_72k4k"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerStateMachine.gd" id="3_x1wnp"]
-[ext_resource type="Script" path="res://Scripts/Player/InputBuffer.gd" id="3_ybqoq"]
-[ext_resource type="Script" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
-[ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
-[ext_resource type="Script" path="res://Scripts/Player/PogoComponent.gd" id="8_hexup"]
-[ext_resource type="Script" path="res://Scripts/Player/HitStopComponent.gd" id="9_ivyfy"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_rt5mu"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_72k4k"]
+[ext_resource type="Script" uid="uid://dgjgtuovhwudb" path="res://Scripts/Player/PlayerStateMachine.gd" id="3_x1wnp"]
+[ext_resource type="Script" uid="uid://d0oy6s62qrfsg" path="res://Scripts/Player/InputBuffer.gd" id="3_ybqoq"]
+[ext_resource type="Script" uid="uid://cagi25bfwxeqd" path="res://Scripts/Player/Coyote.gd" id="4_cstqr"]
+[ext_resource type="Script" uid="uid://cm3fngnx3ul77" path="res://Scripts/CollisionSwitch.gd" id="4_ok4u5"]
+[ext_resource type="Script" uid="uid://b1twv7rjf8kdd" path="res://Scripts/Player/PogoComponent.gd" id="8_hexup"]
+[ext_resource type="Script" uid="uid://cdwgeht7523kf" path="res://Scripts/Player/HitStopComponent.gd" id="9_ivyfy"]
 [ext_resource type="AudioStream" uid="uid://t6n7yv7xkim" path="res://SFX/Player/Player_jump.wav" id="10_ge8jy"]
 [ext_resource type="AudioStream" uid="uid://p2l23kmpf5gc" path="res://SFX/Player/Player_swing.wav" id="11_223ui"]
 [ext_resource type="AudioStream" uid="uid://derv8rycwsm5f" path="res://SFX/Player/Player_dash.wav" id="12_fq4md"]
@@ -618,27 +618,27 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4xq4"]
 _data = {
-"RESET": SubResource("Animation_jpotx"),
-"dash": SubResource("Animation_c4l8c"),
-"death": SubResource("Animation_j1o7b"),
-"heal": SubResource("Animation_cddgb"),
-"hurt": SubResource("Animation_1rv2n"),
-"idle": SubResource("Animation_cahm5"),
-"jump_end": SubResource("Animation_jo45q"),
-"jump_middle": SubResource("Animation_7n7qg"),
-"jump_start": SubResource("Animation_vrtvu"),
-"run": SubResource("Animation_o7pss"),
-"smash_attack": SubResource("Animation_qpbpu"),
-"swing1_down_air": SubResource("Animation_4yf34"),
-"swing1_side": SubResource("Animation_ypueo"),
-"swing1_side_air": SubResource("Animation_x2fb5"),
-"swing1_up": SubResource("Animation_5mfxm"),
-"swing1_up_air": SubResource("Animation_idhwj"),
-"swing2_down_air": SubResource("Animation_mf8h0"),
-"swing2_side": SubResource("Animation_r1eho"),
-"swing2_side_air": SubResource("Animation_dukdc"),
-"swing2_up": SubResource("Animation_wt3hx"),
-"swing2_up_air": SubResource("Animation_puhkf")
+&"RESET": SubResource("Animation_jpotx"),
+&"dash": SubResource("Animation_c4l8c"),
+&"death": SubResource("Animation_j1o7b"),
+&"heal": SubResource("Animation_cddgb"),
+&"hurt": SubResource("Animation_1rv2n"),
+&"idle": SubResource("Animation_cahm5"),
+&"jump_end": SubResource("Animation_jo45q"),
+&"jump_middle": SubResource("Animation_7n7qg"),
+&"jump_start": SubResource("Animation_vrtvu"),
+&"run": SubResource("Animation_o7pss"),
+&"smash_attack": SubResource("Animation_qpbpu"),
+&"swing1_down_air": SubResource("Animation_4yf34"),
+&"swing1_side": SubResource("Animation_ypueo"),
+&"swing1_side_air": SubResource("Animation_x2fb5"),
+&"swing1_up": SubResource("Animation_5mfxm"),
+&"swing1_up_air": SubResource("Animation_idhwj"),
+&"swing2_down_air": SubResource("Animation_mf8h0"),
+&"swing2_side": SubResource("Animation_r1eho"),
+&"swing2_side_air": SubResource("Animation_dukdc"),
+&"swing2_up": SubResource("Animation_wt3hx"),
+&"swing2_up_air": SubResource("Animation_puhkf")
 }
 
 [sub_resource type="Animation" id="Animation_dvewm"]
@@ -692,9 +692,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cliow"]
 _data = {
-"RESET": SubResource("Animation_dvewm"),
-"i_frames": SubResource("Animation_c2vtl"),
-"reset": SubResource("Animation_3o10p")
+&"RESET": SubResource("Animation_dvewm"),
+&"i_frames": SubResource("Animation_c2vtl"),
+&"reset": SubResource("Animation_3o10p")
 }
 
 [sub_resource type="VisualShader" id="VisualShader_75at7"]

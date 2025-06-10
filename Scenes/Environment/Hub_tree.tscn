@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqdpet1qh4mft"]
 
 [ext_resource type="Texture2D" uid="uid://dwksem2raibco" path="res://Sprites/Environments/Hub/Tree/BareTree.png" id="1_4phkp"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/HubTree.gd" id="2_3qbgt"]
+[ext_resource type="Script" uid="uid://b3ntj0nudu0a6" path="res://Scripts/Environment behavior Scripts/HubTree.gd" id="2_3qbgt"]
 [ext_resource type="Texture2D" uid="uid://bf7gab2l6t2nq" path="res://Sprites/Environments/Hub/Tree/Leaves1.png" id="3_ts00q"]
 [ext_resource type="Texture2D" uid="uid://g0bjwbsn82w0" path="res://Sprites/Environments/Hub/Tree/Leaves2.png" id="4_ge1ki"]
 [ext_resource type="Texture2D" uid="uid://n3qvqosd5a7e" path="res://Sprites/Environments/Hub/Tree/Leaves3.png" id="5_7p82t"]

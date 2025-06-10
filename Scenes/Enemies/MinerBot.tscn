@@ -1,11 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://b0rgih383vsay"]
 
 [ext_resource type="Texture2D" uid="uid://bumwuntk77h4b" path="res://Sprites/Enemies/Miner Bot.png" id="1_6ks4t"]
-[ext_resource type="Script" path="res://Scripts/Projectiles/ProjectileShooter.gd" id="1_pui31"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_pxeoi"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_arhu2"]
+[ext_resource type="Script" uid="uid://ywopq4ponfji" path="res://Scripts/Projectiles/ProjectileShooter.gd" id="1_pui31"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_pxeoi"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_arhu2"]
 [ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="4_8gw41"]
-[ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="4_q02n4"]
+[ext_resource type="Script" uid="uid://bey3h4whlew5l" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="4_q02n4"]
 [ext_resource type="AudioStream" uid="uid://nsvqtt0680dv" path="res://SFX/Enemies/MinerBot_footstep.wav" id="5_54pw2"]
 [ext_resource type="AudioStream" uid="uid://0ona0jdyigrx" path="res://SFX/Enemies/MinerBot_taking_damage.wav" id="6_77biu"]
 [ext_resource type="AudioStream" uid="uid://cvhb3jdm30spm" path="res://SFX/Enemies/Bot_Death_Beep.wav" id="7_j0sgs"]
@@ -185,10 +185,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4mjt7"]
 _data = {
-"attack": SubResource("Animation_e47sl"),
-"death": SubResource("Animation_fqpjs"),
-"idle": SubResource("Animation_2gsqf"),
-"move": SubResource("Animation_nqipk")
+&"attack": SubResource("Animation_e47sl"),
+&"death": SubResource("Animation_fqpjs"),
+&"idle": SubResource("Animation_2gsqf"),
+&"move": SubResource("Animation_nqipk")
 }
 
 [sub_resource type="Animation" id="Animation_pterw"]
@@ -239,8 +239,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_euxhe"]
 _data = {
-"RESET": SubResource("Animation_pterw"),
-"hitflash": SubResource("Animation_7ltmw")
+&"RESET": SubResource("Animation_pterw"),
+&"hitflash": SubResource("Animation_7ltmw")
 }
 
 [node name="MinerBot" type="CharacterBody2D" groups=["enemies"]]

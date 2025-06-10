@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b52t3bpe7xjnc"]
 
 [ext_resource type="Texture2D" uid="uid://dd5qw6p4oj4da" path="res://Sprites/UI/PlayerUI/Health Orb.png" id="1_addu6"]
-[ext_resource type="Script" path="res://Scripts/UI/Player UI/HealthOrb.gd" id="1_yheud"]
+[ext_resource type="Script" uid="uid://bx2kpvnf5s6aj" path="res://Scripts/UI/Player UI/HealthOrb.gd" id="1_yheud"]
 
 [sub_resource type="Animation" id="Animation_slv04"]
 length = 0.001
@@ -69,10 +69,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg1jv"]
 _data = {
-"RESET": SubResource("Animation_slv04"),
-"active": SubResource("Animation_0gguj"),
-"healing": SubResource("Animation_a4rxu"),
-"hurt": SubResource("Animation_a3r3a")
+&"RESET": SubResource("Animation_slv04"),
+&"active": SubResource("Animation_0gguj"),
+&"healing": SubResource("Animation_a4rxu"),
+&"hurt": SubResource("Animation_a3r3a")
 }
 
 [node name="HealthOrb" type="Node2D"]

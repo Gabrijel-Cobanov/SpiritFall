@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://il1pets76xi0"]
 
-[ext_resource type="Script" path="res://Scenes/UI/PlayerUI/HealthBar.gd" id="1_3cnpb"]
+[ext_resource type="Script" uid="uid://c4g8ut6acuwys" path="res://Scenes/UI/PlayerUI/HealthBar.gd" id="1_3cnpb"]
 [ext_resource type="PackedScene" uid="uid://b52t3bpe7xjnc" path="res://Scenes/UI/PlayerUI/HealthOrb.tscn" id="1_xehng"]
 [ext_resource type="PackedScene" uid="uid://bccm2f2pyi5ei" path="res://Scenes/UI/PlayerUI/ManaIndicator.tscn" id="2_vp4ed"]
 

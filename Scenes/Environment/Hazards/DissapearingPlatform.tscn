@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bgq3kuw50wuat"]
 
 [ext_resource type="Texture2D" uid="uid://d1t6nwhq4qaa1" path="res://Sprites/Environments/Cave/Dissapearing platform.png" id="1_knpsn"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/DissapearingPlatformBehvior.gd" id="1_q62vc"]
+[ext_resource type="Script" uid="uid://cayvl1060kmuc" path="res://Scripts/Environment behavior Scripts/DissapearingPlatformBehvior.gd" id="1_q62vc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqoho"]
 size = Vector2(32, 3)
@@ -142,9 +142,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x7akn"]
 _data = {
-"falling_apart": SubResource("Animation_hmb8c"),
-"idle": SubResource("Animation_ovvfu"),
-"reforming": SubResource("Animation_14if1")
+&"falling_apart": SubResource("Animation_hmb8c"),
+&"idle": SubResource("Animation_ovvfu"),
+&"reforming": SubResource("Animation_14if1")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr51r"]

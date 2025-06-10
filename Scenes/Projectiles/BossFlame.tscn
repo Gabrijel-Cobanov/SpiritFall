@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://btbldd3oy1vgp"]
 
 [ext_resource type="Texture2D" uid="uid://vyuxxgixkhf6" path="res://Sprites/Enemies/Final Boss/Burn attack flame.png" id="1_k02hb"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/FirePipe.gd" id="2_3d56y"]
+[ext_resource type="Script" uid="uid://bnus2d5ly1pli" path="res://Scripts/Environment behavior Scripts/FirePipe.gd" id="2_3d56y"]
 
 [sub_resource type="Animation" id="Animation_jafb1"]
 resource_name = "burning"
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2jvx"]
 _data = {
-"burning": SubResource("Animation_jafb1")
+&"burning": SubResource("Animation_jafb1")
 }
 
 [node name="BossFlame" type="Sprite2D"]

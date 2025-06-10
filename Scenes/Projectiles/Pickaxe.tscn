@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfndcdl1ee17q"]
 
 [ext_resource type="Texture2D" uid="uid://blfooovyc3w1e" path="res://Sprites/Projectiles/Pickaxe projectile.png" id="1_bstc0"]
-[ext_resource type="Script" path="res://Scripts/Projectiles/Pickaxe.gd" id="1_dg1mp"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_8cp3v"]
+[ext_resource type="Script" uid="uid://bk7eb11ppg06i" path="res://Scripts/Projectiles/Pickaxe.gd" id="1_dg1mp"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_8cp3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k866v"]
 radius = 5.0
@@ -26,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5pxfl"]
 _data = {
-"falling": SubResource("Animation_jnvfd")
+&"falling": SubResource("Animation_jnvfd")
 }
 
 [node name="Pickaxe" type="Area2D"]

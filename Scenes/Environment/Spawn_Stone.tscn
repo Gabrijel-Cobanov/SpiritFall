@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://oopk72aad6pq"]
 
 [ext_resource type="Texture2D" uid="uid://dmy14b0xni8vk" path="res://Sprites/Environments/SpawnStone.png" id="1_eu7qj"]
-[ext_resource type="Script" path="res://Scripts/Spawn_Stone.gd" id="2_i36pk"]
+[ext_resource type="Script" uid="uid://by8eta6ss0p4q" path="res://Scripts/Spawn_Stone.gd" id="2_i36pk"]
 [ext_resource type="AudioStream" uid="uid://bbhoi4uf76m0" path="res://SFX/Environment/Spawn_Totem_Hum.wav" id="3_iibrj"]
 [ext_resource type="AudioStream" uid="uid://x0n5ur8t48ci" path="res://SFX/Environment/Spawn_totem_explosion.wav" id="4_o12qg"]
 
@@ -93,9 +93,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj5ki"]
 _data = {
-"active": SubResource("Animation_lql57"),
-"dormant": SubResource("Animation_tcsok"),
-"waking": SubResource("Animation_6km4l")
+&"active": SubResource("Animation_lql57"),
+&"dormant": SubResource("Animation_tcsok"),
+&"waking": SubResource("Animation_6km4l")
 }
 
 [node name="SpawnStone" type="Sprite2D"]

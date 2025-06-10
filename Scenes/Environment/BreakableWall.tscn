@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bph31pcq5v5m"]
 
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/BreakableWall.gd" id="1_1p4su"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_q2j3c"]
+[ext_resource type="Script" uid="uid://by38lckfowrm8" path="res://Scripts/Environment behavior Scripts/BreakableWall.gd" id="1_1p4su"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_q2j3c"]
 [ext_resource type="Texture2D" uid="uid://dh4jjypovdqb2" path="res://Sprites/Environments/Breakable Wall.png" id="1_ro01d"]
 [ext_resource type="Texture2D" uid="uid://bp63qygkrvtgy" path="res://Sprites/Environments/Forrest/Ground block.png" id="4_3bou7"]
 
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x4od4"]
 _data = {
-"RESET": SubResource("Animation_38r4v"),
-"mask_fade_out": SubResource("Animation_r21dp")
+&"RESET": SubResource("Animation_38r4v"),
+&"mask_fade_out": SubResource("Animation_r21dp")
 }
 
 [node name="BreakableWall" type="CharacterBody2D"]

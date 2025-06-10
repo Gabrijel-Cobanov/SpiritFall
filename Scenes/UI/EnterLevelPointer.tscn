@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqduw1weaq6mr"]
 
 [ext_resource type="Texture2D" uid="uid://g3dctcdbhymi" path="res://Sprites/Environments/Hub/Pointer.png" id="1_06u58"]
-[ext_resource type="Script" path="res://Scripts/UI/EnterLevelPointer.gd" id="1_gn3nq"]
+[ext_resource type="Script" uid="uid://jjecoom1lfag" path="res://Scripts/UI/EnterLevelPointer.gd" id="1_gn3nq"]
 [ext_resource type="Texture2D" uid="uid://b1yuxlaur04mu" path="res://Sprites/Environments/Hub/Text.png" id="2_cx7v0"]
 
 [sub_resource type="Animation" id="Animation_gacb4"]
@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pwn26"]
 _data = {
-"float": SubResource("Animation_gacb4")
+&"float": SubResource("Animation_gacb4")
 }
 
 [node name="EnterLevelPointer" type="Node2D"]

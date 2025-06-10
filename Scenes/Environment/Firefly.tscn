@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be5bsm1kwvtc"]
 
 [ext_resource type="Texture2D" uid="uid://c20qsplhxxvfy" path="res://Sprites/Environments/Cave/firefly.png" id="1_b7kve"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/FireflyBehavior.gd" id="1_r27he"]
+[ext_resource type="Script" uid="uid://b2nkdk7se6g5p" path="res://Scripts/Environment behavior Scripts/FireflyBehavior.gd" id="1_r27he"]
 
 [node name="Firefly" type="Sprite2D"]
 texture = ExtResource("1_b7kve")

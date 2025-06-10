@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://crjwmq6sssdk6"]
 
 [ext_resource type="Texture2D" uid="uid://wrncofnb8l2a" path="res://Sprites/SpiritFall Logo.png" id="1_8aetl"]
-[ext_resource type="Script" path="res://Scripts/UI/Menus/MainMenu.gd" id="1_mox6m"]
+[ext_resource type="Script" uid="uid://ff1y1yskasw7" path="res://Scripts/UI/Menus/MainMenu.gd" id="1_mox6m"]
 [ext_resource type="AudioStream" uid="uid://batw5l0ju6eqa" path="res://SFX/UI/Click_1.wav" id="2_koeau"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="3_doopc"]
 [ext_resource type="AudioStream" uid="uid://dg7bgfi7760hy" path="res://SFX/UI/Hover_1.wav" id="3_m2qry"]
@@ -31,7 +31,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5mtk3"]
 _data = {
-"fade_in": SubResource("Animation_uh03w")
+&"fade_in": SubResource("Animation_uh03w")
 }
 
 [node name="MainMenu" type="Control"]

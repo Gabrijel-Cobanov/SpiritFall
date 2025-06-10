@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dd4puwc145yj6"]
 
 [ext_resource type="Texture2D" uid="uid://bk210lchoutqm" path="res://Sprites/Environments/CollectibleStone.png" id="1_6qty6"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/TotemBehavior.gd" id="2_1wdjv"]
+[ext_resource type="Script" uid="uid://2jwlmkvrba7a" path="res://Scripts/Environment behavior Scripts/TotemBehavior.gd" id="2_1wdjv"]
 [ext_resource type="Texture2D" uid="uid://b5uq4lfdjm28f" path="res://Sprites/Environments/CollectibleStoneSelected.png" id="2_l6m14"]
 [ext_resource type="AudioStream" uid="uid://dueqc3ac3u4q8" path="res://SFX/Environment/Totem_Activation_Sound.wav" id="4_8opt0"]
 [ext_resource type="AudioStream" uid="uid://cwa460r2myhc" path="res://SFX/Environment/Totem_hum.wav" id="5_bjcnl"]
@@ -109,10 +109,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v48c1"]
 _data = {
-"awake": SubResource("Animation_4xce6"),
-"idle": SubResource("Animation_ma55j"),
-"launching": SubResource("Animation_u81bj"),
-"waking": SubResource("Animation_g5u8a")
+&"awake": SubResource("Animation_4xce6"),
+&"idle": SubResource("Animation_ma55j"),
+&"launching": SubResource("Animation_u81bj"),
+&"waking": SubResource("Animation_g5u8a")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t58g"]

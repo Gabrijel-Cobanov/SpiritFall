@@ -1,11 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://i7r7djcr47tj"]
 
 [ext_resource type="Texture2D" uid="uid://cr7wy2626jnfq" path="res://Sprites/Enemies/Wlaker Bot.png" id="1_bam6j"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_qkgqj"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_qx1kk"]
-[ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="3_a1feb"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_qkgqj"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_qx1kk"]
+[ext_resource type="Script" uid="uid://cm3fngnx3ul77" path="res://Scripts/CollisionSwitch.gd" id="3_a1feb"]
 [ext_resource type="Shader" uid="uid://dp5korylg2ywq" path="res://Scripts/Common Entity Scripts/Hitflash_shader.tres" id="5_0lmoo"]
-[ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_7caw0"]
+[ext_resource type="Script" uid="uid://bey3h4whlew5l" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_7caw0"]
 [ext_resource type="AudioStream" uid="uid://c7hdbwq2aa0us" path="res://SFX/Enemies/WalkerBot_footstep.wav" id="5_cd8qq"]
 [ext_resource type="AudioStream" uid="uid://bcjkcbh0k37vg" path="res://SFX/Enemies/Walker_Bot_taking_Damage.wav" id="6_jy48y"]
 [ext_resource type="AudioStream" uid="uid://cvhb3jdm30spm" path="res://SFX/Enemies/Bot_Death_Beep.wav" id="7_23h5g"]
@@ -144,10 +144,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jxh58"]
 _data = {
-"RESET": SubResource("Animation_oqttw"),
-"death": SubResource("Animation_ik5nu"),
-"idle": SubResource("Animation_02cpt"),
-"move": SubResource("Animation_p2bhe")
+&"RESET": SubResource("Animation_oqttw"),
+&"death": SubResource("Animation_ik5nu"),
+&"idle": SubResource("Animation_02cpt"),
+&"move": SubResource("Animation_p2bhe")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hgbiw"]
@@ -203,8 +203,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mc484"]
 _data = {
-"RESET": SubResource("Animation_ld84a"),
-"hitflash": SubResource("Animation_t55au")
+&"RESET": SubResource("Animation_ld84a"),
+&"hitflash": SubResource("Animation_t55au")
 }
 
 [node name="WalkerBot" type="CharacterBody2D" groups=["enemies"]]

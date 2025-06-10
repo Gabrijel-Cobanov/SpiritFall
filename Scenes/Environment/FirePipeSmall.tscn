@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvkw4l2gdh073"]
 
 [ext_resource type="Texture2D" uid="uid://dlts4rbg2w8vq" path="res://Sprites/Environments/Burnt Area/Short fire pipe.png" id="1_pvogt"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/FirePipe.gd" id="2_gglko"]
+[ext_resource type="Script" uid="uid://bnus2d5ly1pli" path="res://Scripts/Environment behavior Scripts/FirePipe.gd" id="2_gglko"]
 
 [sub_resource type="Animation" id="Animation_acbau"]
 resource_name = "burning"
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sugtx"]
 _data = {
-"burning": SubResource("Animation_acbau")
+&"burning": SubResource("Animation_acbau")
 }
 
 [node name="FirePipeSmall" type="Sprite2D"]

@@ -1,19 +1,19 @@
 [gd_scene load_steps=44 format=3 uid="uid://cxcpfc7gp4v8d"]
 
 [ext_resource type="Texture2D" uid="uid://bpdtxj6j3oxk4" path="res://Sprites/Enemies/Final Boss/Final Boss.png" id="1_bhlrx"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_duhut"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_nhamq"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/WalkerBotSpawner.gd" id="3_jb22i"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossIdle.gd" id="3_kinnj"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/BossStateMachine.gd" id="3_onsla"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_duhut"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="2_nhamq"]
+[ext_resource type="Script" uid="uid://ml5a7ojwja6b" path="res://Scripts/Enemies/Final Boss/WalkerBotSpawner.gd" id="3_jb22i"]
+[ext_resource type="Script" uid="uid://u2hft2xba5ul" path="res://Scripts/Enemies/Final Boss/States/BossIdle.gd" id="3_kinnj"]
+[ext_resource type="Script" uid="uid://clhsvpg2pb0gm" path="res://Scripts/Enemies/Final Boss/BossStateMachine.gd" id="3_onsla"]
 [ext_resource type="PackedScene" uid="uid://btbldd3oy1vgp" path="res://Scenes/Projectiles/BossFlame.tscn" id="4_76naw"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossMove.gd" id="4_wfhvo"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameStart.gd" id="5_6u2rg"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameAttack.gd" id="6_y6ote"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossFlameEnd.gd" id="7_trkia"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossSpawnWalkerAttack.gd" id="8_6js60"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossSwingAttack.gd" id="9_6u12q"]
-[ext_resource type="Script" path="res://Scripts/Enemies/Final Boss/States/BossDeath.gd" id="10_j2ibe"]
+[ext_resource type="Script" uid="uid://bd15wkvj4wjp4" path="res://Scripts/Enemies/Final Boss/States/BossMove.gd" id="4_wfhvo"]
+[ext_resource type="Script" uid="uid://cry0d66fulgn" path="res://Scripts/Enemies/Final Boss/States/BossFlameStart.gd" id="5_6u2rg"]
+[ext_resource type="Script" uid="uid://l5gwgyf0skql" path="res://Scripts/Enemies/Final Boss/States/BossFlameAttack.gd" id="6_y6ote"]
+[ext_resource type="Script" uid="uid://3vgxrecacj65" path="res://Scripts/Enemies/Final Boss/States/BossFlameEnd.gd" id="7_trkia"]
+[ext_resource type="Script" uid="uid://case8y2twv5g3" path="res://Scripts/Enemies/Final Boss/States/BossSpawnWalkerAttack.gd" id="8_6js60"]
+[ext_resource type="Script" uid="uid://dkxwgxvjhx0w2" path="res://Scripts/Enemies/Final Boss/States/BossSwingAttack.gd" id="9_6u12q"]
+[ext_resource type="Script" uid="uid://d2ym78hdk86l2" path="res://Scripts/Enemies/Final Boss/States/BossDeath.gd" id="10_j2ibe"]
 [ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="11_r2acp"]
 [ext_resource type="AudioStream" uid="uid://dgdos8cuqiu7n" path="res://SFX/Boss/Boss Footstep Sound.wav" id="16_cr1jp"]
 [ext_resource type="AudioStream" uid="uid://c176y0oiqc3wf" path="res://SFX/Boss/Burning Loop Sound.wav" id="16_ereb7"]
@@ -383,14 +383,14 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lcupr"]
 _data = {
-"death": SubResource("Animation_55kvf"),
-"flame_end": SubResource("Animation_thxyu"),
-"flame_middle": SubResource("Animation_6egkr"),
-"flame_start": SubResource("Animation_m3ohv"),
-"idle": SubResource("Animation_rbxk0"),
-"move": SubResource("Animation_4gkod"),
-"spawn_walker": SubResource("Animation_srwvt"),
-"swing": SubResource("Animation_si83n")
+&"death": SubResource("Animation_55kvf"),
+&"flame_end": SubResource("Animation_thxyu"),
+&"flame_middle": SubResource("Animation_6egkr"),
+&"flame_start": SubResource("Animation_m3ohv"),
+&"idle": SubResource("Animation_rbxk0"),
+&"move": SubResource("Animation_4gkod"),
+&"spawn_walker": SubResource("Animation_srwvt"),
+&"swing": SubResource("Animation_si83n")
 }
 
 [sub_resource type="Animation" id="Animation_rmunt"]
@@ -426,8 +426,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rm3v3"]
 _data = {
-"RESET": SubResource("Animation_rmunt"),
-"hitflash": SubResource("Animation_7yu1b")
+&"RESET": SubResource("Animation_rmunt"),
+&"hitflash": SubResource("Animation_7yu1b")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pob8k"]

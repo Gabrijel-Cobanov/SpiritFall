@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgtgkhecfu4h2"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/InputMenu/InputButton.gd" id="1_6hhv3"]
+[ext_resource type="Script" uid="uid://cckdattq2lnjg" path="res://Scenes/Menus/InputMenu/InputButton.gd" id="1_6hhv3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmado"]
 resource_name = "ButtonColor"

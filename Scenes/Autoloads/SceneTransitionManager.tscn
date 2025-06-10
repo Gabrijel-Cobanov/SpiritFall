@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj0xgcjql1eg"]
 
-[ext_resource type="Script" path="res://Scenes/Autoloads/SceneTransitionManager.gd" id="1_doo80"]
+[ext_resource type="Script" uid="uid://la1x4mqv6muy" path="res://Scenes/Autoloads/SceneTransitionManager.gd" id="1_doo80"]
 
 [sub_resource type="Animation" id="Animation_hn68y"]
 resource_name = "fade_to_black"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7h3yp"]
 _data = {
-"fade_to_black": SubResource("Animation_hn68y")
+&"fade_to_black": SubResource("Animation_hn68y")
 }
 
 [node name="SceneTransitionManager" type="CanvasLayer"]
@@ -39,5 +39,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7h3yp")
+&"": SubResource("AnimationLibrary_7h3yp")
 }

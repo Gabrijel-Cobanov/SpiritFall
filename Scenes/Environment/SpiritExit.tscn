@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf1f7o7ly47dj"]
 
 [ext_resource type="Texture2D" uid="uid://cxygd7mhpjswh" path="res://Sprites/Environments/Spirit Exit.png" id="1_if3qr"]
-[ext_resource type="Script" path="res://Scripts/Environment behavior Scripts/SpiritExit.gd" id="2_qx3e4"]
+[ext_resource type="Script" uid="uid://x3583yafi1fv" path="res://Scripts/Environment behavior Scripts/SpiritExit.gd" id="2_qx3e4"]
 
 [sub_resource type="Animation" id="Animation_5xvw5"]
 resource_name = "active"
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d544k"]
 _data = {
-"active": SubResource("Animation_5xvw5")
+&"active": SubResource("Animation_5xvw5")
 }
 
 [node name="SpiritExit" type="Sprite2D"]

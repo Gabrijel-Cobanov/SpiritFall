@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://d4a0b4r2jxgpa"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/LevelTwo.gd" id="1_4mtkr"]
+[ext_resource type="Script" uid="uid://b4uyohyftlsi5" path="res://Scenes/Levels/LevelTwo.gd" id="1_4mtkr"]
 [ext_resource type="PackedScene" uid="uid://il1pets76xi0" path="res://Scenes/UI/PlayerUI/HealthBar.tscn" id="1_mb6u0"]
 [ext_resource type="TileSet" uid="uid://b0eckvi1o35k4" path="res://Sprites/GroundTileset.tres" id="1_pdvjt"]
 [ext_resource type="PackedScene" uid="uid://c51ndw76c0wfo" path="res://Scenes/Menus/PauseMenu.tscn" id="2_8tjag"]

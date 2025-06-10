@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=3 uid="uid://265duweovjr1"]
 
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
+[ext_resource type="Script" uid="uid://1lfs0sp8h1j5" path="res://Scripts/Common Entity Scripts/HealthComponent.gd" id="1_hvnq8"]
 [ext_resource type="Texture2D" uid="uid://cnwqrpqct0jev" path="res://Sprites/Enemies/Lumber Bot.png" id="1_kalv3"]
-[ext_resource type="Script" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_brylt"]
-[ext_resource type="Script" path="res://Scripts/CollisionSwitch.gd" id="3_j5oqw"]
+[ext_resource type="Script" uid="uid://ythc8k3pg0h8" path="res://Scripts/Common Entity Scripts/AttackComponent.gd" id="3_brylt"]
+[ext_resource type="Script" uid="uid://cm3fngnx3ul77" path="res://Scripts/CollisionSwitch.gd" id="3_j5oqw"]
 [ext_resource type="AudioStream" uid="uid://csay4amcuoghf" path="res://SFX/Enemies/LumberBot_Step.wav" id="5_63wob"]
-[ext_resource type="Script" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_ou0rk"]
+[ext_resource type="Script" uid="uid://bey3h4whlew5l" path="res://Scripts/Enemies/EnemyStateMachine.gd" id="5_ou0rk"]
 [ext_resource type="Material" uid="uid://cng35kg1w4ci0" path="res://Sprites/HitflashShader.tres" id="5_uevrc"]
 [ext_resource type="AudioStream" uid="uid://cgixiovwbqsmr" path="res://SFX/Enemies/LumberBot_taking_damage.wav" id="6_cp5ic"]
 [ext_resource type="AudioStream" uid="uid://cvhb3jdm30spm" path="res://SFX/Enemies/Bot_Death_Beep.wav" id="7_0ms8g"]
@@ -219,10 +219,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv4lw"]
 _data = {
-"attack": SubResource("Animation_25a6l"),
-"death": SubResource("Animation_j8y80"),
-"idle": SubResource("Animation_7bykv"),
-"move": SubResource("Animation_0wd1k")
+&"attack": SubResource("Animation_25a6l"),
+&"death": SubResource("Animation_j8y80"),
+&"idle": SubResource("Animation_7bykv"),
+&"move": SubResource("Animation_0wd1k")
 }
 
 [sub_resource type="Animation" id="Animation_yp4e3"]
@@ -286,8 +286,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25lpe"]
 _data = {
-"RESET": SubResource("Animation_yp4e3"),
-"hitflash": SubResource("Animation_bpp62")
+&"RESET": SubResource("Animation_yp4e3"),
+&"hitflash": SubResource("Animation_bpp62")
 }
 
 [node name="LumberBot" type="CharacterBody2D" groups=["enemies"]]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c51ndw76c0wfo"]
 
-[ext_resource type="Script" path="res://Scripts/UI/Menus/PauseMenu.gd" id="1_j7rxq"]
+[ext_resource type="Script" uid="uid://dtv1eb4uuydwd" path="res://Scripts/UI/Menus/PauseMenu.gd" id="1_j7rxq"]
 [ext_resource type="StyleBox" uid="uid://c217xssnxwscd" path="res://Scenes/Menus/NormalButton.tres" id="2_kapra"]
 [ext_resource type="AudioStream" uid="uid://batw5l0ju6eqa" path="res://SFX/UI/Click_1.wav" id="2_lckqf"]
 [ext_resource type="PackedScene" uid="uid://cxr7vkjbo8ft5" path="res://Scenes/Menus/InputMenu/InputSettings.tscn" id="2_qaf4e"]
